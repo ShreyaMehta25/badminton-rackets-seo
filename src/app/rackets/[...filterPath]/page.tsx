@@ -1,5 +1,6 @@
 import rackets from "@/data/rackets.json";
 import { Racket } from "@/types/racket";
+import ComparisonTable from "@/components/rackets/ComparisonTable";
 import RacketComparisonTable from "@/components/rackets/RacketComparisonTable";
 import type { Metadata } from "next";
 
@@ -51,6 +52,7 @@ export default async function FilteredRacketsPage({ params }: Props) {
         matchesRating(filter, r.reviewScore)
     )
   );
+  const sortedRackets = [...filteredRackets].sort((a, b) => a.price - b.price);
 
   const heading = filters.join(" · ").replace(/-/g, " ");
 
@@ -69,7 +71,7 @@ export default async function FilteredRacketsPage({ params }: Props) {
           No rackets found for this combination.
         </div>
       ) : (
-        <RacketComparisonTable rackets={filteredRackets} />
+        <ComparisonTable rackets={sortedRackets} />
       )}
     </main>
   );
