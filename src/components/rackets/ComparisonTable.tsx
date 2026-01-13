@@ -1,5 +1,11 @@
 import { Racket } from "@/types/racket";
 
+const formatBestForLabel = (label: string) =>
+  label
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join("-");
+
 export default function ComparisonTable({ rackets }: { rackets: Racket[] }) {
   return (
     <div className="overflow-x-auto rounded-xl border border-slate-800">
@@ -47,15 +53,27 @@ export default function ComparisonTable({ rackets }: { rackets: Racket[] }) {
                 </ul>
               </td>
 
-              <td className="px-4 py-4 flex flex-wrap gap-1">
+              {/* <td className="px-4 py-4 flex flex-wrap gap-1">
                 {r.bestFor.map((b) => (
                   <span
                     key={b}
                     className="px-2 py-1 text-xs rounded bg-slate-700"
                   >
-                    {b}
+                    {formatBestForLabel(b)}
                   </span>
                 ))}
+              </td> */}
+              <td className="px-4 py-4">
+                <div className="flex flex-wrap justify-center items-center gap-1 min-h-[2.5rem]">
+                  {r.bestFor.map((b) => (
+                    <span
+                      key={b}
+                      className="px-2 py-1 text-xs rounded bg-slate-700"
+                    >
+                      {formatBestForLabel(b)}
+                    </span>
+                  ))}
+                </div>
               </td>
 
               <td className="px-4 py-4 font-semibold">⭐ {r.reviewScore}</td>
