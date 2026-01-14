@@ -1,4 +1,5 @@
 import { Racket } from "@/types/racket";
+import Link from "next/link";
 
 const levelColor = {
   beginner: "bg-green-500",
@@ -8,27 +9,13 @@ const levelColor = {
 
 export default function RacketCard({
   racket,
-  onClick,
 }: {
   racket: Racket;
-  onClick?: () => void;
 }) {
   return (
-    <div
-      className="group bg-slate-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition cursor-pointer"
-      onClick={onClick}
-      role={onClick ? "button" : undefined}
-      tabIndex={onClick ? 0 : -1}
-      onKeyDown={
-        onClick
-          ? (e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault();
-                onClick();
-              }
-            }
-          : undefined
-      }
+    <Link
+      href={`/rackets/${racket.id}`}
+      className="group bg-slate-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition block"
     >
       <div className="aspect-square bg-slate-800">
         <img
@@ -55,6 +42,6 @@ export default function RacketCard({
           </span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
