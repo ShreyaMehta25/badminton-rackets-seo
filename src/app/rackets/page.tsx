@@ -72,11 +72,18 @@ export default function RacketsPage() {
         }}
       />
       <main className="max-w-7xl mx-auto px-6 py-10">
-        <h1 className="text-4xl font-extrabold mb-2">🏸 Badminton Rackets</h1>
-        <p className="text-slate-400 mb-8">
-          Explore our complete collection of professional and beginner rackets.
-        </p>
-        <RacketSearch rackets={allRackets} />
+        <div className="animate-fade-in">
+          <div className="relative mb-8">
+            <h1 className="text-5xl md:text-6xl font-extrabold mb-3 bg-gradient-to-r from-emerald-400 via-emerald-300 to-emerald-500 bg-clip-text text-transparent">
+              🏸 Badminton Rackets
+            </h1>
+            <div className="absolute -bottom-2 left-0 w-32 h-1 bg-gradient-to-r from-emerald-500 to-transparent rounded-full"></div>
+          </div>
+          <p className="text-lg text-slate-300 mb-8 leading-relaxed">
+            Explore our complete collection of professional and beginner rackets.
+          </p>
+          <RacketSearch rackets={allRackets} />
+        </div>
       </main>
     </>
   );

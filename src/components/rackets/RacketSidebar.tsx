@@ -34,9 +34,12 @@ export default function RacketSidebar() {
     filters.length ? `/rackets/${filters.join("/")}` : "/rackets";
 
   const Section = ({ title, items }: { title: string; items: string[] }) => (
-    <div className="mb-6">
-      <h3 className="text-sm font-bold text-white mb-3 uppercase">{title}</h3>
-      <div className="flex flex-wrap gap-2">
+    <div className="mb-8">
+      <h3 className="text-sm font-bold text-white mb-4 uppercase tracking-wider flex items-center gap-2">
+        <span className="w-1 h-4 bg-gradient-to-b from-emerald-400 to-emerald-500 rounded-full"></span>
+        {title}
+      </h3>
+      <div className="flex flex-wrap gap-2.5">
         {items.map((item) => {
           const isActive = activeFilters.includes(item);
           const nextAdd = Array.from(new Set([...activeFilters, item]));
@@ -46,12 +49,12 @@ export default function RacketSidebar() {
             return (
               <div
                 key={item}
-                className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-emerald-700 text-white"
+                className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm bg-gradient-to-r from-emerald-600 to-emerald-500 text-white shadow-lg border border-emerald-400/30 hover:shadow-xl transition-all duration-300 hover:scale-105"
               >
-                <span>{formatLabel(item)}</span>
+                <span className="font-semibold">{formatLabel(item)}</span>
                 <Link
                   href={buildPath(nextRemove)}
-                  className="ml-1 px-1.5 py-0.5 rounded-full bg-emerald-900/80 hover:bg-emerald-950 transition text-xs"
+                  className="ml-1 px-2 py-0.5 rounded-lg bg-emerald-700/80 hover:bg-emerald-800 transition-all duration-200 text-xs font-bold hover:scale-110"
                   aria-label={`Remove ${formatLabel(item)} filter`}
                 >
                   ✕
@@ -64,7 +67,7 @@ export default function RacketSidebar() {
             <Link
               key={item}
               href={buildPath(nextAdd)}
-              className="px-3 py-1 rounded-full text-sm bg-slate-800 hover:bg-slate-700 transition text-slate-100"
+              className="px-4 py-2 rounded-xl text-sm bg-gradient-to-br from-slate-800 to-slate-700 hover:from-slate-700 hover:to-slate-600 border border-slate-600/50 text-slate-100 font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-slate-500"
             >
               {formatLabel(item)}
             </Link>
@@ -75,7 +78,7 @@ export default function RacketSidebar() {
   );
 
   return (
-    <div className="sticky top-24">
+    <div className="sticky top-24 max-h-[calc(100vh-8rem)] overflow-y-auto pr-2 sidebar-scroll">
       <Section title="Brand" items={brands} />
       <Section title="Skill Level" items={levels} />
       <Section title="Balance" items={balances} />
