@@ -1,4 +1,7 @@
+"use client";
+
 import { Racket } from "@/types/racket";
+import { useRouter } from "next/navigation";
 
 const formatBestForLabel = (label: string) =>
   label
@@ -7,6 +10,7 @@ const formatBestForLabel = (label: string) =>
     .join("-");
 
 export default function ComparisonTable({ rackets }: { rackets: Racket[] }) {
+  const router = useRouter();
   return (
     <div className="overflow-x-auto rounded-2xl border border-slate-700/50 shadow-2xl bg-gradient-to-br from-slate-900 to-slate-950">
       <table className="min-w-full text-sm">
@@ -26,8 +30,17 @@ export default function ComparisonTable({ rackets }: { rackets: Racket[] }) {
           {rackets.map((r, index) => (
             <tr
               key={r.id}
-              className="border-t border-slate-800/50 hover:bg-gradient-to-r hover:from-slate-800/50 hover:to-slate-800/30 transition-all duration-300 group"
+              onClick={() => router.push(`/rackets/${r.id}`)}
+              className="border-t border-slate-800/50 hover:bg-gradient-to-r hover:from-slate-800/50 hover:to-slate-800/30 transition-all duration-300 group cursor-pointer"
               style={{ animationDelay: `${index * 50}ms` }}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  router.push(`/rackets/${r.id}`);
+                }
+              }}
             >
               <td className="px-6 py-5 font-semibold">
                 <div className="flex items-center gap-4">
@@ -99,6 +112,7 @@ export default function ComparisonTable({ rackets }: { rackets: Racket[] }) {
                   href={r.affiliateUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
                   className="group/btn inline-block px-5 py-2.5 rounded-lg bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-black font-bold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform"
                 >
                   Buy Now

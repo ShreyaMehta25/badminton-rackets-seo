@@ -1,16 +1,21 @@
-// import Image from "next/image";
-
-// export default function Home() {
-//   return (
-//     //<div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-//     <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-//       <h1>Badminton Rackets</h1>
-//     </main>
-//     //</div>
-//   );
-// }
-import { redirect } from "next/navigation";
+import HeroSection from "@/components/landing/HeroSection";
+import ValueProps from "@/components/landing/ValueProps";
+import HowItWorks from "@/components/landing/HowItWorks";
+import FeatureShowcase from "@/components/landing/FeatureShowcase";
+import EmotionalSection from "@/components/landing/EmotionalSection";
+import FinalCTA from "@/components/landing/FinalCTA";
+// import Footer from "@/components/landing/Footer";
 
 export default function HomePage() {
-  redirect("/rackets");
+  return (
+    <div className="bg-slate-900 text-white">
+      <HeroSection />
+      <ValueProps />
+      <HowItWorks />
+      <FeatureShowcase />
+      <EmotionalSection />
+      <FinalCTA />
+      {/* <Footer /> */}
+    </div>
+  );
 }
