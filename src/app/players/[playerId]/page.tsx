@@ -71,18 +71,27 @@ export default async function PlayerPage({ params }: Props) {
   }
 
   // Get racket data for all rackets used by this player
-  const playerRackets = player.racketsUsed
-    .map((racketUsage) => {
+  type PlayerRacket = {
+    racket: Racket;
+    usageType: "current" | "previous" | "backup";
+  };
+
+  const playerRackets: PlayerRacket[] = player.racketsUsed
+    .map((racketUsage): PlayerRacket | null => {
       const racket = (rackets as Racket[]).find(
         (r) => r.id === racketUsage.racketId
       );
-      return racket ? { racket, usageType: racketUsage.usageType } : null;
+      if (!racket) return null;
+      return { 
+        racket, 
+        usageType: racketUsage.usageType as "current" | "previous" | "backup"
+      };
     })
-    .filter((item): item is { racket: Racket; usageType: string } => item !== null)
+    .filter((item): item is PlayerRacket => item !== null)
     .sort((a, b) => {
       // Sort: current first, then backup, then previous
       const order = { current: 0, backup: 1, previous: 2 };
-      return order[a.usageType as keyof typeof order] - order[b.usageType as keyof typeof order];
+      return order[a.usageType] - order[b.usageType];
     });
 
   // If no valid rackets found, show not found
