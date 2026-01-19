@@ -34,7 +34,7 @@ export default function FinalCTA() {
         >
           <Link
             href="/rackets"
-            className="inline-block bg-emerald-500 text-white text-xl font-bold h-16 px-12 rounded-2xl hover:scale-105 transition-transform shadow-2xl shadow-emerald-500/30"
+            className="inline-flex items-center justify-center bg-emerald-500 text-white text-xl font-bold h-16 px-12 rounded-2xl hover:scale-105 transition-transform shadow-2xl shadow-emerald-500/30"
           >
             Start Your Discovery
           </Link>

@@ -4,6 +4,7 @@ import Script from "next/script";
 import { Racket } from "@/types/racket";
 import ComparisonTable from "@/components/rackets/ComparisonTable";
 import RacketComparisonTable from "@/components/rackets/RacketComparisonTable";
+import RacketListWithSort from "@/components/rackets/RacketListWithSort";
 import type { Metadata } from "next";
 import { PAGE_RULES } from "@/seo/pageRules";
 import { FILTER_MAPPINGS } from "@/seo/filterMappings";
@@ -606,12 +607,14 @@ export default async function FilteredRacketsPage({ params }: Props) {
   // 3. Filter products from dataset using parsed filters (for display)
   const filteredRackets = filterProductsByParsedFilters(parsedFilters);
 
+  // Default sort: low to high (will be handled by client component)
   const sortedRackets = [...filteredRackets].sort((a, b) => a.price - b.price);
 
-  const heading = actualFilters
-    .map((f) => decodeURIComponent(f))
-    .join(" · ")
-    .replace(/-/g, " ");
+  // Generate heading: "Badminton Rackets for [filter labels]"
+  const filterLabels = getActiveFilterLabels(parsedFilters);
+  const heading = filterLabels.length > 0
+    ? `Badminton Rackets for ${filterLabels.join(" ")}`
+    : "Badminton Rackets";
 
   // Build canonical URL for breadcrumb
   const canonicalPath = shouldIndex
@@ -645,7 +648,7 @@ export default async function FilteredRacketsPage({ params }: Props) {
         />
       )}
 
-      <h1 className="text-4xl font-extrabold mb-4 capitalize">{heading}</h1>
+      <h1 className="text-4xl font-extrabold mb-4">{heading}</h1>
 
       <p className="text-slate-400 mb-8">
         Showing {filteredRackets.length} rackets.
@@ -656,7 +659,7 @@ export default async function FilteredRacketsPage({ params }: Props) {
           No rackets found for this combination.
         </div>
       ) : (
-        <ComparisonTable rackets={sortedRackets} />
+        <RacketListWithSort rackets={filteredRackets} />
       )}
 
       {/* Internal Links Section */}

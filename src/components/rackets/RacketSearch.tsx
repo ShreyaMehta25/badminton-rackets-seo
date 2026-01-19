@@ -7,8 +7,10 @@ import {
   parseFilters,
   isAllowedCombination,
   buildCanonicalUrl,
+  filterProductsByParsedFilters,
 } from "@/seo/eligibility";
 import { players } from "@/data/players";
+import { PAGE_RULES } from "@/seo/pageRules";
 
 export default function RacketSearch({ rackets }: { rackets: Racket[] }) {
   const [query, setQuery] = useState("");
@@ -132,6 +134,87 @@ export default function RacketSearch({ rackets }: { rackets: Racket[] }) {
   }
 
   /**
+   * Detect if query contains professional intent keywords
+   */
+  function hasProfessionalIntent(query: string): boolean {
+    const lowerQuery = query.toLowerCase();
+    const professionalKeywords = [
+      "professional",
+      "pro",
+      "pro-level",
+      "elite",
+      "tournament level",
+    ];
+
+    return professionalKeywords.some((keyword) => lowerQuery.includes(keyword));
+  }
+
+  /**
+   * Handle professional intent by mapping to advanced/intermediate
+   * Returns the best filter URL based on product count
+   */
+  function handleProfessionalIntent(originalQuery: string, normalizedQuery: string): string | null {
+    // Remove professional keywords to get remaining filters
+    let cleaned = originalQuery.toLowerCase();
+    const professionalKeywords = [
+      "professional",
+      "pro-level",
+      "tournament level",
+      "elite",
+      "pro",
+    ];
+
+    professionalKeywords.forEach((keyword) => {
+      const regex = new RegExp(`\\b${keyword}\\b`, "gi");
+      cleaned = cleaned.replace(regex, "");
+    });
+
+    // Parse remaining filters (brand, price, weight, etc.)
+    const remainingNormalized = normalizeQuery(cleaned);
+    const otherFilters = parseFilters(remainingNormalized);
+
+    // Try "advanced" first
+    const advancedFilters = { ...otherFilters, playerLevel: "advanced" };
+    if (isAllowedCombination(advancedFilters)) {
+      const advancedRackets = filterProductsByParsedFilters(advancedFilters);
+      if (advancedRackets.length >= PAGE_RULES.MIN_PRODUCTS) {
+        const url = buildCanonicalUrl(advancedFilters);
+        return url;
+      }
+    }
+
+    // Fallback to "intermediate"
+    const intermediateFilters = { ...otherFilters, playerLevel: "intermediate" };
+    if (isAllowedCombination(intermediateFilters)) {
+      const intermediateRackets = filterProductsByParsedFilters(intermediateFilters);
+      if (intermediateRackets.length >= PAGE_RULES.MIN_PRODUCTS) {
+        const url = buildCanonicalUrl(intermediateFilters);
+        return url;
+      }
+    }
+
+    // If neither has enough products, still prefer advanced if it has any products
+    if (isAllowedCombination(advancedFilters)) {
+      const advancedRackets = filterProductsByParsedFilters(advancedFilters);
+      if (advancedRackets.length > 0) {
+        const url = buildCanonicalUrl(advancedFilters);
+        return url;
+      }
+    }
+
+    // Last resort: intermediate if it has any products
+    if (isAllowedCombination(intermediateFilters)) {
+      const intermediateRackets = filterProductsByParsedFilters(intermediateFilters);
+      if (intermediateRackets.length > 0) {
+        const url = buildCanonicalUrl(intermediateFilters);
+        return url;
+      }
+    }
+
+    return null;
+  }
+
+  /**
    * Handle search submission
    */
   function handleSearch(e: FormEvent<HTMLFormElement>) {
@@ -158,6 +241,16 @@ export default function RacketSearch({ rackets }: { rackets: Racket[] }) {
         }
       }
       // If player intent detected but no valid player found, fall through to SEO search
+    }
+
+    // Step 2.5: Check for professional intent search
+    if (hasProfessionalIntent(query)) {
+      const professionalUrl = handleProfessionalIntent(query, normalized);
+      if (professionalUrl) {
+        router.push(`/rackets/${professionalUrl}`);
+        return;
+      }
+      // If professional intent but no valid results, fall through to normal SEO search
     }
 
     // Step 3: Treat as SEO filter intent search (unchanged)

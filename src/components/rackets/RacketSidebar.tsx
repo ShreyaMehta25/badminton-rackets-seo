@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import rackets from "@/data/rackets.json";
 import { Racket } from "@/types/racket";
+import { useSort } from "@/contexts/SortContext";
 
 const normalize = (v: string) => v.toLowerCase().trim().replace(/\s+/g, "-");
 const formatLabel = (v: string) =>
@@ -15,6 +16,7 @@ const formatLabel = (v: string) =>
 export default function RacketSidebar() {
   const pathname = usePathname();
   const data = rackets as Racket[];
+  const { sortOrder, setSortOrder } = useSort();
 
   const brands = [...new Set(data.map((r) => normalize(r.brand)))];
   const levels = [...new Set(data.map((r) => normalize(r.playerLevel)))];
@@ -79,6 +81,23 @@ export default function RacketSidebar() {
 
   return (
     <div className="sticky top-24 max-h-[calc(100vh-8rem)] overflow-y-auto pr-2 sidebar-scroll">
+      {/* Price Sort Section - Above Brand */}
+      <div className="mb-8">
+        <h3 className="text-sm font-bold text-white mb-4 uppercase tracking-wider flex items-center gap-2">
+          <span className="w-1 h-4 bg-gradient-to-b from-emerald-400 to-emerald-500 rounded-full"></span>
+          Sort by Price
+        </h3>
+        <select
+          id="price-sort-sidebar"
+          value={sortOrder}
+          onChange={(e) => setSortOrder(e.target.value as "low-to-high" | "high-to-low")}
+          className="w-full px-4 py-2.5 rounded-xl bg-gradient-to-br from-slate-800 to-slate-700 border border-slate-600/50 text-slate-100 font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50 transition-all hover:from-slate-700 hover:to-slate-600"
+        >
+          <option value="low-to-high">Low to High</option>
+          <option value="high-to-low">High to Low</option>
+        </select>
+      </div>
+
       <Section title="Brand" items={brands} />
       <Section title="Skill Level" items={levels} />
       <Section title="Balance" items={balances} />

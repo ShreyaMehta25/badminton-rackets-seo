@@ -3,6 +3,7 @@ export const FILTER_MAPPINGS = {
     beginner: "for-beginners",
     intermediate: "for-intermediate",
     advanced: "for-advanced",
+    professional: "for-professional",
   },
   priceSlabs: {
     "under-5000": "under-5000",
