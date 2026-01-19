@@ -9,11 +9,11 @@ const SITE_URL =
   "https://badminton-rackets-seo-fdn9.vercel.app";
 
 export const metadata: Metadata = {
-  title: "Badminton Rackets Directory 2026 | Compare All Models & Prices",
+  title: "Badminton Rackets in 2026 | Compare All Models & Prices",
   description:
     "Browse 50+ badminton rackets across brands, prices and skill levels. Filter by balance, weight and play style to find the right racket for you.",
   openGraph: {
-    title: "Badminton Rackets Directory 2026 | Compare Prices & Reviews",
+    title: "Badminton Rackets in 2026 | Compare Prices & Reviews",
     description:
       "Compare the best badminton rackets in 2026 by price, brand, weight and skill level. Reviews and ratings from top brands.",
     images: [
@@ -88,15 +88,15 @@ export default function RacketsPage() {
       <main className="max-w-7xl mx-auto px-6 py-10">
         <div className="animate-fade-in">
           <div className="relative mb-8">
-            <h1 className="text-5xl md:text-6xl font-extrabold mb-3 bg-gradient-to-r from-emerald-400 via-emerald-300 to-emerald-500 bg-clip-text text-transparent">
+            <h1 className="text-2xl md:text-3xl mb-3 bg-gradient-to-r from-emerald-400 via-emerald-300 to-emerald-500 bg-clip-text text-transparent">
               🏸 Best Badminton Rackets in 2026
             </h1>
-            <h2 className="text-2xl font-semibold text-slate-200 mb-4">
+            <h2 className="text-2xl font-bold text-slate-200 mb-4">
               Compare Professional & Beginner Badminton Rackets
             </h2>
             <div className="absolute -bottom-2 left-0 w-32 h-1 bg-gradient-to-r from-emerald-500 to-transparent rounded-full"></div>
           </div>
-          <p className="text-lg md:text-xl text-slate-300 max-w-3xl leading-relaxed">
+          <p className="text-lg md:text-lg text-slate-300 max-w-5xl leading-relaxed">
             Discover professional and beginner badminton rackets. Compare specs,
             balance, prices, and reviews to find the perfect fit.
           </p>

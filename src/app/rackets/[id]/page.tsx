@@ -242,13 +242,40 @@ export default async function RacketPage({ params }: Props) {
           __html: JSON.stringify(faqSchema),
         }}
       />
-      <main className="max-w-7xl mx-auto px-6 py-10">
+      {/* <main className="max-w-7xl mx-auto px-6 py-10">
         <RacketDetailContent
           racket={racket}
           associatedPlayers={associatedPlayers}
           allRackets={rackets as Racket[]}
         />
-        <section className="mt-16">
+        <section className="mt-0">
+          <h2 className="text-2xl font-bold mb-6">
+            Frequently Asked Questions
+          </h2>
+
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <details
+                key={index}
+                className="group rounded-lg border border-slate-700 p-4"
+              >
+                <summary className="cursor-pointer font-medium text-slate-200">
+                  {faq.question}
+                </summary>
+                <p className="mt-2 text-slate-400">{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      </main> */}
+      <main className="max-w-7xl mx-auto px-6 py-10 space-y-10">
+        <RacketDetailContent
+          racket={racket}
+          associatedPlayers={associatedPlayers}
+          allRackets={rackets as Racket[]}
+        />
+
+        <section>
           <h2 className="text-2xl font-bold mb-6">
             Frequently Asked Questions
           </h2>

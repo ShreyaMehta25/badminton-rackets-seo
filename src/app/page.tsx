@@ -1,11 +1,35 @@
 import Script from "next/script";
+import type { Metadata } from "next";
 import HeroSection from "@/components/landing/HeroSection";
-import ValueProps from "@/components/landing/ValueProps";
-import HowItWorks from "@/components/landing/HowItWorks";
-import FeatureShowcase from "@/components/landing/FeatureShowcase";
-import EmotionalSection from "@/components/landing/EmotionalSection";
+import TrustStrip from "@/components/landing/TrustStrip";
+import HowToChoose from "@/components/landing/HowToChoose";
+import ShopByPlayerType from "@/components/landing/ShopByPlayerType";
+import ExpertPicks from "@/components/landing/ExpertPicks";
+import EducationalContent from "@/components/landing/EducationalContent";
+import ComparisonPreview from "@/components/landing/ComparisonPreview";
+import FAQSection from "@/components/landing/FAQSection";
 import FinalCTA from "@/components/landing/FinalCTA";
-// import Footer from "@/components/landing/Footer";
+
+export const metadata: Metadata = {
+  title: "Best Badminton Rackets 2026 | Expert Reviews & Comparison Guide",
+  description:
+    "Find the perfect badminton racket with our expert-curated directory. Compare 50+ rackets by weight, balance, skill level, and price. Trusted by 15,000+ players.",
+  keywords: [
+    "badminton rackets",
+    "best badminton racket",
+    "badminton racket comparison",
+    "yonex badminton rackets",
+    "li-ning badminton",
+    "badminton racket for beginners",
+    "badminton racket guide",
+  ],
+  openGraph: {
+    title: "Best Badminton Rackets 2026 | Expert Comparison Guide",
+    description:
+      "Find the perfect badminton racket with our expert-curated directory. Compare specs, prices, and reviews from top brands.",
+    type: "website",
+  },
+};
 
 export default function HomePage() {
   const siteUrl =
@@ -33,6 +57,46 @@ export default function HomePage() {
       "query-input": "required name=search_term_string",
     },
   };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Which badminton racket is best for beginners?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "For beginners, we recommend lightweight rackets (4U or 5U) with flexible shafts and even or slightly head-light balance. These are more forgiving and help develop proper technique without straining your arm.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What racket weight should I choose?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "3U (85-89g) is best for power players with good technique. 4U (80-84g) is the most versatile choice, suitable for most players. 5U (75-79g) is ideal for beginners, doubles players, or those who prefer quick maneuverability.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Head-heavy vs head-light: which is better?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Neither is universally better — it depends on your playing style. Head-heavy rackets generate more power for smashes, ideal for aggressive singles players. Head-light rackets offer faster handling and quick reactions, perfect for doubles and defensive play.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Does expensive mean better performance?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Not necessarily. A racket matching your skill level will perform better for you than an expensive pro racket. Focus on specifications that match your playing style and skill level rather than price alone.",
+        },
+      },
+    ],
+  };
+
   return (
     <>
       <Script
@@ -52,15 +116,44 @@ export default function HomePage() {
           __html: JSON.stringify(websiteSchema),
         }}
       />
-      <div className="bg-slate-900 text-white">
+
+      <Script
+        id="faq-schema"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqSchema),
+        }}
+      />
+
+      <main>
+        {/* Hero Section - Above the fold */}
         <HeroSection />
-        <ValueProps />
-        <HowItWorks />
-        <FeatureShowcase />
-        <EmotionalSection />
+
+        {/* Trust & Authority Strip */}
+        {/* <TrustStrip /> */}
+
+        {/* How to Choose Guide - Educational SEO Content */}
+        <HowToChoose />
+
+        {/* Shop by Player Type - High Conversion */}
+        <ShopByPlayerType />
+
+        {/* Expert Picks - Featured Rackets */}
+        <ExpertPicks />
+
+        {/* Educational Content Block */}
+        <EducationalContent />
+
+        {/* Comparison Preview Section */}
+        <ComparisonPreview />
+
+        {/* FAQ Section - SEO + UX */}
+        <FAQSection />
+
+        {/* Final CTA */}
         <FinalCTA />
-        {/* <Footer /> */}
-      </div>
+      </main>
     </>
   );
 }

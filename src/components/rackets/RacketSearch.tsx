@@ -282,18 +282,27 @@ export default function RacketSearch({ rackets }: { rackets: Racket[] }) {
   return (
     <>
       <form onSubmit={handleSearch} className="relative mb-8 group">
+        <label htmlFor="racket-search" className="sr-only">
+          Search badminton rackets by name, brand, or type
+        </label>
         <input
+          id="racket-search"
           type="text"
           placeholder="Search Rackets..."
           className="w-full p-4 pl-12 rounded-xl bg-slate-800/80 backdrop-blur-sm border border-slate-700/50 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50 transition-all duration-300 text-slate-100 placeholder:text-slate-500 shadow-lg hover:shadow-xl"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
+          aria-describedby="search-hint"
         />
+        <span id="search-hint" className="sr-only">
+          Search by racket name, brand, player level, or playing style
+        </span>
         <svg
           className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-emerald-400 transition-colors"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
+          aria-hidden="true"
         >
           <path
             strokeLinecap="round"

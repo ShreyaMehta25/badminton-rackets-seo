@@ -261,15 +261,15 @@ export default function RacketDetailContent({
             transition={{ duration: 0.6 }}
             className="flex items-center justify-center relative"
           >
-            <div className="relative w-full max-w-sm">
+            <div className="relative w-full max-w-sm  ">
               {/* Radial glow effect */}
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.3),transparent_70%)] rounded-xl blur-xl -z-10"></div>
               {/* Image container */}
-              <div className="relative bg-slate-900/80 backdrop-blur-md rounded-xl p-4 border border-slate-800/50 shadow-lg">
+              <div className="relative bg-slate-900/80 backdrop-blur-md rounded-xl p-4 border border-slate-800/50 shadow-lg aspect-square flex items-center justify-center">
                 <motion.img
                   src={racket.imageUrl}
                   alt={racket.name}
-                  className="w-full h-auto object-contain drop-shadow-lg"
+                  className="w-full h-full object-contain drop-shadow-lg"
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
                 />
@@ -304,14 +304,14 @@ export default function RacketDetailContent({
             </div>
 
             {/* Brand */}
-            <motion.p
+            {/* <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
               className="text-white/60 font-bold text-xs uppercase tracking-[0.15em]"
             >
               {racket.brand.toUpperCase()}
-            </motion.p>
+            </motion.p> */}
 
             {/* Name */}
             <motion.h1
@@ -326,7 +326,14 @@ export default function RacketDetailContent({
                 {racket.name.replace(racket.brand, "").trim().toUpperCase()}
               </span>
             </motion.h1>
-
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3 }}
+              className="text-white/60 font-bold text-xs uppercase tracking-[0.15em]"
+            >
+              {racket.brand.toUpperCase()}
+            </motion.p>
             {/* Description - moved below price */}
 
             {/* Attribute Pills */}
