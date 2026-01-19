@@ -15,7 +15,7 @@ export default function HomePage() {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Badminton Rackets Directory",
+    name: "Best Badminton Rackets Directory",
     url: siteUrl,
     logo: `${siteUrl}/favicon.ico`,
     description:
@@ -25,7 +25,7 @@ export default function HomePage() {
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Badminton Rackets Directory",
+    name: "Best Badminton Rackets Directory",
     url: siteUrl,
     potentialAction: {
       "@type": "SearchAction",

@@ -15,15 +15,21 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://yourdomain.com"
+    process.env.NEXT_PUBLIC_SITE_URL ||
+      "https://badminton-rackets-seo-fdn9.vercel.app"
   ),
+  alternates: {
+    canonical: `${
+      process.env.NEXT_PUBLIC_SITE_URL ||
+      "https://badminton-rackets-seo-fdn9.vercel.app"
+    }/`,
+  },
   title: {
-    default:
-      "Badminton Rackets Directory 2026 | Compare Prices, Ratings & Reviews",
+    default: "Best Badminton Rackets 2026 | Compare Prices & Reviews",
     template: "%s | Badminton Rackets Directory",
   },
   description:
-    "Compare the best badminton rackets in 2026. Find rackets by brand, skill level, balance, and price. Expert reviews, ratings, pros & cons for Yonex, Li-Ning, Victor, and more.",
+    "Compare the best badminton rackets in 2026 by price, brand, weight and skill level. Browse reviews, ratings and specs from Yonex, Li-Ning, Victor and more.",
   keywords: [
     "badminton rackets",
     "badminton racquets",
@@ -42,8 +48,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "/",
     siteName: "Badminton Rackets Directory",
-    title:
-      "Badminton Rackets Directory 2026 | Compare Prices, Ratings & Reviews",
+    title: "Best Badminton Rackets 2026 | Compare Prices & Reviews",
     description:
       "Compare the best badminton rackets in 2026. Find rackets by brand, skill level, balance, and price. Expert reviews, ratings, pros & cons.",
     images: [
@@ -57,7 +62,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Badminton Rackets Directory 2026",
+    title: "Best Badminton Rackets Directory 2026",
     description:
       "Compare the best badminton rackets in 2026. Find rackets by brand, skill level, balance, and price.",
     images: ["/og-image.jpg"],
@@ -93,11 +98,11 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Organization",
     "@id": `${siteUrl}#organization`,
-    name: "Badminton Rackets Directory",
+    name: "Best Badminton Rackets 2026",
     url: siteUrl,
     logo: `${siteUrl}/favicon.ico`,
     description:
-      "Badminton Rackets Directory is a data-driven platform to compare badminton rackets by brand, player level, playing style, and price.",
+      "Compare the best badminton rackets in 2026. Find rackets by brand, skill level, balance, and price.",
   };
   return (
     <html lang="en">

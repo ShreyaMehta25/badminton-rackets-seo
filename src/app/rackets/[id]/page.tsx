@@ -79,7 +79,9 @@ export default async function RacketPage({ params }: Props) {
   }
 
   // Get players who use this racket
-  const racketWithPlayers = rackets as Array<Racket & { usedByPlayers?: string[] }>;
+  const racketWithPlayers = rackets as Array<
+    Racket & { usedByPlayers?: string[] }
+  >;
   const racketData = racketWithPlayers.find((r) => r.id === id);
   const playerIds = racketData?.usedByPlayers || [];
   const associatedPlayers = players.filter(
@@ -90,6 +92,7 @@ export default async function RacketPage({ params }: Props) {
   const productSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
+    "@id": `${SITE_URL}/rackets/${id}#product`,
     name: racket.name,
     image: racket.imageUrl,
     description: `${racket.name} by ${racket.brand}. ${racket.pros.join(". ")}`,
@@ -139,6 +142,8 @@ export default async function RacketPage({ params }: Props) {
         value: racket.bestFor.join(", "),
       },
     ],
+    sku: racket.id,
+    mpn: racket.id,
   };
 
   // Breadcrumb schema
@@ -167,6 +172,50 @@ export default async function RacketPage({ params }: Props) {
     ],
   };
 
+  const faqs = [
+    {
+      question: `Is ${racket.name} suitable for ${racket.playerLevel} players?`,
+      answer: `Yes, the ${racket.name} is designed for ${racket.playerLevel} players. It offers a ${racket.balance} balance and ${racket.flex} shaft, making it suitable for players looking to improve their performance.`,
+    },
+    {
+      question: `What playing style is ${racket.name} best for?`,
+      answer: `The ${racket.name} is best suited for ${racket.bestFor.join(
+        ", "
+      )} play styles. It performs well for players who prefer ${
+        racket.balance
+      } rackets.`,
+    },
+    // {
+    //   question: `Is ${racket.name} good for singles or doubles?`,
+    //   answer: `The ${racket.name} works well in ${
+    //     racket.playStyles?.includes("singles") ? "singles matches" : "both singles and doubles"
+    //   } due to its balance and maneuverability.`,
+    // },
+    {
+      question: `What is the weight and balance of ${racket.name}?`,
+      answer: `The ${racket.name} comes in ${racket.weight} weight category and has a ${racket.balance} balance, offering a good mix of control and power.`,
+    },
+    {
+      question: `Is ${
+        racket.name
+      } worth buying in ${new Date().getFullYear()}?`,
+      answer: `Yes, the ${
+        racket.name
+      } remains a strong choice in ${new Date().getFullYear()} thanks to its solid build quality, good reviews, and value for money in its price range.`,
+    },
+  ];
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
   return (
     <>
       <Script
@@ -185,11 +234,40 @@ export default async function RacketPage({ params }: Props) {
           __html: JSON.stringify(breadcrumbSchema),
         }}
       />
-      <RacketDetailContent
-        racket={racket}
-        associatedPlayers={associatedPlayers}
-        allRackets={rackets as Racket[]}
+      <Script
+        id="faq-schema"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqSchema),
+        }}
       />
+      <main className="max-w-7xl mx-auto px-6 py-10">
+        <RacketDetailContent
+          racket={racket}
+          associatedPlayers={associatedPlayers}
+          allRackets={rackets as Racket[]}
+        />
+        <section className="mt-16">
+          <h2 className="text-2xl font-bold mb-6">
+            Frequently Asked Questions
+          </h2>
+
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <details
+                key={index}
+                className="group rounded-lg border border-slate-700 p-4"
+              >
+                <summary className="cursor-pointer font-medium text-slate-200">
+                  {faq.question}
+                </summary>
+                <p className="mt-2 text-slate-400">{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      </main>
     </>
   );
 }

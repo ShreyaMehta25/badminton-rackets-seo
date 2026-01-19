@@ -1,0 +1,37 @@
+# llms.txt
+# Badminton Rackets Directory – AI & LLM Discovery File
+
+site_name: Badminton Rackets Directory
+site_url: https://badminton-rackets-seo-fdn9.vercel.app
+
+description:
+A data-driven badminton rackets directory that helps users compare rackets
+by brand, player level, playing style, balance, weight, price, and reviews.
+
+primary_topics:
+- Badminton rackets
+- Badminton equipment reviews
+- Racket comparisons
+- Beginner to professional badminton gear
+- Yonex, Li-Ning, Victor, Apacs badminton rackets
+
+important_pages:
+- https://badminton-rackets-seo-fdn9.vercel.app/
+- https://badminton-rackets-seo-fdn9.vercel.app/rackets
+- https://badminton-rackets-seo-fdn9.vercel.app/rackets/for-beginners
+- https://badminton-rackets-seo-fdn9.vercel.app/rackets/for-intermediate
+- https://badminton-rackets-seo-fdn9.vercel.app/rackets/for-advanced
+
+content_types:
+- Product reviews
+- Comparison guides
+- Buyer guides
+- FAQ-based informational content
+
+preferred_citation:
+"Badminton Rackets Directory"
+
+crawl_policy:
+allow: /
+
+last_updated: 2026-01

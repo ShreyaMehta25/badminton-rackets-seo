@@ -21,12 +21,18 @@ const getRatingLabel = (score: number): string => {
 
 const getPlayerRole = (player: Player): string => {
   // Generate role based on player category and play style
-  if (player.category === "mens-singles" || player.category === "womens-singles") {
+  if (
+    player.category === "mens-singles" ||
+    player.category === "womens-singles"
+  ) {
     if (player.playStyle.includes("power")) return "POWER SPECIALIST";
     if (player.playStyle.includes("control")) return "CONTROL EXPERT";
     return "SINGLES CHAMPION";
   }
-  if (player.category === "mens-doubles" || player.category === "womens-doubles") {
+  if (
+    player.category === "mens-doubles" ||
+    player.category === "womens-doubles"
+  ) {
     return "DOUBLES MASTER";
   }
   return "PRO PLAYER";
@@ -38,7 +44,10 @@ const getPlayerRole = (player: Player): string => {
  * SECONDARY: At least ONE of: same bestFor (any overlap), same balance, same weight
  * PRICE: Within ±20% of current racket
  */
-function getSimilarRackets(currentRacket: Racket, allRackets: Racket[]): Racket[] {
+function getSimilarRackets(
+  currentRacket: Racket,
+  allRackets: Racket[]
+): Racket[] {
   const priceMin = currentRacket.price * 0.8;
   const priceMax = currentRacket.price * 1.2;
 
@@ -54,7 +63,9 @@ function getSimilarRackets(currentRacket: Racket, allRackets: Racket[]): Racket[
       if (r.price < priceMin || r.price > priceMax) return false;
 
       // SECONDARY MATCH: At least ONE must match
-      const hasBestForOverlap = r.bestFor.some((bf) => currentRacket.bestFor.includes(bf));
+      const hasBestForOverlap = r.bestFor.some((bf) =>
+        currentRacket.bestFor.includes(bf)
+      );
       const hasSameBalance = r.balance === currentRacket.balance;
       const hasSameWeight = r.weight === currentRacket.weight;
 
@@ -66,7 +77,14 @@ function getSimilarRackets(currentRacket: Racket, allRackets: Racket[]): Racket[
       const scoreB = calculateSimilarityScore(currentRacket, b);
       return scoreB - scoreA;
     })
-    .slice(0, 4); // Max 4 rackets
+    // Remove any duplicates by ID to avoid React key collisions
+    .reduce<Racket[]>((acc, racket) => {
+      if (!acc.find((item) => item.id === racket.id)) {
+        acc.push(racket);
+      }
+      return acc;
+    }, [])
+    .slice(0, 4); // Max 4 rackets (after de-duplication)
 
   return similar;
 }
@@ -79,7 +97,9 @@ function calculateSimilarityScore(current: Racket, candidate: Racket): number {
   let score = 0;
 
   // BestFor overlap (each match = +2)
-  const bestForMatches = candidate.bestFor.filter((bf) => current.bestFor.includes(bf)).length;
+  const bestForMatches = candidate.bestFor.filter((bf) =>
+    current.bestFor.includes(bf)
+  ).length;
   score += bestForMatches * 2;
 
   // Same balance (+3)
@@ -110,15 +130,17 @@ function ExpandableDescription({ description }: { description: string }) {
     if (textRef.current) {
       // Check if content height exceeds 2 lines
       // Compare scrollHeight (full content) with clientHeight (visible content)
-      const lineHeight = parseFloat(getComputedStyle(textRef.current).lineHeight);
+      const lineHeight = parseFloat(
+        getComputedStyle(textRef.current).lineHeight
+      );
       const twoLineHeight = lineHeight * 2;
-      
+
       // Temporarily remove line-clamp to measure full height
       const originalClass = textRef.current.className;
       textRef.current.classList.remove("line-clamp-2");
       const fullHeight = textRef.current.scrollHeight;
       textRef.current.className = originalClass;
-      
+
       if (fullHeight > twoLineHeight) {
         setShowToggle(true);
       }
@@ -181,13 +203,19 @@ function ExpandableDescription({ description }: { description: string }) {
   );
 }
 
-export default function RacketDetailContent({ racket, associatedPlayers, allRackets }: RacketDetailContentProps) {
+export default function RacketDetailContent({
+  racket,
+  associatedPlayers,
+  allRackets,
+}: RacketDetailContentProps) {
   const router = useRouter();
-  
+
   // Use actual description if available, otherwise generate from pros
-  const description = racket.description || 
-    (racket.pros.length > 0 
-      ? racket.pros[0] + (racket.pros.length > 1 ? ` ${racket.pros.slice(1).join(". ")}.` : ".")
+  const description =
+    racket.description ||
+    (racket.pros.length > 0
+      ? racket.pros[0] +
+        (racket.pros.length > 1 ? ` ${racket.pros.slice(1).join(". ")}.` : ".")
       : `Premium ${racket.brand} racket designed for ${racket.playerLevel} players.`);
 
   // Get similar rackets
@@ -314,11 +342,15 @@ export default function RacketDetailContent({ racket, associatedPlayers, allRack
               </span>
               <span className="px-3 py-2 rounded-lg bg-slate-900/50 border border-slate-800 text-xs font-semibold uppercase tracking-wide backdrop-blur-sm">
                 <span className="text-white/60">BALANCE</span>{" "}
-                <span className="text-white">{formatKebab(racket.balance).toUpperCase()}</span>
+                <span className="text-white">
+                  {formatKebab(racket.balance).toUpperCase()}
+                </span>
               </span>
               <span className="px-3 py-2 rounded-lg bg-slate-900/50 border border-slate-800 text-xs font-semibold uppercase tracking-wide backdrop-blur-sm">
                 <span className="text-white/60">FLEX</span>{" "}
-                <span className="text-white">{formatKebab(racket.flex).toUpperCase()}</span>
+                <span className="text-white">
+                  {formatKebab(racket.flex).toUpperCase()}
+                </span>
               </span>
             </motion.div>
 
@@ -329,7 +361,9 @@ export default function RacketDetailContent({ racket, associatedPlayers, allRack
               transition={{ delay: 0.7 }}
               className="space-y-1"
             >
-              <p className="text-white/60 text-xs uppercase tracking-wide">PRICE</p>
+              <p className="text-white/60 text-xs uppercase tracking-wide">
+                PRICE
+              </p>
               <p className="text-xl font-black text-white">
                 ₹{racket.price.toLocaleString()}
               </p>
@@ -342,7 +376,9 @@ export default function RacketDetailContent({ racket, associatedPlayers, allRack
               transition={{ delay: 0.75 }}
               className="space-y-2 max-w-lg"
             >
-              <p className="text-white/60 text-xs uppercase tracking-wide">DESCRIPTION</p>
+              <p className="text-white/60 text-xs uppercase tracking-wide">
+                DESCRIPTION
+              </p>
               <ExpandableDescription description={description} />
             </motion.div>
 
@@ -440,7 +476,9 @@ export default function RacketDetailContent({ racket, associatedPlayers, allRack
                     />
                   </svg>
                 </div>
-                <h3 className="font-black text-lg uppercase tracking-wide">The Edge</h3>
+                <h3 className="font-black text-lg uppercase tracking-wide">
+                  The Edge
+                </h3>
               </div>
               <ul className="space-y-3">
                 {racket.pros.map((pro, index) => (
@@ -485,7 +523,9 @@ export default function RacketDetailContent({ racket, associatedPlayers, allRack
                     />
                   </svg>
                 </div>
-                <h3 className="font-black text-lg uppercase tracking-wide">Limits</h3>
+                <h3 className="font-black text-lg uppercase tracking-wide">
+                  Limits
+                </h3>
               </div>
               <ul className="space-y-3">
                 {racket.cons.map((con, index) => (
@@ -530,7 +570,9 @@ export default function RacketDetailContent({ racket, associatedPlayers, allRack
                       ? "Tactical baseline command with effortless clears."
                       : item === "speed"
                       ? "Lightning-fast reactions and rapid court coverage."
-                      : `Optimized for ${formatKebab(item).toLowerCase()} play style.`}
+                      : `Optimized for ${formatKebab(
+                          item
+                        ).toLowerCase()} play style.`}
                   </p>
                 </div>
               </motion.div>
@@ -596,7 +638,9 @@ export default function RacketDetailContent({ racket, associatedPlayers, allRack
                           >
                             <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                           </svg>
-                          <span className="text-xs text-white/70">{similarRacket.reviewScore}</span>
+                          <span className="text-xs text-white/70">
+                            {similarRacket.reviewScore}
+                          </span>
                         </div>
                       )}
                       {/* Best For Tags */}
@@ -626,17 +670,22 @@ export default function RacketDetailContent({ racket, associatedPlayers, allRack
           transition={{ duration: 0.6 }}
           className="text-center py-10 border-t border-slate-800"
         >
-          <p className="text-lg md:text-xl font-light italic leading-relaxed text-white/90 mb-4">
-            Chosen by <span className="font-bold not-italic">professionals</span>. Designed
-            for <span className="font-bold not-italic text-emerald-400">serious players</span>.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 text-xs text-white/60 uppercase tracking-wider">
+          {/* <p className="text-lg md:text-xl font-light italic leading-relaxed text-white/90 mb-4">
+            Chosen by{" "}
+            <span className="font-bold not-italic">professionals</span>.
+            Designed for{" "}
+            <span className="font-bold not-italic text-emerald-400">
+              serious players
+            </span>
+            .
+          </p> */}
+          {/* <div className="flex flex-wrap justify-center gap-4 text-xs text-white/60 uppercase tracking-wider">
             <span>BWF Approved</span>
             <span>•</span>
             <span>{racket.brand} Certified</span>
             <span>•</span>
             <span>Pro Series</span>
-          </div>
+          </div> */}
         </motion.section>
       </main>
     </div>

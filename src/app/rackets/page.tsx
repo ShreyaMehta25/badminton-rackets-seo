@@ -9,11 +9,11 @@ const SITE_URL =
   "https://badminton-rackets-seo-fdn9.vercel.app";
 
 export const metadata: Metadata = {
-  title: "Best Badminton Rackets 2026 | Compare Prices & Reviews",
+  title: "Badminton Rackets Directory 2026 | Compare All Models & Prices",
   description:
-    "Compare the best badminton rackets in 2026 by price, brand, weight and skill level. Browse reviews, ratings and specs from Yonex, Li-Ning, Victor and more.",
+    "Browse 50+ badminton rackets across brands, prices and skill levels. Filter by balance, weight and play style to find the right racket for you.",
   openGraph: {
-    title: "Best Badminton Rackets 2026 | Compare Prices & Review",
+    title: "Badminton Rackets Directory 2026 | Compare Prices & Reviews",
     description:
       "Compare the best badminton rackets in 2026 by price, brand, weight and skill level. Reviews and ratings from top brands.",
     images: [
@@ -35,14 +35,14 @@ export default function RacketsPage() {
   const allRackets = rackets as Racket[];
 
   // Organization schema
-  const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Badminton Rackets Directory",
-    url: process.env.NEXT_PUBLIC_SITE_URL || "https://yourdomain.com",
-    description:
-      "Comprehensive directory of badminton rackets with reviews, ratings, and comparisons",
-  };
+  // const organizationSchema = {
+  //   "@context": "https://schema.org",
+  //   "@type": "Organization",
+  //   name: "Badminton Rackets Directory",
+  //   url: process.env.NEXT_PUBLIC_SITE_URL || "https://yourdomain.com",
+  //   description:
+  //     "Comprehensive directory of badminton rackets with reviews, ratings, and comparisons",
+  // };
 
   // CollectionPage schema
   const collectionSchema = {
@@ -69,14 +69,14 @@ export default function RacketsPage() {
 
   return (
     <>
-      <Script
+      {/* <Script
         id="organization-schema"
         type="application/ld+json"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(organizationSchema),
         }}
-      />
+      /> */}
       <Script
         id="collection-schema"
         type="application/ld+json"
