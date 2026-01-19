@@ -13,4 +13,5 @@ export type Racket = {
   pros: string[];
   cons: string[];
   affiliateUrl: string;
+  description?: string;
 };

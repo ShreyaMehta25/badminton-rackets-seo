@@ -19,7 +19,8 @@
     "reviewScore": 4.9,
     "pros": ["Explosive smash power", "Top stability"],
     "cons": ["Hard for beginners"],
-    "affiliateUrl": "https://us.yonex.com/collections/badminton-racquets/products/va-astrox-100zz"
+    "affiliateUrl": "https://us.yonex.com/collections/badminton-racquets/products/va-astrox-100zz",
+    "description": "Yonex\u2019s flagship Astrox 100ZZ racket (launched March 2020) is a high-end head-heavy model built for power and precision. It uses a hyper-slim shaft and advanced Namd\u2013Micro Core technology to deliver exceptional smash power and stability:contentReference[oaicite:0]{index=0}:contentReference[oaicite:1]{index=1}. Its design yields explosive smashes and pinpoint accuracy, making it the choice of top pros like Viktor Axelsen."
   },
   {
     "id": "yonex-astrox-100-game",
@@ -41,7 +42,8 @@
     "reviewScore": 4.6,
     "pros": ["Good all-round power", "Affordable"],
     "cons": ["Not pro-level"],
-    "affiliateUrl": "https://us.yonex.com/collections/badminton-racquets/products/va-astrox-100-game"
+    "affiliateUrl": "https://us.yonex.com/collections/badminton-racquets/products/va-astrox-100-game",
+    "description": "The Yonex Astrox 100 Game is an affordable variant of the Astrox 100 series, offering a wider frame and thinner profile for enhanced speed and playability. It\u2019s head-heavy for strong power but optimized for control, making it suitable for strong players seeking fast swings at a lower price point:contentReference[oaicite:2]{index=2}."
   },
   {
     "id": "yonex-nanoflare-1000z",
@@ -63,7 +65,8 @@
     "reviewScore": 4.8,
     "pros": ["Fast swing speed", "Great control"],
     "cons": ["Power limited vs Astrox"],
-    "affiliateUrl": "https://us.yonex.com/collections/badminton-racquets/products/yonex-nanoflare-1000z"
+    "affiliateUrl": "https://us.yonex.com/collections/badminton-racquets/products/yonex-nanoflare-1000z",
+    "description": "Yonex Nanoflare 1000 Z is a 2023 flagship speed racket with a head-light balance. It achieves a record-breaking shuttle speed (over 72 km/h smash speed) through a wide-profile Aero-compact frame and Sonic Flare System for maximal repulsion and minimal air resistance:contentReference[oaicite:3]{index=3}:contentReference[oaicite:4]{index=4}. Favored by pros like Carolina Marin and Lakshya Sen, it\u2019s designed for players who prioritize ultra-fast swings and control."
   },
   {
     "id": "yonex-arcsaber-11-pro",
@@ -85,7 +88,8 @@
     "reviewScore": 4.7,
     "pros": ["Excellent control", "Sharp touch"],
     "cons": ["Less power"],
-    "affiliateUrl": "https://us.yonex.com/collections/badminton-racquets/products/yonex-arcsaber-11-pro"
+    "affiliateUrl": "https://us.yonex.com/collections/badminton-racquets/products/yonex-arcsaber-11-pro",
+    "description": "The Yonex ArcSaber 11 Pro is a precision, made-in-Japan racket focused on control. It features a stiff shaft and a special Pocketing Booster and box frame design to increase shuttle dwell time, enhancing shot accuracy and stability:contentReference[oaicite:5]{index=5}:contentReference[oaicite:6]{index=6}. It\u2019s ideal for advanced players seeking exceptional control and feel over raw power."
   },
   {
     "id": "yonex-astrox-88d-pro",
@@ -107,7 +111,8 @@
     "reviewScore": 4.7,
     "pros": ["Powerful backcourt play", "Pro standard"],
     "cons": ["Stiffer to swing"],
-    "affiliateUrl": "https://us.yonex.com/collections/badminton-racquets/products/yonex-astrox-88d-pro"
+    "affiliateUrl": "https://us.yonex.com/collections/badminton-racquets/products/yonex-astrox-88d-pro",
+    "description": "Yonex Astrox 88D Pro is a head-heavy attacking racket built for rear-court dominance in doubles. It incorporates advanced 2G-Namd Flex Force technology in the shaft for a very stiff, responsive flex, enabling deeper clears and heavier smashes without losing quickness:contentReference[oaicite:7]{index=7}:contentReference[oaicite:8]{index=8}. This specialized frame design provides explosive back-court power while maintaining smooth handling for aggressive doubles play."
   },
   {
     "id": "yonex-astrox-77-play",
@@ -129,7 +134,8 @@
     "reviewScore": 4.3,
     "pros": ["Beginner friendly", "Good value"],
     "cons": ["Not pro competitive"],
-    "affiliateUrl": "https://us.yonex.com/collections/badminton-racquets/products/yonex-astrox-77-play"
+    "affiliateUrl": "https://us.yonex.com/collections/badminton-racquets/products/yonex-astrox-77-play",
+    "description": "Yonex Astrox 77 Play is a beginner-friendly head-heavy racket engineered for strong smashes. With a highly flexible (soft) shaft and head-heavy bias, it allows players to generate steep angled smashes and powerful clears with less effort:contentReference[oaicite:9]{index=9}. Its forgiving flex and ease of swing make it a good introduction to Yonex\u2019s Astrox power series for new players."
   },
   {
     "id": "yonex-nanoflare-700-pro",
@@ -151,7 +157,8 @@
     "reviewScore": 4.5,
     "pros": ["Balanced speed control", "Smooth swings"],
     "cons": ["Less power than 1000Z"],
-    "affiliateUrl": "https://us.yonex.com/collections/badminton-racquets/products/yonex-nanoflare-700-pro"
+    "affiliateUrl": "https://us.yonex.com/collections/badminton-racquets/products/yonex-nanoflare-700-pro",
+    "description": "Yonex Nanoflare 700 Pro is a fast, head-light racket designed for speed and control. Launched as part of Yonex\u2019s 2024 lineup, it combines lightweight materials with Nanometric and Sonic Flare technology to boost acceleration and agility:contentReference[oaicite:10]{index=10}:contentReference[oaicite:11]{index=11}. This even-balanced racket delivers quick swings and nimble handling for fast-paced rallies, catering to advanced players who need both speed and solid power."
   },
   {
     "id": "yonex-duora-10",
@@ -173,7 +180,8 @@
     "reviewScore": 4.6,
     "pros": ["Dual frame speed/power", "Versatile"],
     "cons": ["Pricey"],
-    "affiliateUrl": "https://us.yonex.com/collections/badminton-racquets/products/yonex-duora-10"
+    "affiliateUrl": "https://us.yonex.com/collections/badminton-racquets/products/yonex-duora-10",
+    "description": "The Yonex Duora 10 is an innovative \u201ctwo-sided\u201d racket offering dual performance. One side has a box-shaped frame for powerful forehands (with a rigid sweet spot), and the other an aero frame for fast backhands:contentReference[oaicite:12]{index=12}. This versatile design (with medium flex and even balance) provides explosive smashes on the forehand side and swift drives on the backhand side, making it ideal for all-round attacking players seeking both speed and power in one racket."
   },
   {
     "id": "racquets4u-li-ning-ax-force-10",
@@ -195,7 +203,8 @@
     "reviewScore": 4.3,
     "pros": ["Good stability", "Balanced feel"],
     "cons": ["Not super fast"],
-    "affiliateUrl": "https://www.racquets4u.com/li-ning-ax-force-10-badminton-racquet-unstrung-prl-wht.html"
+    "affiliateUrl": "https://www.racquets4u.com/li-ning-ax-force-10-badminton-racquet-unstrung-prl-wht.html",
+    "description": "Li-Ning AX-Force 10 is a head-heavy racket targeting intermediate players who want both power and speed. It features a slender 7.0mm flexible shaft and a dynamic frame (Dynamic Optimum Frame) that concentrate power for explosive smashes:contentReference[oaicite:13]{index=13}. Li-Ning\u2019s Sonic Boom system in the head also provides a crisp, speedy feel on impact, making it a good choice for aggressive players seeking quick, powerful shots."
   },
   {
     "id": "racquets4u-li-ning-halbertec-7000",
@@ -217,7 +226,8 @@
     "reviewScore": 4.2,
     "pros": ["Light and swift", "Good maneuverability"],
     "cons": ["Less power"],
-    "affiliateUrl": "https://www.racquets4u.com/li-ning-halbertec-7000-badminton-racquet-unstrung-gr-or.html"
+    "affiliateUrl": "https://www.racquets4u.com/li-ning-halbertec-7000-badminton-racquet-unstrung-gr-or.html",
+    "description": "Li-Ning Halbertec 7000 is a stiff, lightweight attacking racket for intermediate players. Its frame uses Japanese carbon fiber with a very slim 6.5mm shaft, maximizing swing speed and maneuverability:contentReference[oaicite:14]{index=14}. The Halbertec 7000 employs Li-Ning\u2019s HDF (Hard Frame) technology (shock-absorbing materials) to reinforce the frame, yielding strong, stable smashes with reduced vibration, while its head-light design makes quick defense and clears easier."
   },
   {
     "id": "racquets4u-li-ning-bladex-spiral",
@@ -239,7 +249,238 @@
     "reviewScore": 4.1,
     "pros": ["Good power for beginners"],
     "cons": ["Less control for advanced"],
-    "affiliateUrl": "https://www.racquets4u.com/li-ning-bladex-spriral-badminton-racquet-unstrung-yellow.html"
+    "affiliateUrl": "https://www.racquets4u.com/li-ning-bladex-spriral-badminton-racquet-unstrung-yellow.html",
+    "description": "The Li-Ning Bladex Spiral is designed for beginners seeking easy power and stability. Its head-heavy balance helps generate stronger clears and smashes, while the flexible shaft improves shuttle hold for better timing. A forgiving frame makes it suitable for players still developing technique."
+  },
+  {
+    "id": "yonex-astrox-100zz",
+    "name": "Yonex Astrox 100ZZ",
+    "brand": "Yonex",
+    "price": 14999,
+    "currency": "INR",
+    "priceSlabs": ["under-15000", "under-20000"],
+    "weight": "3U",
+    "weightCategory": "medium",
+    "balance": "head-heavy",
+    "flex": "extra-stiff",
+    "playerLevel": "advanced",
+    "playerLevelNormalized": ["advanced", "intermediate-advanced"],
+    "bestFor": ["power"],
+    "playStyles": ["power", "singles", "attacking"],
+    "usedByPlayers": ["viktor-axelsen", "shi-yu-qi", "chou-tien-chen"],
+    "imageUrl": "https://www.achivr.in/cdn/shop/products/astrox100game.png?v=1701086261&width=1920",
+    "reviewScore": 4.9,
+    "pros": ["Explosive smash power", "Top stability"],
+    "cons": ["Hard for beginners"],
+    "affiliateUrl": "https://us.yonex.com/collections/badminton-racquets/products/va-astrox-100zz",
+    "description": "Yonex\u2019s flagship Astrox 100ZZ racket (launched March 2020) is a high-end head-heavy model built for power and precision. It uses a hyper-slim shaft and advanced Namd\u2013Micro Core technology to deliver exceptional smash power and stability:contentReference[oaicite:0]{index=0}:contentReference[oaicite:1]{index=1}. Its design yields explosive smashes and pinpoint accuracy, making it the choice of top pros like Viktor Axelsen."
+  },
+  {
+    "id": "yonex-astrox-100-game",
+    "name": "Yonex Astrox 100 Game",
+    "brand": "Yonex",
+    "price": 6999,
+    "currency": "INR",
+    "priceSlabs": ["under-8000", "under-10000"],
+    "weight": "4U",
+    "weightCategory": "lightweight",
+    "balance": "head-heavy",
+    "flex": "medium-stiff",
+    "playerLevel": "intermediate",
+    "playerLevelNormalized": ["intermediate", "beginner-intermediate"],
+    "bestFor": ["power"],
+    "playStyles": ["power", "singles"],
+    "usedByPlayers": [],
+    "imageUrl": "https://www.achivr.in/cdn/shop/products/astrox100game.png?v=1701086261&width=1920",
+    "reviewScore": 4.6,
+    "pros": ["Good all-round power", "Affordable"],
+    "cons": ["Not pro-level"],
+    "affiliateUrl": "https://us.yonex.com/collections/badminton-racquets/products/va-astrox-100-game",
+    "description": "The Yonex Astrox 100 Game is an affordable variant of the Astrox 100 series, offering a wider frame and thinner profile for enhanced speed and playability. It\u2019s head-heavy for strong power but optimized for control, making it suitable for strong players seeking fast swings at a lower price point:contentReference[oaicite:2]{index=2}."
+  },
+  {
+    "id": "yonex-nanoflare-1000z",
+    "name": "Yonex Nanoflare 1000 Z",
+    "brand": "Yonex",
+    "price": 17000,
+    "currency": "INR",
+    "priceSlabs": ["under-20000"],
+    "weight": "4U",
+    "weightCategory": "lightweight",
+    "balance": "head-light",
+    "flex": "extra-stiff",
+    "playerLevel": "advanced",
+    "playerLevelNormalized": ["advanced"],
+    "bestFor": ["speed"],
+    "playStyles": ["speed", "control", "singles"],
+    "usedByPlayers": ["carolina-marin", "lakshya-sen"],
+    "imageUrl": "https://contents.mediadecathlon.com/m21032790/7a1fdb39c0a646301cf1f751bc43da97/m21032790.jpg",
+    "reviewScore": 4.8,
+    "pros": ["Fast swing speed", "Great control"],
+    "cons": ["Power limited vs Astrox"],
+    "affiliateUrl": "https://us.yonex.com/collections/badminton-racquets/products/yonex-nanoflare-1000z",
+    "description": "Yonex Nanoflare 1000 Z is a 2023 flagship speed racket with a head-light balance. It achieves a record-breaking shuttle speed (over 72 km/h smash speed) through a wide-profile Aero-compact frame and Sonic Flare System for maximal repulsion and minimal air resistance:contentReference[oaicite:3]{index=3}:contentReference[oaicite:4]{index=4}. Favored by pros like Carolina Marin and Lakshya Sen, it\u2019s designed for players who prioritize ultra-fast swings and control."
+  },
+  {
+    "id": "yonex-arcsaber-11-pro",
+    "name": "Yonex Arcsaber 11 Pro",
+    "brand": "Yonex",
+    "price": 15999,
+    "currency": "INR",
+    "priceSlabs": ["under-20000"],
+    "weight": "3U",
+    "weightCategory": "medium",
+    "balance": "even",
+    "flex": "stiff",
+    "playerLevel": "advanced",
+    "playerLevelNormalized": ["advanced"],
+    "bestFor": ["control"],
+    "playStyles": ["control", "all-round"],
+    "usedByPlayers": [],
+    "imageUrl": "https://m.media-amazon.com/images/I/31ibxYmAVRL._AC_SR290,290_.jpg",
+    "reviewScore": 4.7,
+    "pros": ["Excellent control", "Sharp touch"],
+    "cons": ["Less power"],
+    "affiliateUrl": "https://us.yonex.com/collections/badminton-racquets/products/yonex-arcsaber-11-pro",
+    "description": "The Yonex ArcSaber 11 Pro is a precision, made-in-Japan racket focused on control. It features a stiff shaft and a special Pocketing Booster and box frame design to increase shuttle dwell time, enhancing shot accuracy and stability:contentReference[oaicite:5]{index=5}:contentReference[oaicite:6]{index=6}. It\u2019s ideal for advanced players seeking exceptional control and feel over raw power."
+  },
+  {
+    "id": "yonex-astrox-88d-pro",
+    "name": "Yonex Astrox 88D Pro",
+    "brand": "Yonex",
+    "price": 14599,
+    "currency": "INR",
+    "priceSlabs": ["under-15000", "under-20000"],
+    "weight": "4U",
+    "weightCategory": "lightweight",
+    "balance": "head-heavy",
+    "flex": "extra-stiff",
+    "playerLevel": "advanced",
+    "playerLevelNormalized": ["advanced"],
+    "bestFor": ["power"],
+    "playStyles": ["power", "doubles", "attacking"],
+    "usedByPlayers": ["chirag-shetty"],
+    "imageUrl": "https://rukminim2.flixcart.com/image/480/640/xif0q/racquet/i/o/2/-original-imah3fa3ezmcrjap.jpeg?q=90",
+    "reviewScore": 4.7,
+    "pros": ["Powerful backcourt play", "Pro standard"],
+    "cons": ["Stiffer to swing"],
+    "affiliateUrl": "https://us.yonex.com/collections/badminton-racquets/products/yonex-astrox-88d-pro",
+    "description": "Yonex Astrox 88D Pro is a head-heavy attacking racket built for rear-court dominance in doubles. It incorporates advanced 2G-Namd Flex Force technology in the shaft for a very stiff, responsive flex, enabling deeper clears and heavier smashes without losing quickness:contentReference[oaicite:7]{index=7}:contentReference[oaicite:8]{index=8}. This specialized frame design provides explosive back-court power while maintaining smooth handling for aggressive doubles play."
+  },
+  {
+    "id": "yonex-astrox-77-play",
+    "name": "Yonex Astrox 77 Play",
+    "brand": "Yonex",
+    "price": 3800,
+    "currency": "INR",
+    "priceSlabs": ["under-5000"],
+    "weight": "4U",
+    "weightCategory": "lightweight",
+    "balance": "head-heavy",
+    "flex": "medium",
+    "playerLevel": "beginner",
+    "playerLevelNormalized": ["beginner"],
+    "bestFor": ["power"],
+    "playStyles": ["power", "singles"],
+    "usedByPlayers": [],
+    "imageUrl": "https://m.media-amazon.com/images/I/51VMiXN-prL._AC_UF350,350_QL80_.jpg",
+    "reviewScore": 4.3,
+    "pros": ["Beginner friendly", "Good value"],
+    "cons": ["Not pro competitive"],
+    "affiliateUrl": "https://us.yonex.com/collections/badminton-racquets/products/yonex-astrox-77-play",
+    "description": "Yonex Astrox 77 Play is a beginner-friendly head-heavy racket engineered for strong smashes. With a highly flexible (soft) shaft and head-heavy bias, it allows players to generate steep angled smashes and powerful clears with less effort:contentReference[oaicite:9]{index=9}. Its forgiving flex and ease of swing make it a good introduction to Yonex\u2019s Astrox power series for new players."
+  },
+  {
+    "id": "yonex-nanoflare-700-pro",
+    "name": "Yonex Nanoflare 700 Pro",
+    "brand": "Yonex",
+    "price": 14990,
+    "currency": "INR",
+    "priceSlabs": ["under-15000", "under-20000"],
+    "weight": "4U",
+    "weightCategory": "lightweight",
+    "balance": "head-light",
+    "flex": "medium",
+    "playerLevel": "intermediate",
+    "playerLevelNormalized": ["intermediate"],
+    "bestFor": ["speed"],
+    "playStyles": ["speed", "control"],
+    "usedByPlayers": [],
+    "imageUrl": "https://scssports.in/cdn/shop/files/Yonex_Nanoflare_700_Pro_Badminton_Racquet_Midnight_Purple.jpg?v=1747291974",
+    "reviewScore": 4.5,
+    "pros": ["Balanced speed control", "Smooth swings"],
+    "cons": ["Less power than 1000Z"],
+    "affiliateUrl": "https://us.yonex.com/collections/badminton-racquets/products/yonex-nanoflare-700-pro",
+    "description": "Yonex Nanoflare 700 Pro is a fast, head-light racket designed for speed and control. Launched as part of Yonex\u2019s 2024 lineup, it combines lightweight materials with Nanometric and Sonic Flare technology to boost acceleration and agility:contentReference[oaicite:10]{index=10}:contentReference[oaicite:11]{index=11}. This even-balanced racket delivers quick swings and nimble handling for fast-paced rallies, catering to advanced players who need both speed and solid power."
+  },
+  {
+    "id": "yonex-duora-10",
+    "name": "Yonex Duora 10",
+    "brand": "Yonex",
+    "price": 17000,
+    "currency": "INR",
+    "priceSlabs": ["under-20000"],
+    "weight": "3U",
+    "weightCategory": "medium",
+    "balance": "even",
+    "flex": "stiff",
+    "playerLevel": "advanced",
+    "playerLevelNormalized": ["advanced"],
+    "bestFor": ["power", "speed"],
+    "playStyles": ["all-round", "attacking"],
+    "usedByPlayers": ["hs-prannoy"],
+    "imageUrl": "https://m.media-amazon.com/images/I/41-aMArUBGL._AC_UF894,1000_QL80_.jpg",
+    "reviewScore": 4.6,
+    "pros": ["Dual frame speed/power", "Versatile"],
+    "cons": ["Pricey"],
+    "affiliateUrl": "https://us.yonex.com/collections/badminton-racquets/products/yonex-duora-10",
+    "description": "The Yonex Duora 10 is an innovative \u201ctwo-sided\u201d racket offering dual performance. One side has a box-shaped frame for powerful forehands (with a rigid sweet spot), and the other an aero frame for fast backhands:contentReference[oaicite:12]{index=12}. This versatile design (with medium flex and even balance) provides explosive smashes on the forehand side and swift drives on the backhand side, making it ideal for all-round attacking players seeking both speed and power in one racket."
+  },
+  {
+    "id": "racquets4u-li-ning-ax-force-10",
+    "name": "Li-Ning AX-Force 10",
+    "brand": "Li-Ning",
+    "price": 4490,
+    "currency": "INR",
+    "priceSlabs": ["under-5000"],
+    "weight": "3U",
+    "weightCategory": "medium",
+    "balance": "even",
+    "flex": "medium",
+    "playerLevel": "intermediate",
+    "playerLevelNormalized": ["intermediate"],
+    "bestFor": ["control", "power"],
+    "playStyles": ["all-round"],
+    "usedByPlayers": [],
+    "imageUrl": "https://cdnmedia.racquets4u.com/media/catalog/product/cache/8f24f3f124e67ea1e49f457c6f2f1da7/l/i/li-ning-axforce-10-navy-badminton_racquet-1_1.jpg",
+    "reviewScore": 4.3,
+    "pros": ["Good stability", "Balanced feel"],
+    "cons": ["Not super fast"],
+    "affiliateUrl": "https://www.racquets4u.com/li-ning-ax-force-10-badminton-racquet-unstrung-prl-wht.html",
+    "description": "Li-Ning AX-Force 10 is a head-heavy racket targeting intermediate players who want both power and speed. It features a slender 7.0mm flexible shaft and a dynamic frame (Dynamic Optimum Frame) that concentrate power for explosive smashes:contentReference[oaicite:13]{index=13}. Li-Ning\u2019s Sonic Boom system in the head also provides a crisp, speedy feel on impact, making it a good choice for aggressive players seeking quick, powerful shots."
+  },
+  {
+    "id": "racquets4u-li-ning-halbertec-7000",
+    "name": "Li-Ning Halbertec 7000",
+    "brand": "Li-Ning",
+    "price": 5790,
+    "currency": "INR",
+    "priceSlabs": ["under-8000"],
+    "weight": "3U",
+    "weightCategory": "medium",
+    "balance": "head-light",
+    "flex": "medium",
+    "playerLevel": "intermediate",
+    "playerLevelNormalized": ["intermediate"],
+    "bestFor": ["speed"],
+    "playStyles": ["speed", "control"],
+    "usedByPlayers": [],
+    "imageUrl": "https://cdnmedia.racquets4u.com/media/catalog/product/cache/8f24f3f124e67ea1e49f457c6f2f1da7/l/i/li-ning-halbertec_7000_badminton_racquet_white-1_1.jpg",
+    "reviewScore": 4.2,
+    "pros": ["Light and swift", "Good maneuverability"],
+    "cons": ["Less power"],
+    "affiliateUrl": "https://www.racquets4u.com/li-ning-halbertec-7000-badminton-racquet-unstrung-gr-or.html",
+    "description": "Li-Ning Halbertec 7000 is a stiff, lightweight attacking racket for intermediate players. Its frame uses Japanese carbon fiber with a very slim 6.5mm shaft, maximizing swing speed and maneuverability:contentReference[oaicite:14]{index=14}. The Halbertec 7000 employs Li-Ning\u2019s HDF (Hard Frame) technology (shock-absorbing materials) to reinforce the frame, yielding strong, stable smashes with reduced vibration, while its head-light design makes quick defense and clears easier."
   },
   {
     "id": "badmintonwarehouse-apacs-fantala-60-speed",
@@ -261,7 +502,8 @@
     "reviewScore": 4.4,
     "pros": ["Quick maneuverability", "Good value"],
     "cons": ["Less power for heavy smashes"],
-    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/badminton-rackets/products/apacs-fantala-6-0-speed"
+    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/badminton-rackets/products/apacs-fantala-6-0-speed",
+    "description": "The Apacs Fantala 6.0 Speed focuses on fast handling and quick response, making it ideal for intermediate players who rely on speed and court coverage. Its head-light balance supports rapid racket swings and defensive play. A solid all-round frame offers excellent value in its price range."
   },
   {
     "id": "badmintonwarehouse-apacs-fantala-pro-101",
@@ -283,7 +525,8 @@
     "reviewScore": 4.2,
     "pros": ["Balanced performance", "Good feel"],
     "cons": ["Not specialized"],
-    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/badminton-rackets/products/apacs-fantala-pro-101"
+    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/badminton-rackets/products/apacs-fantala-pro-101",
+    "description": "The Fantala Pro 101 is a balanced all-round racket built for consistent performance in both attack and defense. Its even balance and medium-stiff shaft provide good shuttle control without demanding advanced technique. Suitable for intermediate players seeking reliability rather than specialization."
   },
   {
     "id": "badmintonwarehouse-lingmei-mars-one",
@@ -305,7 +548,8 @@
     "reviewScore": 4.0,
     "pros": ["Affordable", "Easy control"],
     "cons": ["Less power and speed"],
-    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/beginner-badminton-rackets-at-badminton-warehouse/products/lingmei-mars-one"
+    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/beginner-badminton-rackets-at-badminton-warehouse/products/lingmei-mars-one",
+    "description": "Lingmei Mars One is a beginner-friendly racket designed for comfort and control. Its flexible shaft and even balance help reduce vibration and improve shot accuracy. Ideal for casual players and learners looking for an affordable, easy-to-handle option."
   },
   {
     "id": "badmintonwarehouse-lingmei-northern-10",
@@ -327,7 +571,8 @@
     "reviewScore": 4.1,
     "pros": ["Great beginner racket", "Lightweight"],
     "cons": ["Not powerful"],
-    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/beginner-badminton-rackets-at-badminton-warehouse/products/lingmei-northern-10-ltd"
+    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/beginner-badminton-rackets-at-badminton-warehouse/products/lingmei-northern-10-ltd",
+    "description": "The Lingmei Northern 10 Ltd emphasizes lightweight handling and smooth control for new players. Its balanced frame allows stable rallies and easy net play. A suitable choice for beginners prioritizing consistency over power."
   },
   {
     "id": "badmintonwarehouse-lingmei-sk66",
@@ -349,7 +594,8 @@
     "reviewScore": 4.2,
     "pros": ["Light and nimble", "Affordable"],
     "cons": ["Not for advanced play"],
-    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/beginner-badminton-rackets-at-badminton-warehouse/products/lingmei-sk66"
+    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/beginner-badminton-rackets-at-badminton-warehouse/products/lingmei-sk66",
+    "description": "Lingmei SK66 is built for beginners who prefer controlled gameplay and lightweight maneuverability. The flexible shaft supports gentle swings and improved shuttle placement. Best suited for recreational play and skill development."
   },
   {
     "id": "badmintonwarehouse-victor-auraspeed-2800",
@@ -371,7 +617,8 @@
     "reviewScore": 4.3,
     "pros": ["Fast handling", "Good response"],
     "cons": ["Not top-end power"],
-    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/beginner-badminton-rackets-at-badminton-warehouse/products/victor-auraspeed-2800"
+    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/beginner-badminton-rackets-at-badminton-warehouse/products/victor-auraspeed-2800",
+    "description": "The Victor Auraspeed 2800 is engineered for speed-oriented intermediate players. Its head-light balance promotes quick reactions and fast flat exchanges. Ideal for singles players who rely on agility and rapid court movement."
   },
   {
     "id": "badmintonwarehouse-yonex-astrox-88-play",
@@ -393,7 +640,8 @@
     "reviewScore": 4.3,
     "pros": ["Affordable entry into Astrox", "Decent power"],
     "cons": ["Limited pro potential"],
-    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/beginner-badminton-rackets-at-badminton-warehouse/products/yonex-astrox-88-play"
+    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/beginner-badminton-rackets-at-badminton-warehouse/products/yonex-astrox-88-play",
+    "description": "Yonex Astrox 88 Play delivers accessible power inspired by the professional 88 series. Its head-heavy balance assists in stronger smashes while maintaining ease of use. Designed for beginners who want an attacking-style racket without advanced stiffness."
   },
   {
     "id": "badmintonwarehouse-yonex-nanoflare-001-clear",
@@ -415,7 +663,8 @@
     "reviewScore": 4.0,
     "pros": ["Extremely lightweight", "Very easy to swing"],
     "cons": ["Low power for advanced play"],
-    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/beginner-badminton-rackets-at-badminton-warehouse/products/yonex-nanoflare-001-clear"
+    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/beginner-badminton-rackets-at-badminton-warehouse/products/yonex-nanoflare-001-clear",
+    "description": "The Nanoflare 001 Clear is an ultra-lightweight racket focused on speed and maneuverability. Its head-light balance allows effortless swings and quick defensive shots. Ideal for beginners and juniors learning fast-paced rallies."
   },
   {
     "id": "badmintonwarehouse-yonex-nanoflare-001-feel",
@@ -437,7 +686,8 @@
     "reviewScore": 4.2,
     "pros": ["Great racket for learning speed play"],
     "cons": ["Limited power"],
-    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/beginner-badminton-rackets-at-badminton-warehouse/products/yonex-nanoflare-001-feel"
+    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/beginner-badminton-rackets-at-badminton-warehouse/products/yonex-nanoflare-001-feel",
+    "description": "Yonex Nanoflare 001 Feel emphasizes comfort, control, and swing speed. A flexible shaft improves shot forgiveness, making it beginner-friendly. Best suited for players prioritizing ease of play and smooth handling."
   },
   {
     "id": "badmintonwarehouse-yonex-nanoflare-1000-play",
@@ -459,7 +709,8 @@
     "reviewScore": 4.5,
     "pros": ["Balanced speed & power", "Great feel"],
     "cons": ["Not elite-level"],
-    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/beginner-badminton-rackets-at-badminton-warehouse/products/yonex-nanoflare-1000-play"
+    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/beginner-badminton-rackets-at-badminton-warehouse/products/yonex-nanoflare-1000-play",
+    "description": "Nanoflare 1000 Play brings the speed-focused DNA of the flagship 1000Z into an accessible package. Designed for intermediate players, it offers quick handling with balanced power output. Suitable for fast-paced singles and all-round play."
   },
   {
     "id": "badmintonwarehouse-victor-jetspeed-s-10",
@@ -481,7 +732,8 @@
     "reviewScore": 4.7,
     "pros": ["Fast swing speed", "Great control"],
     "cons": ["Less power for heavy smashes"],
-    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/badminton-rackets/products/victor-jetspeed-s-10"
+    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/badminton-rackets/products/victor-jetspeed-s-10",
+    "description": "Victor Jetspeed S 10 is crafted for advanced players who rely on rapid swing speed and precision. Its aerodynamic frame enhances shot speed and defensive recovery. Best suited for control-oriented and speed-focused gameplay."
   },
   {
     "id": "badmintonwarehouse-victor-thruster-f-c-ultra-x",
@@ -503,7 +755,8 @@
     "reviewScore": 4.6,
     "pros": ["Strong smashes", "Hard hitter"],
     "cons": ["A bit heavy for newcomers"],
-    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/badminton-rackets/products/victor-thruster-f-10"
+    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/badminton-rackets/products/victor-thruster-f-10",
+    "description": "The Thruster F C Ultra X is built for aggressive attacking players who favor powerful smashes. Its head-heavy balance and stiff shaft provide strong shuttle penetration. Designed for experienced players with solid wrist strength."
   },
   {
     "id": "badmintonwarehouse-yonex-arc-saber-11",
@@ -525,7 +778,8 @@
     "reviewScore": 4.3,
     "pros": ["Balanced feel", "Good handling"],
     "cons": ["Moderate power"],
-    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/badminton-rackets/products/victor-arc-saber-leap"
+    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/badminton-rackets/products/victor-arc-saber-leap",
+    "description": "Yonex Arc Saber 11 is known for its excellent shuttle hold and precise control. The even balance supports accurate placement and consistent rallies. A preferred choice for intermediate players focusing on tactical play."
   },
   {
     "id": "racquets4u-victor-bravesword-12",
@@ -547,7 +801,8 @@
     "reviewScore": 4.5,
     "pros": ["Fast swings", "Great court coverage"],
     "cons": ["Less power"],
-    "affiliateUrl": "https://www.racquets4u.com/victor-bravesword-12-badminton-racquet-unstrung.html"
+    "affiliateUrl": "https://www.racquets4u.com/victor-bravesword-12-badminton-racquet-unstrung.html",
+    "description": "Victor Bravesword 12 features a sword-shaped frame for exceptional swing speed and maneuverability. Designed for advanced players, it excels in fast rallies and counter-attacking play. Ideal for players prioritizing speed and control."
   },
   {
     "id": "racquets4u-victor-thruster-k-f",
@@ -569,7 +824,8 @@
     "reviewScore": 4.2,
     "pros": ["Good smash power", "Reliable feel"],
     "cons": ["Not elite performance"],
-    "affiliateUrl": "https://www.racquets4u.com/victor-thruster-k-falcon-badminton-racquet-unstrung.html"
+    "affiliateUrl": "https://www.racquets4u.com/victor-thruster-k-falcon-badminton-racquet-unstrung.html",
+    "description": "Thruster K Falcon offers a balanced mix of power and control for intermediate players. Its head-heavy feel aids attacking shots while maintaining manageable handling. Suitable for players transitioning toward a more aggressive playstyle."
   },
   {
     "id": "badmintonwarehouse-carbonex-23-badminton-racket",
@@ -591,7 +847,8 @@
     "reviewScore": 4.3,
     "pros": ["Balanced racket", "Smooth play"],
     "cons": ["Less standout performance"],
-    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/badminton-rackets/products/yonex-carbonex-23"
+    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/badminton-rackets/products/yonex-carbonex-23",
+    "description": "Yonex Carbonex 23 delivers a traditional solid feel with stable performance. Its even balance supports controlled strokes and consistent clears. A reliable option for intermediate players who value classic racket response."
   },
   {
     "id": "badmintonwarehouse-carbonex-lite-2",
@@ -613,7 +870,8 @@
     "reviewScore": 4.1,
     "pros": ["Easier to swing", "Affordable"],
     "cons": ["Not powerful"],
-    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/beginner-badminton-rackets-at-badminton-warehouse/products/yonex-carbonex-lite-2"
+    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/beginner-badminton-rackets-at-badminton-warehouse/products/yonex-carbonex-lite-2",
+    "description": "Carbonex Lite 2 is designed for beginners seeking lightweight handling and stability. Its flexible shaft reduces swing effort and improves comfort. Ideal for players learning basic technique and rally control."
   },
   {
     "id": "racquets4u-maspro-black-cobra",
@@ -635,7 +893,8 @@
     "reviewScore": 4.0,
     "pros": ["Entry-level friendly", "Good value"],
     "cons": ["Not advanced performance"],
-    "affiliateUrl": "https://www.racquets4u.com/paragon-cobra-uz-badminton-racquet-unstrung.html"
+    "affiliateUrl": "https://www.racquets4u.com/paragon-cobra-uz-badminton-racquet-unstrung.html",
+    "description": "Maspro Black Cobra is an entry-level racket built for casual and beginner players. Its flexible shaft and balanced frame provide easy control and smooth swings. Best suited for recreational gameplay and practice sessions."
   },
   {
     "id": "racquets4u-li-ning-super-series-2200i",
@@ -657,7 +916,8 @@
     "reviewScore": 4.2,
     "pros": ["Balanced performance", "Good speed"],
     "cons": ["Mid-range power"],
-    "affiliateUrl": "https://www.racquets4u.com/li-ning-super-series-2200i-badminton-racquet-unstrung.html"
+    "affiliateUrl": "https://www.racquets4u.com/li-ning-super-series-2200i-badminton-racquet-unstrung.html",
+    "description": "Li-Ning Super Series 2200i offers dependable all-round performance for intermediate players. Its balanced construction supports both offensive and defensive shots. A solid mid-range racket for consistent match play."
   },
   {
     "id": "badmintonwarehouse-li-ning-ultra-carbon-9000",
@@ -679,7 +939,8 @@
     "reviewScore": 4.4,
     "pros": ["Solid all-round play", "Responsive feel"],
     "cons": ["Not elite level"],
-    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/badminton-rackets/products/li-ning-ultra-carbon-9000"
+    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/badminton-rackets/products/li-ning-ultra-carbon-9000",
+    "description": "Li-Ning Ultra Carbon 9000 is an affordable all-round racket designed for intermediate players. Its even balance and medium-stiff shaft provide a blend of power and speed, making it suitable for players who want versatility across rallies, smashes, and defensive play."
   },
   {
     "id": "badmintonwarehouse-victor-auraspeed-3200",
@@ -701,7 +962,8 @@
     "reviewScore": 4.2,
     "pros": ["Excellent speed focus", "Good maneuverability"],
     "cons": ["Power limited"],
-    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/badminton-rackets/products/victor-auraspeed-3600"
+    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/badminton-rackets/products/victor-auraspeed-3600",
+    "description": "Victor Auraspeed 3200 is built for speed-focused intermediate players. The head-light balance and lightweight frame allow fast swing recovery, quick drives, and solid defensive control, making it ideal for fast-paced rallies."
   },
   {
     "id": "badmintonwarehouse-victor-thruster-k-220h",
@@ -723,7 +985,8 @@
     "reviewScore": 4.3,
     "pros": ["Strong smashes", "Stable frame"],
     "cons": ["Slightly slower defense"],
-    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/badminton-rackets/products/victor-thruster-k-220h"
+    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/badminton-rackets/products/victor-thruster-k-220h",
+    "description": "Victor Thruster K 220H emphasizes attacking play with its head-heavy balance. Designed for intermediate singles players, it helps generate stronger smashes while maintaining enough stability for consistent baseline play."
   },
   {
     "id": "badmintonwarehouse-victor-auraspeed-100x",
@@ -745,7 +1008,8 @@
     "reviewScore": 4.7,
     "pros": ["Lightning fast swings", "Excellent net play"],
     "cons": ["Less forgiving"],
-    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/badminton-rackets/products/victor-auraspeed-100x"
+    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/badminton-rackets/products/victor-auraspeed-100x",
+    "description": "Victor Auraspeed 100X is a high-performance racket for advanced players who prioritize speed and control. Its stiff shaft and aerodynamic frame enable rapid swing speed, precise shot placement, and excellent net control in singles play."
   },
   {
     "id": "racquets4u-li-ning-windstorm-72",
@@ -767,7 +1031,8 @@
     "reviewScore": 4.5,
     "pros": ["Ultra lightweight", "Fast defense"],
     "cons": ["Limited smash power"],
-    "affiliateUrl": "https://www.racquets4u.com/li-ning-windstorm-72-badminton-racquet-unstrung.html"
+    "affiliateUrl": "https://www.racquets4u.com/li-ning-windstorm-72-badminton-racquet-unstrung.html",
+    "description": "Li-Ning Windstorm 72 is an ultra-lightweight racket designed for speed and defensive agility. Its head-light balance makes it easy to maneuver, ideal for intermediate players who prefer fast exchanges, quick reflex shots, and effortless handling."
   },
   {
     "id": "racquets4u-li-ning-wind-lite-900",
@@ -789,7 +1054,8 @@
     "reviewScore": 4.1,
     "pros": ["Very easy to swing", "Comfortable feel"],
     "cons": ["Not suitable for advanced players"],
-    "affiliateUrl": "https://www.racquets4u.com/li-ning-wind-lite-900-badminton-racquet-unstrung.html"
+    "affiliateUrl": "https://www.racquets4u.com/li-ning-wind-lite-900-badminton-racquet-unstrung.html",
+    "description": "Li-Ning Wind Lite 900 is designed for beginners seeking comfort and easy playability. The flexible shaft and extremely lightweight frame reduce fatigue and help players maintain longer rallies with controlled all-round performance."
   },
   {
     "id": "badmintonwarehouse-hundred-atomic-x-power",
@@ -811,7 +1077,8 @@
     "reviewScore": 4.2,
     "pros": ["Good power output", "Solid build"],
     "cons": ["Average speed"],
-    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/badminton-rackets/products/hundred-atomic-x"
+    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/badminton-rackets/products/hundred-atomic-x",
+    "description": "Hundred Atomic X targets intermediate players looking for accessible power. Its head-heavy balance supports stronger smashes while maintaining decent all-round stability, making it suitable for aggressive rally-oriented play."
   },
   {
     "id": "badmintonwarehouse-hundred-vapor-s",
@@ -833,7 +1100,8 @@
     "reviewScore": 4.0,
     "pros": ["Light and quick", "Beginner friendly"],
     "cons": ["Low power"],
-    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/beginner-badminton-rackets-at-badminton-warehouse/products/hundred-vapor-s"
+    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/beginner-badminton-rackets-at-badminton-warehouse/products/hundred-vapor-s",
+    "description": "Hundred Vapor S is a lightweight, speed-oriented racket built for intermediate players. The head-light balance supports fast movement and quick reactions, favoring defensive play and flat exchanges over raw power."
   },
   {
     "id": "racquets4u-yonex-voltric-lite-25i",
@@ -855,7 +1123,8 @@
     "reviewScore": 4.2,
     "pros": ["Affordable power racket", "Easy handling"],
     "cons": ["Limited control"],
-    "affiliateUrl": "https://www.racquets4u.com/yonex-voltric-lite-25i-badminton-racquet-unstrung.html"
+    "affiliateUrl": "https://www.racquets4u.com/yonex-voltric-lite-25i-badminton-racquet-unstrung.html",
+    "description": "Yonex Voltric Lite 25i introduces beginners to head-heavy attacking play. Its lightweight construction makes it easy to swing while still assisting players in generating additional power for clears and smashes."
   },
   {
     "id": "racquets4u-yonex-voltric-7-dg",
@@ -877,7 +1146,8 @@
     "reviewScore": 4.4,
     "pros": ["High tension support", "Powerful smashes"],
     "cons": ["Slightly heavy feel"],
-    "affiliateUrl": "https://www.racquets4u.com/yonex-voltric-7-dg-badminton-racquet-unstrung.html"
+    "affiliateUrl": "https://www.racquets4u.com/yonex-voltric-7-dg-badminton-racquet-unstrung.html",
+    "description": "Yonex Voltric 7 DG is designed for intermediate players who prefer aggressive, power-based play. The head-heavy balance and durable frame allow higher string tension support and consistent smash performance."
   },
   {
     "id": "badmintonwarehouse-apacs-nano-fusion-speed-722",
@@ -899,7 +1169,8 @@
     "reviewScore": 4.3,
     "pros": ["Balanced performance", "Great value"],
     "cons": ["Brand less known"],
-    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/badminton-rackets/products/apacs-nano-fusion-speed-722"
+    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/badminton-rackets/products/apacs-nano-fusion-speed-722",
+    "description": "Apacs Nano Fusion Speed 722 offers balanced all-round performance for intermediate players. Its even balance supports stable rallies, controlled shot placement, and reliable play across both singles and doubles."
   },
   {
     "id": "badmintonwarehouse-victor-thruster-ryuga",
@@ -921,7 +1192,8 @@
     "reviewScore": 4.8,
     "pros": ["Massive smash power", "Tournament-level build"],
     "cons": ["Not forgiving"],
-    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/badminton-rackets/products/victor-thruster-ryuga"
+    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/badminton-rackets/products/victor-thruster-ryuga",
+    "description": "Victor Thruster Ryuga is a premium power racket built for advanced attackers. With a stiff shaft and head-heavy balance, it delivers explosive smashes and deep clears, suited for players with strong technique and physical strength."
   },
   {
     "id": "badmintonwarehouse-victor-jetspeed-s-12",
@@ -943,7 +1215,8 @@
     "reviewScore": 4.6,
     "pros": ["Extremely fast", "Sharp net play"],
     "cons": ["Lower smash power"],
-    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/badminton-rackets/products/victor-jetspeed-s-12"
+    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/badminton-rackets/products/victor-jetspeed-s-12",
+    "description": "Victor Jetspeed S 12 is engineered for speed and precision at an advanced level. Its aerodynamic frame and stiff shaft enable extremely fast swings, making it ideal for rapid exchanges and control-oriented gameplay."
   },
   {
     "id": "racquets4u-li-ning-ax-force-80",
@@ -965,7 +1238,8 @@
     "reviewScore": 4.6,
     "pros": ["Explosive smashes", "Solid frame"],
     "cons": ["Requires strong wrist"],
-    "affiliateUrl": "https://www.racquets4u.com/li-ning-axforce-80-badminton-racquet-unstrung.html"
+    "affiliateUrl": "https://www.racquets4u.com/li-ning-axforce-80-badminton-racquet-unstrung.html",
+    "description": "Li-Ning AXForce 80 is a power-dominant racket aimed at advanced attacking players. The head-heavy balance and stiff shaft provide strong smash penetration, rewarding players with refined timing and wrist strength."
   },
   {
     "id": "racquets4u-li-ning-bladex-800",
@@ -987,7 +1261,8 @@
     "reviewScore": 4.4,
     "pros": ["Fast handling", "Great defense"],
     "cons": ["Smashes less powerful"],
-    "affiliateUrl": "https://www.racquets4u.com/li-ning-bladex-800-badminton-racquet-unstrung.html"
+    "affiliateUrl": "https://www.racquets4u.com/li-ning-bladex-800-badminton-racquet-unstrung.html",
+    "description": "Li-Ning Bladex 800 focuses on speed, defense, and control for intermediate players. Its head-light balance allows quick maneuverability, making it effective for counter-attacks and defensive rallies."
   },
   {
     "id": "badmintonwarehouse-yonex-muscle-power-29",
@@ -1009,7 +1284,8 @@
     "reviewScore": 4.1,
     "pros": ["Durable", "Stable feel"],
     "cons": ["Older frame design"],
-    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/beginner-badminton-rackets-at-badminton-warehouse/products/yonex-muscle-power-29"
+    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/beginner-badminton-rackets-at-badminton-warehouse/products/yonex-muscle-power-29",
+    "description": "Yonex Muscle Power 29 is a durable, beginner-friendly racket designed for consistent all-round play. Its stable frame supports controlled shots and reliable performance for players learning fundamentals."
   },
   {
     "id": "badmintonwarehouse-yonex-voltric-lite-40i",
@@ -1031,7 +1307,8 @@
     "reviewScore": 4.2,
     "pros": ["Easy power generation", "Good for learners"],
     "cons": ["Less precision"],
-    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/beginner-badminton-rackets-at-badminton-warehouse/products/yonex-voltric-lite-40i"
+    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/beginner-badminton-rackets-at-badminton-warehouse/products/yonex-voltric-lite-40i",
+    "description": "Yonex Voltric Lite 40i is designed for beginners seeking easy power generation. The head-heavy balance assists smashes, while the lightweight build ensures comfortable handling during longer sessions."
   },
   {
     "id": "badmintonwarehouse-apacs-z-ziggler",
@@ -1053,7 +1330,8 @@
     "reviewScore": 4.3,
     "pros": ["Excellent control", "Very good value"],
     "cons": ["Not elite-level"],
-    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/badminton-rackets/products/apacs-z-ziggler"
+    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/badminton-rackets/products/apacs-z-ziggler",
+    "description": "Apacs Z Ziggler is a value-focused all-round racket for intermediate players. It emphasizes control and shot consistency, making it suitable for players who prefer precise placement over extreme power."
   },
   {
     "id": "badmintonwarehouse-apacs-edge-saber-10",
@@ -1075,7 +1353,8 @@
     "reviewScore": 4.2,
     "pros": ["Fast swing", "Good net control"],
     "cons": ["Power slightly limited"],
-    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/badminton-rackets/products/apacs-edge-saber-10"
+    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/badminton-rackets/products/apacs-edge-saber-10",
+    "description": "Apacs Edge Saber 10 is optimized for speed and net play. Its head-light balance and responsive frame help intermediate players execute fast drives, quick defense, and controlled front-court shots."
   },
   {
     "id": "racquets4u-hundred-atomic-air-77",
@@ -1097,7 +1376,8 @@
     "reviewScore": 4.3,
     "pros": ["Fast and responsive", "Modern design"],
     "cons": ["Not ideal for heavy smashers"],
-    "affiliateUrl": "https://www.racquets4u.com/hundred-jetstorm-80-badminton-racquet-unstrung.html"
+    "affiliateUrl": "https://www.racquets4u.com/hundred-jetstorm-80-badminton-racquet-unstrung.html",
+    "description": "Hundred Atomic Air 77 is a fast, modern racket aimed at intermediate-advanced players. Its lightweight and head-light design support rapid swings and agile movement, favoring speed-based gameplay."
   },
   {
     "id": "badmintonwarehouse-lining-gforce-3900",
@@ -1119,6 +1399,7 @@
     "reviewScore": 4.0,
     "pros": ["Good power for price", "Durable"],
     "cons": ["Heavy feel"],
-    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/beginner-badminton-rackets-at-badminton-warehouse/products/li-ning-g-force-3900"
+    "affiliateUrl": "https://www.badmintonwarehouse.com/collections/beginner-badminton-rackets-at-badminton-warehouse/products/li-ning-g-force-3900",
+    "description": "Li-Ning G-Force 3900 is a beginner-oriented power racket with a solid and durable build. The head-heavy balance helps new players generate stronger shots while learning attacking fundamentals."
   }
 ]

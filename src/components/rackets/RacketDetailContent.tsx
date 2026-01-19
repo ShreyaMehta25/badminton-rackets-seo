@@ -5,6 +5,7 @@ import { Player } from "@/data/players";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useState, useRef, useEffect } from "react";
 
 const formatKebab = (value: string) =>
   value
@@ -99,13 +100,95 @@ export type RacketDetailContentProps = {
   allRackets: Racket[];
 };
 
+// Component for expandable description
+function ExpandableDescription({ description }: { description: string }) {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [showToggle, setShowToggle] = useState(false);
+  const textRef = useRef<HTMLParagraphElement>(null);
+
+  useEffect(() => {
+    if (textRef.current) {
+      // Check if content height exceeds 2 lines
+      // Compare scrollHeight (full content) with clientHeight (visible content)
+      const lineHeight = parseFloat(getComputedStyle(textRef.current).lineHeight);
+      const twoLineHeight = lineHeight * 2;
+      
+      // Temporarily remove line-clamp to measure full height
+      const originalClass = textRef.current.className;
+      textRef.current.classList.remove("line-clamp-2");
+      const fullHeight = textRef.current.scrollHeight;
+      textRef.current.className = originalClass;
+      
+      if (fullHeight > twoLineHeight) {
+        setShowToggle(true);
+      }
+    }
+  }, [description]);
+
+  return (
+    <div className="space-y-2">
+      <p
+        ref={textRef}
+        className={`text-white/80 text-sm leading-relaxed transition-all duration-300 ${
+          !isExpanded && showToggle ? "line-clamp-2" : ""
+        }`}
+      >
+        {description}
+      </p>
+      {showToggle && (
+        <button
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="text-emerald-400 hover:text-emerald-300 text-sm font-medium transition-colors flex items-center gap-1 mt-1"
+        >
+          {isExpanded ? (
+            <>
+              <span>Show less</span>
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M5 15l7-7 7 7"
+                />
+              </svg>
+            </>
+          ) : (
+            <>
+              <span>Show more</span>
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </>
+          )}
+        </button>
+      )}
+    </div>
+  );
+}
+
 export default function RacketDetailContent({ racket, associatedPlayers, allRackets }: RacketDetailContentProps) {
   const router = useRouter();
   
-  // Generate description from pros
-  const description = racket.pros.length > 0 
-    ? racket.pros[0] + (racket.pros.length > 1 ? ` ${racket.pros.slice(1).join(". ")}.` : ".")
-    : `Premium ${racket.brand} racket designed for ${racket.playerLevel} players.`;
+  // Use actual description if available, otherwise generate from pros
+  const description = racket.description || 
+    (racket.pros.length > 0 
+      ? racket.pros[0] + (racket.pros.length > 1 ? ` ${racket.pros.slice(1).join(". ")}.` : ".")
+      : `Premium ${racket.brand} racket designed for ${racket.playerLevel} players.`);
 
   // Get similar rackets
   const similarRackets = getSimilarRackets(racket, allRackets);
@@ -216,15 +299,7 @@ export default function RacketDetailContent({ racket, associatedPlayers, allRack
               </span>
             </motion.h1>
 
-            {/* Description */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="text-white/80 text-sm leading-relaxed max-w-lg"
-            >
-              {description}
-            </motion.p>
+            {/* Description - moved below price */}
 
             {/* Attribute Pills */}
             <motion.div
@@ -258,6 +333,17 @@ export default function RacketDetailContent({ racket, associatedPlayers, allRack
               <p className="text-xl font-black text-white">
                 ₹{racket.price.toLocaleString()}
               </p>
+            </motion.div>
+
+            {/* Description - Below Price */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.75 }}
+              className="space-y-2 max-w-lg"
+            >
+              <p className="text-white/60 text-xs uppercase tracking-wide">DESCRIPTION</p>
+              <ExpandableDescription description={description} />
             </motion.div>
 
             {/* Primary CTA */}
