@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import rackets from "@/data/rackets.json";
+import { Play, Pause } from "lucide-react";
 
 /* ✅ ADD / EDIT IMAGE URLS HERE */
 const brandImages: Record<string, string> = {
@@ -68,7 +69,7 @@ export default function BrandBannerCarousel() {
     if (isPaused || totalSlides <= 1) return;
     const interval = setInterval(
       () => setCurrentSlide((prev) => (prev + 1) % totalSlides),
-      4000,
+      3750,
     );
     return () => clearInterval(interval);
   }, [isPaused, totalSlides]);
@@ -101,7 +102,7 @@ export default function BrandBannerCarousel() {
         {/* Slides */}
         <div className="overflow-hidden">
           <div
-            className="flex transition-transform duration-500 ease-out"
+            className="flex transition-transform duration-400 ease-out"
             style={{ transform: `translateX(-${currentSlide * 100}%)` }}
           >
             {brands.map(({ brand }) => (
@@ -156,6 +157,24 @@ export default function BrandBannerCarousel() {
           className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white p-3 rounded-full shadow"
         >
           <ChevronRight />
+        </button>
+      </div>
+      {/* Play / Pause Control */}
+      <div className="absolute left-1/2 bottom-16 -translate-x-1/2 z-30">
+        <button
+          onClick={() => setIsPaused((p) => !p)}
+          className="flex items-center justify-center
+               w-9 h-9 rounded-full
+               bg-white/90 backdrop-blur
+               shadow-md hover:shadow-lg
+               hover:scale-105 transition"
+          aria-label={isPaused ? "Play carousel" : "Pause carousel"}
+        >
+          {isPaused ? (
+            <Play className="w-4 h-4 text-slate-700" />
+          ) : (
+            <Pause className="w-4 h-4 text-slate-700" />
+          )}
         </button>
       </div>
 
