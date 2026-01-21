@@ -1,13 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import SearchBar from "@/components/ui/SearchBar";
 
 export default function Navigation() {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/70 backdrop-blur-md border-b border-slate-800">
-      <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="text-emerald-400">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between gap-8">
+        <Link href="/" className="flex items-center gap-3 flex-shrink-0">
+          <div className="text-emerald-600">
             <svg
               className="size-8"
               fill="none"
@@ -20,35 +21,14 @@ export default function Navigation() {
               ></path>
             </svg>
           </div>
-          <h2 className="text-xl font-bold tracking-tight">SmashSelect</h2>
-        </div>
-        <div className="hidden md:flex items-center gap-10">
-          <Link
-            href="/rackets"
-            className="text-sm font-medium hover:text-emerald-400 transition-colors"
-          >
-            Discover
-          </Link>
-          <Link
-            href="/players"
-            className="text-sm font-medium hover:text-emerald-400 transition-colors"
-          >
-            Pro Gears
-          </Link>
-          <Link
-            href="/rackets"
-            className="text-sm font-medium hover:text-emerald-400 transition-colors"
-          >
-            Compare
-          </Link>
-        </div>
-        <div className="flex items-center gap-6">
-          <Link
-            href="/rackets"
-            className="bg-emerald-500 hover:bg-emerald-400 text-white text-sm font-bold h-11 px-6 rounded-xl transition-all shadow-lg shadow-emerald-500/20"
-          >
-            Get Started
-          </Link>
+          <div className="hidden md:block">
+            <h2 className="text-xl font-bold tracking-tight text-slate-900">SmashSelect</h2>
+            <p className="text-xs text-slate-500">Badminton Rackets</p>
+          </div>
+        </Link>
+
+        <div className="flex-1 max-w-2xl">
+          <SearchBar />
         </div>
       </div>
     </nav>

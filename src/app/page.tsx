@@ -1,13 +1,17 @@
 import Script from "next/script";
 import type { Metadata } from "next";
-import HeroSection from "@/components/landing/HeroSection";
-import TrustStrip from "@/components/landing/TrustStrip";
-import HowToChoose from "@/components/landing/HowToChoose";
-import ShopByPlayerType from "@/components/landing/ShopByPlayerType";
+import IkeaHeader from "@/components/landing/IkeaHeader";
+import CompactHero from "@/components/landing/CompactHero";
+import BrandCarousel from "@/components/landing/BrandCarousel";
+import SkillLevelGuide from "@/components/landing/SkillLevelGuide";
+import PlayStyleGuide from "@/components/landing/PlayStyleGuide";
+import PlayerInspiration from "@/components/landing/PlayerInspiration";
 import ExpertPicks from "@/components/landing/ExpertPicks";
 import EducationalContent from "@/components/landing/EducationalContent";
 import ComparisonPreview from "@/components/landing/ComparisonPreview";
 import FAQSection from "@/components/landing/FAQSection";
+import ShopByWeight from "@/components/landing/ShopByWeight";
+import ShopByBudget from "@/components/landing/ShopByBudget";
 import FinalCTA from "@/components/landing/FinalCTA";
 
 export const metadata: Metadata = {
@@ -126,34 +130,35 @@ export default function HomePage() {
         }}
       />
 
-      <main>
-        {/* Hero Section - Above the fold */}
-        <HeroSection />
+      <>
+        {/* IKEA-Style Header */}
+        <IkeaHeader />
 
-        {/* Trust & Authority Strip */}
-        {/* <TrustStrip /> */}
+        <main>
+          {/* Compact Hero - Just the heading */}
+          <CompactHero />
+          {/* Flipkart-Style Auto-Banner Carousel - IMMEDIATELY below hero */}
+          <BrandCarousel />
 
-        {/* How to Choose Guide - Educational SEO Content */}
-        <HowToChoose />
-
-        {/* Shop by Player Type - High Conversion */}
-        <ShopByPlayerType />
-
-        {/* Expert Picks - Featured Rackets */}
-        <ExpertPicks />
-
-        {/* Educational Content Block */}
-        <EducationalContent />
-
-        {/* Comparison Preview Section */}
-        <ComparisonPreview />
-
-        {/* FAQ Section - SEO + UX */}
-        <FAQSection />
-
-        {/* Final CTA */}
-        <FinalCTA />
-      </main>
+          {/* Expert Picks - Top-rated rackets */}
+          <ExpertPicks />
+          {/* Skill Level Guide - 3 Tiles (NO product cards) */}
+          <SkillLevelGuide />
+          <PlayStyleGuide />
+          <ShopByWeight />
+          {/* Player Inspiration - Auto-rotating carousel */}
+          <ShopByBudget />
+          <PlayerInspiration />
+          {/* Educational Content Block */}
+          <EducationalContent />
+          {/* Comparison Preview Section */}
+          <ComparisonPreview />
+          {/* FAQ Section - SEO + UX */}
+          <FAQSection />
+          {/* Final CTA */}
+          {/* <FinalCTA /> */}
+        </main>
+      </>
     </>
   );
 }

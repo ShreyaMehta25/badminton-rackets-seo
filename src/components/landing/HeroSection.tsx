@@ -2,8 +2,13 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import rackets from "@/data/rackets.json";
 
 export default function HeroSection() {
+  // Get top-rated racket for hero image
+  const heroRacket = rackets
+    .sort((a, b) => b.reviewScore - a.reviewScore)[0];
+
   return (
     <section className="relative min-h-[105vh] flex flex-col bg-[linear-gradient(180deg,#F8FAFC_0%,#CBD5E1_55%,#F8FAFC_100%)] overflow-hidden">
       {/* Subtle background pattern */}
@@ -33,13 +38,32 @@ export default function HeroSection() {
       </header>
 
       {/* Main content */}
-      <div className="flex-1 flex flex-col items-center justify-center max-w-6xl mx-auto px-6 text-center z-10">
+      <div className="flex-1 flex flex-col items-center justify-center max-w-6xl mx-auto px-6 text-center z-10 relative">
+        {/* Hero Racket Image (Desktop) */}
+        {heroRacket && (
+          <motion.div
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-96 h-96 pointer-events-none"
+          >
+            <div className="relative w-full h-full">
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/20 to-transparent rounded-full blur-3xl" />
+              <img
+                src={heroRacket.imageUrl}
+                alt={heroRacket.name}
+                className="w-full h-full object-contain drop-shadow-2xl"
+              />
+            </div>
+          </motion.div>
+        )}
+
         {/* Headline – slightly smaller */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.15] tracking-tight text-slate-800 mb-6"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.15] tracking-tight text-slate-800 mb-6 max-w-3xl"
         >
           Find the Perfect{" "}
           <span className="text-emerald-400">Badminton Racket</span>

@@ -8,6 +8,7 @@ export type Racket = {
   flex: string;
   playerLevel: "beginner" | "intermediate" | "advanced";
   bestFor: string[];
+  playStyles: string[];
   imageUrl: string;
   reviewScore: number;
   pros: string[];

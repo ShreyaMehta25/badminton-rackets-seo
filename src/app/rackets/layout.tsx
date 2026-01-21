@@ -6,11 +6,11 @@ import Link from "next/link";
 import RacketSidebar from "@/components/rackets/RacketSidebar";
 import { SortProvider, useSort } from "@/contexts/SortContext";
 
-function NavbarContent({ 
-  open, 
-  setOpen 
-}: { 
-  open: boolean; 
+function NavbarContent({
+  open,
+  setOpen,
+}: {
+  open: boolean;
   setOpen: (value: boolean | ((prev: boolean) => boolean)) => void;
 }) {
   return (
@@ -18,17 +18,25 @@ function NavbarContent({
       <button
         onClick={() => setOpen((prev) => !prev)}
         className={`relative inline-flex items-center gap-2 transition-all duration-300 text-medium font-semibold text-slate-100 hover:text-emerald-300 px-3 py-1.5 rounded-lg hover:bg-emerald-800/30 ${
-          open ? "underline decoration-emerald-400 decoration-2 underline-offset-4" : ""
+          open
+            ? "underline decoration-emerald-400 decoration-2 underline-offset-4"
+            : ""
         }`}
       >
         <span className="text-xl">☰</span> Filters
       </button>
 
       <Link
-        href="/rackets"
+        href="/"
         className="text-medium font-semibold text-slate-50 hover:text-emerald-300 transition-all duration-300 px-3 py-1.5 rounded-lg hover:bg-emerald-800/30"
       >
         Home
+      </Link>
+      <Link
+        href="/rackets"
+        className="text-medium font-semibold text-slate-50 hover:text-emerald-300 transition-all duration-300 px-3 py-1.5 rounded-lg hover:bg-emerald-800/30"
+      >
+        Catalogue
       </Link>
     </>
   );
@@ -41,27 +49,30 @@ export default function RacketsLayout({
 }) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  
+
   // Show navbar on filter/search results pages, hide on detail pages
   // Strategy: Show navbar on ALL /rackets/* paths EXCEPT confirmed detail pages
   // Detail pages are /rackets/[id] where id is a product ID (typically has multiple hyphens like "yonex-astrox-100zz")
   // Filter pages can be: /rackets/for-beginners, /rackets/yonex, /rackets/under-5000, etc.
-  
+
   // Check if path is definitely a detail page:
   // - Single segment under /rackets/
   // - Contains multiple hyphens (product IDs like "yonex-astrox-100zz" have 2+ hyphens)
   // - Does NOT contain filter keywords
   const lastSegment = pathname?.split("/").pop() || "";
-  const isDetailPage = pathname?.match(/^\/rackets\/[^/]+$/) && 
-    !pathname.includes("for-") && 
-    !pathname.includes("under-") && 
+  const isDetailPage =
+    pathname?.match(/^\/rackets\/[^/]+$/) &&
+    !pathname.includes("for-") &&
+    !pathname.includes("under-") &&
     !pathname.match(/\/rackets\/(brand|4u|3u|5u)(-|$)/) &&
     // Product IDs typically have 2+ hyphens (e.g., "yonex-astrox-100zz")
     lastSegment.split("-").length >= 3;
-  
+
   // Show navbar on base /rackets page and ALL /rackets/* paths that are NOT detail pages
   // This ensures navbar shows when filter menu is used (even for single-word filters like "yonex")
-  const showNavbar = pathname === "/rackets" || (pathname?.startsWith("/rackets/") && !isDetailPage);
+  const showNavbar =
+    pathname === "/rackets" ||
+    (pathname?.startsWith("/rackets/") && !isDetailPage);
 
   return (
     <SortProvider>
@@ -75,7 +86,9 @@ export default function RacketsLayout({
       )}
 
       {/* Main content - adjust padding based on navbar visibility */}
-      <div className={`max-w-7xl mx-auto px-6 ${showNavbar ? "pt-20" : "pt-10"} pb-10`}>
+      <div
+        className={`max-w-7xl mx-auto px-6 ${showNavbar ? "pt-20" : "pt-10"} pb-10`}
+      >
         {/* Dynamic grid - only show sidebar on pages with navbar */}
         {showNavbar ? (
           <div

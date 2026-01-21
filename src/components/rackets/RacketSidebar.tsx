@@ -37,11 +37,11 @@ export default function RacketSidebar() {
 
   const Section = ({ title, items }: { title: string; items: string[] }) => (
     <div className="mb-8">
-      <h3 className="text-sm font-bold text-white mb-4 uppercase tracking-wider flex items-center gap-2">
+      <h3 className="text-sm font-bold text-slate-800 mb-4 uppercase tracking-wider flex items-center gap-2">
         <span className="w-1 h-4 bg-gradient-to-b from-emerald-400 to-emerald-500 rounded-full"></span>
         {title}
       </h3>
-      <div className="flex flex-wrap gap-2.5">
+      <div className="flex flex-wrap gap-2.5 px-1">
         {items.map((item) => {
           const isActive = activeFilters.includes(item);
           const nextAdd = Array.from(new Set([...activeFilters, item]));
@@ -69,7 +69,7 @@ export default function RacketSidebar() {
             <Link
               key={item}
               href={buildPath(nextAdd)}
-              className="px-4 py-2 rounded-xl text-sm bg-gradient-to-br from-slate-800 to-slate-700 hover:from-slate-700 hover:to-slate-600 border border-slate-600/50 text-slate-100 font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-slate-500"
+              className="px-4 py-2 rounded-xl text-sm bg-gradient-to-br from-slate-100 to-slate-200 hover:from-slate-200 hover:to-slate-100 border border-slate-600/50 text-slate-500 font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-slate-500"
             >
               {formatLabel(item)}
             </Link>
@@ -83,9 +83,9 @@ export default function RacketSidebar() {
     <div className="sticky top-24 max-h-[calc(100vh-8rem)] overflow-y-auto pr-2 sidebar-scroll">
       {/* Price Sort Section - Above Brand */}
       <div className="mb-8">
-        <label 
-          htmlFor="price-sort-sidebar" 
-          className="text-sm font-bold text-white mb-4 uppercase tracking-wider flex items-center gap-2"
+        <label
+          htmlFor="price-sort-sidebar"
+          className="text-sm font-bold text-slate-800 mb-4 uppercase tracking-wider flex items-center gap-2"
         >
           <span className="w-1 h-4 bg-gradient-to-b from-emerald-400 to-emerald-500 rounded-full"></span>
           Sort by Price
@@ -93,8 +93,10 @@ export default function RacketSidebar() {
         <select
           id="price-sort-sidebar"
           value={sortOrder}
-          onChange={(e) => setSortOrder(e.target.value as "low-to-high" | "high-to-low")}
-          className="w-full px-4 py-2.5 rounded-xl bg-gradient-to-br from-slate-800 to-slate-700 border border-slate-600/50 text-slate-100 font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50 transition-all hover:from-slate-700 hover:to-slate-600 mt-4"
+          onChange={(e) =>
+            setSortOrder(e.target.value as "low-to-high" | "high-to-low")
+          }
+          className="w-full px-4 py-2.5 rounded-xl bg-gradient-to-br from-slate-100 to-slate-200 border border-slate-600/50 text-slate-500 font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50 transition-all hover:from-slate-200 hover:to-slate-100 mt-4"
           aria-label="Sort rackets by price"
         >
           <option value="low-to-high">Low to High</option>

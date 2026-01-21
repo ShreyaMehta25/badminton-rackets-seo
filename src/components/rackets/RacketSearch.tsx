@@ -33,11 +33,12 @@ export default function RacketSearch({ rackets }: { rackets: Racket[] }) {
   /**
    * Check if query exactly matches a product name or ID
    */
-  function findExactProductMatch(normalizedQuery: string, originalQuery: string): Racket | null {
+  function findExactProductMatch(
+    normalizedQuery: string,
+    originalQuery: string,
+  ): Racket | null {
     // Try exact ID match first (normalized)
-    const byId = rackets.find(
-      (r) => r.id.toLowerCase() === normalizedQuery
-    );
+    const byId = rackets.find((r) => r.id.toLowerCase() === normalizedQuery);
     if (byId) return byId;
 
     // Try exact name match (case-insensitive, with/without hyphens)
@@ -45,7 +46,7 @@ export default function RacketSearch({ rackets }: { rackets: Racket[] }) {
       const normalizedName = normalizeQuery(r.name);
       const lowerName = r.name.toLowerCase();
       const queryWithSpaces = normalizedQuery.replace(/-/g, " ");
-      
+
       return (
         normalizedName === normalizedQuery ||
         lowerName === queryWithSpaces ||
@@ -118,7 +119,7 @@ export default function RacketSearch({ rackets }: { rackets: Racket[] }) {
   function findPlayerMatch(playerSlug: string): string | null {
     // Try exact ID match first
     const byId = players.find(
-      (p) => p.id.toLowerCase() === playerSlug && p.isActive
+      (p) => p.id.toLowerCase() === playerSlug && p.isActive,
     );
     if (byId) return byId.id;
 
@@ -126,7 +127,10 @@ export default function RacketSearch({ rackets }: { rackets: Racket[] }) {
     const byName = players.find((p) => {
       if (!p.isActive) return false;
       const normalizedName = normalizeQuery(p.name);
-      return normalizedName === playerSlug || p.name.toLowerCase().replace(/\s+/g, "-") === playerSlug;
+      return (
+        normalizedName === playerSlug ||
+        p.name.toLowerCase().replace(/\s+/g, "-") === playerSlug
+      );
     });
     if (byName) return byName.id;
 
@@ -153,7 +157,10 @@ export default function RacketSearch({ rackets }: { rackets: Racket[] }) {
    * Handle professional intent by mapping to advanced/intermediate
    * Returns the best filter URL based on product count
    */
-  function handleProfessionalIntent(originalQuery: string, normalizedQuery: string): string | null {
+  function handleProfessionalIntent(
+    originalQuery: string,
+    normalizedQuery: string,
+  ): string | null {
     // Remove professional keywords to get remaining filters
     let cleaned = originalQuery.toLowerCase();
     const professionalKeywords = [
@@ -184,9 +191,13 @@ export default function RacketSearch({ rackets }: { rackets: Racket[] }) {
     }
 
     // Fallback to "intermediate"
-    const intermediateFilters = { ...otherFilters, playerLevel: "intermediate" };
+    const intermediateFilters = {
+      ...otherFilters,
+      playerLevel: "intermediate",
+    };
     if (isAllowedCombination(intermediateFilters)) {
-      const intermediateRackets = filterProductsByParsedFilters(intermediateFilters);
+      const intermediateRackets =
+        filterProductsByParsedFilters(intermediateFilters);
       if (intermediateRackets.length >= PAGE_RULES.MIN_PRODUCTS) {
         const url = buildCanonicalUrl(intermediateFilters);
         return url;
@@ -204,7 +215,8 @@ export default function RacketSearch({ rackets }: { rackets: Racket[] }) {
 
     // Last resort: intermediate if it has any products
     if (isAllowedCombination(intermediateFilters)) {
-      const intermediateRackets = filterProductsByParsedFilters(intermediateFilters);
+      const intermediateRackets =
+        filterProductsByParsedFilters(intermediateFilters);
       if (intermediateRackets.length > 0) {
         const url = buildCanonicalUrl(intermediateFilters);
         return url;
@@ -276,7 +288,7 @@ export default function RacketSearch({ rackets }: { rackets: Racket[] }) {
 
   // For live filtering (existing behavior)
   const filtered = rackets.filter((r) =>
-    r.name.toLowerCase().includes(query.toLowerCase())
+    r.name.toLowerCase().includes(query.toLowerCase()),
   );
 
   return (
@@ -289,7 +301,7 @@ export default function RacketSearch({ rackets }: { rackets: Racket[] }) {
           id="racket-search"
           type="text"
           placeholder="Search Rackets..."
-          className="w-full p-4 pl-12 rounded-xl bg-slate-800/80 backdrop-blur-sm border border-slate-700/50 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50 transition-all duration-300 text-slate-100 placeholder:text-slate-500 shadow-lg hover:shadow-xl"
+          className="w-full p-4 pl-12 rounded-xl bg-white backdrop-blur-sm border border-slate-700/50 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50 transition-all duration-300 text-slate-100 placeholder:text-slate-500 shadow-lg hover:shadow-xl"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           aria-describedby="search-hint"
@@ -298,7 +310,7 @@ export default function RacketSearch({ rackets }: { rackets: Racket[] }) {
           Search by racket name, brand, player level, or playing style
         </span>
         <svg
-          className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-emerald-400 transition-colors"
+          className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-700 group-focus-within:text-emerald-400 transition-colors"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"

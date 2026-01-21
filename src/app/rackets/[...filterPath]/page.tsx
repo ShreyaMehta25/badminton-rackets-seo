@@ -30,7 +30,6 @@ const matchesRating = (filter: string, rating: number) => {
    SEO FILTER PARSING & VALIDATION
 -------------------------------- */
 
-
 /* -------------------------------
    INTERNAL LINKING CONFIGURATION
 -------------------------------- */
@@ -50,8 +49,8 @@ const LINKABLE_FILTERS = {
   priceSlabs: ["under-5000", "under-8000", "under-15000", "under-20000"],
   weight: ["3U", "4U", "5U"],
   brand: getAllBrands(),
+  playStyles: ["speed", "control", "power"],
 };
-
 
 /* -------------------------------
    SEO METADATA GENERATION HELPERS
@@ -62,7 +61,7 @@ const LINKABLE_FILTERS = {
  */
 function getHumanReadableLabel(
   filterType: keyof ParsedFilters,
-  value: string
+  value: string,
 ): string {
   switch (filterType) {
     case "playerLevel":
@@ -102,7 +101,7 @@ function getActiveFilterLabels(parsedFilters: ParsedFilters): string[] {
   // Fixed order: playerLevel → priceSlabs → weight → brand
   if (parsedFilters.playerLevel) {
     labels.push(
-      getHumanReadableLabel("playerLevel", parsedFilters.playerLevel)
+      getHumanReadableLabel("playerLevel", parsedFilters.playerLevel),
     );
   }
 
@@ -167,7 +166,7 @@ function generateConsolidatedSchema(
   rackets: Racket[],
   canonicalPath: string,
   pageTitle: string,
-  pageDescription: string
+  pageDescription: string,
 ): object | null {
   if (rackets.length < PAGE_RULES.MIN_PRODUCTS) {
     return null;
@@ -327,7 +326,7 @@ function buildFilterUrl(parsedFilters: ParsedFilters): string {
  */
 function getLinkLabel(parsedFilters: ParsedFilters): string {
   const filterLabels = getActiveFilterLabels(parsedFilters);
-  
+
   if (filterLabels.length === 0) {
     return "Badminton Rackets";
   }
@@ -345,11 +344,11 @@ function getLinkLabel(parsedFilters: ParsedFilters): string {
  */
 function generateInternalLinks(
   currentFilters: ParsedFilters,
-  currentPageUrl?: string
+  currentPageUrl?: string,
 ): InternalLink[] {
   const links: InternalLink[] = [];
   const currentFilterKeys = Object.keys(currentFilters).filter(
-    (key) => currentFilters[key as keyof ParsedFilters] !== undefined
+    (key) => currentFilters[key as keyof ParsedFilters] !== undefined,
   );
   const currentFilterCount = currentFilterKeys.length;
   const currentUrl = currentPageUrl || buildFilterUrl(currentFilters);
@@ -421,7 +420,7 @@ function generateInternalLinks(
 
   // Remove duplicates and limit to 8
   const uniqueLinks = Array.from(
-    new Map(links.map((link) => [link.url, link])).values()
+    new Map(links.map((link) => [link.url, link])).values(),
   ).slice(0, 8);
 
   return uniqueLinks;
@@ -487,7 +486,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     parsedFilters.brand = joinedParsed.brand;
 
   // 2. Check eligibility using shared eligibility module (SINGLE SOURCE OF TRUTH)
-  const filterPathForEligibility = buildCanonicalUrl(parsedFilters) || filterPathString;
+  const filterPathForEligibility =
+    buildCanonicalUrl(parsedFilters) || filterPathString;
   const shouldIndex = isIndexableFilterPage(filterPathForEligibility);
 
   // 3. Filter products from dataset using parsed filters (for display)
@@ -601,7 +601,8 @@ export default async function FilteredRacketsPage({ params }: Props) {
     parsedFilters.brand = joinedParsed.brand;
 
   // 2. Check eligibility using shared eligibility module (SINGLE SOURCE OF TRUTH)
-  const filterPathForEligibility = buildCanonicalUrl(parsedFilters) || filterPathString;
+  const filterPathForEligibility =
+    buildCanonicalUrl(parsedFilters) || filterPathString;
   const shouldIndex = isIndexableFilterPage(filterPathForEligibility);
 
   // 3. Filter products from dataset using parsed filters (for display)
@@ -612,9 +613,10 @@ export default async function FilteredRacketsPage({ params }: Props) {
 
   // Generate heading: "Badminton Rackets for [filter labels]"
   const filterLabels = getActiveFilterLabels(parsedFilters);
-  const heading = filterLabels.length > 0
-    ? `Badminton Rackets for ${filterLabels.join(" ")}`
-    : "Badminton Rackets";
+  const heading =
+    filterLabels.length > 0
+      ? `Badminton Rackets for ${filterLabels.join(" ")}`
+      : "Badminton Rackets";
 
   // Build canonical URL for breadcrumb
   const canonicalPath = shouldIndex
@@ -630,7 +632,7 @@ export default async function FilteredRacketsPage({ params }: Props) {
         sortedRackets,
         canonicalPath,
         pageTitle,
-        pageDescription
+        pageDescription,
       )
     : null;
 
@@ -648,7 +650,7 @@ export default async function FilteredRacketsPage({ params }: Props) {
         />
       )}
 
-      <h1 className="text-4xl font-extrabold mb-4">{heading}</h1>
+      <h1 className="text-4xl font-extrabold mb-4 text-slate-700">{heading}</h1>
 
       <p className="text-slate-400 mb-8">
         Showing {filteredRackets.length} rackets.
@@ -665,8 +667,11 @@ export default async function FilteredRacketsPage({ params }: Props) {
       {/* Internal Links Section */}
       {(() => {
         const currentPageUrl = buildFilterUrl(parsedFilters);
-        const internalLinks = generateInternalLinks(parsedFilters, currentPageUrl);
-        
+        const internalLinks = generateInternalLinks(
+          parsedFilters,
+          currentPageUrl,
+        );
+
         if (internalLinks.length >= 3) {
           return (
             <section className="mt-12 pt-8 border-t border-slate-200">
