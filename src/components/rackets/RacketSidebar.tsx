@@ -157,7 +157,7 @@ export default function RacketSidebar() {
     <details className="mb-10 ">
       <summary className="text-sm font-bold text-slate-800 uppercase tracking-wider flex items-center justify-between cursor-pointer py-2">
         <div className="flex items-center gap-2">
-          <span className="w-1 h-4 bg-emerald-500 rounded-full" />
+          <span className="w-1 h-4 bg-slate-500 rounded-full" />
           {title}
         </div>
         <span className="transition-transform duration-200 inline-block">
@@ -211,10 +211,10 @@ export default function RacketSidebar() {
       `}</style>
 
       {/* SORT */}
-      <details className="mb-2">
+      <details className="mb-10">
         <summary className="text-sm font-bold text-slate-800 uppercase tracking-wider flex items-center justify-between cursor-pointer py-2">
           <div className="flex items-center gap-2">
-            <span className="w-1 h-4 bg-emerald-500 rounded-full" />
+            <span className="w-1 h-4 bg-slate-500 rounded-full" />
             Sort by Price
           </div>
           <span className="transition-transform duration-200 inline-block">
@@ -227,7 +227,7 @@ export default function RacketSidebar() {
           onChange={(e) =>
             setSortOrder(e.target.value as "low-to-high" | "high-to-low")
           }
-          className="w-full px-3 py-2 rounded-xl bg-slate-100 border border-slate-300 text-slate-600 mt-2"
+          className="w-full px-3 py-2 rounded-xl bg-slate-100 border border-slate-300 text-slate-600 mt-2 [&>option:hover]:bg-slate-300"
         >
           <option value="low-to-high">Low to High</option>
           <option value="high-to-low">High to Low</option>

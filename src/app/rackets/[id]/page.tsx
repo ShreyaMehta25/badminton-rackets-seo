@@ -85,7 +85,7 @@ export default async function RacketPage({ params }: Props) {
   const racketData = racketWithPlayers.find((r) => r.id === id);
   const playerIds = racketData?.usedByPlayers || [];
   const associatedPlayers = players.filter(
-    (p) => p.isActive && playerIds.includes(p.id)
+    (p) => p.isActive && playerIds.includes(p.id),
   );
 
   // Product schema
@@ -180,7 +180,7 @@ export default async function RacketPage({ params }: Props) {
     {
       question: `What playing style is ${racket.name} best for?`,
       answer: `The ${racket.name} is best suited for ${racket.bestFor.join(
-        ", "
+        ", ",
       )} play styles. It performs well for players who prefer ${
         racket.balance
       } rackets.`,
@@ -276,20 +276,17 @@ export default async function RacketPage({ params }: Props) {
         />
 
         <section>
-          <h2 className="text-2xl font-bold mb-6">
+          <h2 className="text-2xl font-bold mb-3 text-slate-700 mt-10">
             Frequently Asked Questions
           </h2>
 
           <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <details
-                key={index}
-                className="group rounded-lg border border-slate-700 p-4"
-              >
-                <summary className="cursor-pointer font-medium text-slate-200">
+              <details key={index} className="group   p-4">
+                <summary className="cursor-pointer font-medium text-slate-600">
                   {faq.question}
                 </summary>
-                <p className="mt-2 text-slate-400">{faq.answer}</p>
+                <p className="mt-2 text-slate-500 max-w-2xl">{faq.answer}</p>
               </details>
             ))}
           </div>
