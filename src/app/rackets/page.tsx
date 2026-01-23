@@ -107,7 +107,8 @@
 //   );
 // }
 import rackets from "@/data/rackets.json";
-import RacketSearch from "@/components/rackets/RacketSearch";
+import RacketGrid from "@/components/rackets/RacketGrid";
+import RacketSidebar from "@/components/rackets/RacketSidebar";
 import { Racket } from "@/types/racket";
 import type { Metadata } from "next";
 import Script from "next/script";
@@ -175,27 +176,27 @@ export default function RacketsPage() {
         }}
       />
 
-      <main className="max-w-7xl mx-auto px-6 py-10 bg-white">
-        <div className="animate-fade-in">
-          {/* Header */}
-          <div className="relative mb-8">
-            <h1 className="text-2xl md:text-3xl font-bold mb-3 text-slate-900">
-              🏸 Best Badminton Rackets in 2026
-            </h1>
+      <main className="max-w-7xl mx-auto px-6 py-10 bg-white ml-7">
+        <div className="grid grid-cols-[20%_80%] gap-8">
+          <aside>
+            <RacketSidebar />
+          </aside>
+          <div className="animate-fade-in">
+            {/* Header */}
+            <div className="relative mb-8">
+              <h1 className="text-2xl md:text-3xl font-bold mb-3 text-slate-900">
+                Best Badminton Rackets in 2026
+              </h1>
 
-            <h2 className="text-xl md:text-2xl font-semibold text-slate-700 mb-4">
-              Compare Professional & Beginner Badminton Rackets
-            </h2>
+              <h2 className="text-med md:text-lg  text-slate-700 mb-4">
+                Compare Professional & Beginner Badminton Rackets
+              </h2>
 
-            <div className="absolute -bottom-2 left-0 w-20 h-1 bg-emerald-500/70 rounded-full"></div>
+              <div className="absolute -bottom-2 left-0 w-200 h-0.3 bg-slate-500/70 rounded-full"></div>
+            </div>
+
+            <RacketGrid rackets={allRackets} />
           </div>
-
-          <p className="text-base md:text-lg text-slate-600 max-w-5xl leading-relaxed mb-8">
-            Discover professional and beginner badminton rackets. Compare specs,
-            balance, prices, and reviews to find the perfect fit.
-          </p>
-
-          <RacketSearch rackets={allRackets} />
         </div>
       </main>
     </>

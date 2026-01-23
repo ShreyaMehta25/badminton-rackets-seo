@@ -1,6 +1,5 @@
 import Script from "next/script";
 import type { Metadata } from "next";
-import IkeaHeader from "@/components/landing/IkeaHeader";
 import CompactHero from "@/components/landing/CompactHero";
 import BrandCarousel from "@/components/landing/BrandCarousel";
 import SkillLevelGuide from "@/components/landing/SkillLevelGuide";
@@ -13,7 +12,7 @@ import FAQSection from "@/components/landing/FAQSection";
 import ShopByWeight from "@/components/landing/ShopByWeight";
 import ShopByBudget from "@/components/landing/ShopByBudget";
 import FinalCTA from "@/components/landing/FinalCTA";
-
+import About from "@/components/landing/About";
 export const metadata: Metadata = {
   title: "Best Badminton Rackets 2026 | Expert Reviews & Comparison Guide",
   description:
@@ -131,12 +130,9 @@ export default function HomePage() {
       />
 
       <>
-        {/* IKEA-Style Header */}
-        <IkeaHeader />
-
         <main>
-          {/* Compact Hero - Just the heading */}
-          <CompactHero />
+          {/* Compact Hero - Just the heading
+          <CompactHero /> */}
           {/* Flipkart-Style Auto-Banner Carousel - IMMEDIATELY below hero */}
           <BrandCarousel />
 
@@ -155,6 +151,8 @@ export default function HomePage() {
           <ComparisonPreview />
           {/* FAQ Section - SEO + UX */}
           <FAQSection />
+
+          <About />
           {/* Final CTA */}
           {/* <FinalCTA /> */}
         </main>

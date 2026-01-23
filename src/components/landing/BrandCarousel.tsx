@@ -83,7 +83,7 @@ export default function BrandBannerCarousel() {
       {/* Section Title */}
       <div className="max-w-[1400px] mx-auto px-6 pt-8 pb-4">
         <h3 className="text-2xl md:text-3xl font-bold italic text-slate-900">
-          Explore Leading Badminton Brands
+          Find your perfect Badminton Racket
         </h3>
       </div>
 
@@ -139,7 +139,7 @@ export default function BrandBannerCarousel() {
 
                       <a
                         href={`/rackets?brand=${encodeURIComponent(brand)}`}
-                        className="inline-block bg-emerald-600 hover:bg-emerald-700 text-white text-lg font-semibold px-10 py-4 rounded-lg shadow"
+                        className="inline-block border border-slate-300 bg-slate-200 hover:bg-slate-300 text-slate-800 text-lg font-semibold px-10 py-4 rounded-lg shadow"
                       >
                         Explore {brand} Collection →
                       </a>

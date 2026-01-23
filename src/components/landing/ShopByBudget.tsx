@@ -171,7 +171,7 @@ import Link from "next/link";
 import styles from "./PriceQuickFilter.module.css";
 export default function PriceQuickFilter() {
   return (
-    <section className="relative overflow-hidden border-y border-slate-200 bg-gradient-to-r from-amber-800 via-amber-700 to-amber-900 animate-gradient-x mt-8">
+    <section className="relative overflow-hidden border-y border-slate-200 bg-gradient-to-r from-amber-800 via-amber-600 to-amber-900 animate-gradient-x mt-12">
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-glow" />
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-4">
         <div className="max-w-7xl mx-auto px-6 py-10">

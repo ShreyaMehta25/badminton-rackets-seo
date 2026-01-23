@@ -137,20 +137,20 @@ export default function PlayerInspiration() {
   const activePlayers = players.filter((p) => p.isActive).slice(0, 8);
 
   return (
-    <section className="py-7 bg-white mt-10">
+    <section className="py-7 bg-white mt-12">
       <div className="max-w-[1400px] mx-auto px-6">
         {/* Header */}
-        <div className="mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold italic text-slate-900 mb-3">
+        <div className="mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold italic text-slate-900 mb-1">
             Want to see what players use?
           </h2>
-          <p className="text-lg text-slate-600 ">
+          <p className="text-lg text-slate-600">
             Discover the rackets chosen by world-class badminton players
           </p>
         </div>
 
         {/* Collage Grid */}
-        <div className="grid grid-cols-12 grid-rows-6 gap-1.5 h-[900px]">
+        <div className="grid grid-cols-12 grid-rows-6 gap-1.5 h-[900px] ">
           {activePlayers.map((player, index) => {
             const racketUsed = player.racketsUsed.find(
               (r) => r.usageType === "current",

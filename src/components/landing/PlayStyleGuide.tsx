@@ -18,6 +18,13 @@ const PLAYSTYLE_TO_META: Record<PlaystyleKey, RacketMetaPlaystyle> = {
 
 const ITEMS_PER_PAGE = 4;
 
+// ✅ ONLY ADDITION: helper for capitalization
+const formatLabel = (value: string) =>
+  value
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join("-");
+
 // Ultra-compact RacketCard for carousel
 const levelColor = {
   beginner: "bg-green-50 text-green-700 border-green-200",
@@ -38,7 +45,7 @@ function CompactRacketCard({ racket }: { racket: Racket }) {
       className="group relative bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 block border border-slate-200 hover:border-emerald-300 hover:-translate-y-0.5 flex-shrink-0 w-full"
     >
       {/* Ultra-compact Image Area */}
-      <div className="h-36 bg-slate-50 relative overflow-hidden">
+      <div className="h-44 bg-slate-50 relative overflow-hidden">
         <img
           src={racket.imageUrl}
           alt={racket.name}
@@ -47,7 +54,7 @@ function CompactRacketCard({ racket }: { racket: Racket }) {
       </div>
 
       {/* Compact Content Area */}
-      <div className="p-2 space-y-1.5 ">
+      <div className="p-3 space-y-2">
         {/* Title & Brand */}
         <div>
           <h3 className="text-sm font-medium leading-tight text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-2">
@@ -60,7 +67,7 @@ function CompactRacketCard({ racket }: { racket: Racket }) {
 
         {/* Price */}
         <div>
-          <span className="text-base font-bold text-emerald-600">
+          <span className="text-base font-bold text-slate-600">
             ₹{racket.price.toLocaleString()}
           </span>
         </div>
@@ -70,12 +77,16 @@ function CompactRacketCard({ racket }: { racket: Racket }) {
           <span
             className={`px-2 py-0.5 text-xs font-medium rounded-full border ${levelColor[racket.playerLevel]}`}
           >
-            {racket.playerLevel}
+            {formatLabel(racket.playerLevel)}
           </span>
+
           <span
-            className={`px-2 py-0.5 text-xs font-medium rounded-full border ${balanceColor[racket.balance] || "bg-slate-50 text-slate-700 border-slate-200"}`}
+            className={`px-2 py-0.5 text-xs font-medium rounded-full border ${
+              balanceColor[racket.balance] ||
+              "bg-slate-50 text-slate-700 border-slate-200"
+            }`}
           >
-            {racket.balance}
+            {formatLabel(racket.balance)}
           </span>
         </div>
 
@@ -84,7 +95,7 @@ function CompactRacketCard({ racket }: { racket: Racket }) {
           <div className="pt-1.5 border-t border-slate-100">
             <p className="text-xs text-slate-600 leading-snug">
               <span className="font-medium text-slate-700">Why: </span>
-              {racket.bestFor.slice(0, 2).join(", ")}
+              {racket.bestFor.slice(0, 2).map(formatLabel).join(", ")}
             </p>
           </div>
         )}
@@ -98,158 +109,74 @@ export default function PlayStyleGuide() {
     useState<PlaystyleKey>("smash");
   const [page, setPage] = useState(0);
 
-  // Reset page when playstyle changes
   useEffect(() => {
     setPage(0);
   }, [selectedPlaystyle]);
 
-  // Array-safe filtering using .includes()
   const filteredRackets = (rackets as Racket[]).filter((racket) =>
     racket.playStyles.includes(PLAYSTYLE_TO_META[selectedPlaystyle]),
   );
 
-  // Deduplication using Map (O(n), not O(n²))
   const uniqueRackets = Array.from(
     new Map(filteredRackets.map((r) => [r.id, r])).values(),
   )
     .sort((a, b) => b.reviewScore - a.reviewScore)
-    .slice(0, 20); // Limit to top 20 for performance
+    .slice(0, 20);
 
-  // Paginated subset
   const paginatedRackets = uniqueRackets.slice(
     page * ITEMS_PER_PAGE,
     (page + 1) * ITEMS_PER_PAGE,
   );
 
-  // Pagination controls
   const totalPages = Math.ceil(uniqueRackets.length / ITEMS_PER_PAGE);
   const canGoPrev = page > 0;
   const canGoNext = page < totalPages - 1;
 
   return (
-    <section className="py-2 bg-white">
+    <section className="py-12 bg-white">
       <div className="max-w-[1400px] mx-auto px-6">
         {/* Header */}
         <div className="space-y-2">
           <h2 className="text-3xl md:text-4xl font-bold italic text-slate-900">
             Your style. Your racket.
           </h2>
-          <p className="text-lg text-slate-600">
+          <p className="text-med text-slate-600 -mt-1">
             Find rackets engineered for the way you play
           </p>
         </div>
 
         {/* Playstyle Capsule Filters */}
-        {/* <div className="flex gap-2 mt-4 overflow-x-auto pb-2 ml-6">
-          <button
-            onClick={() => setSelectedPlaystyle("smash")}
-            className={`
-              px-6 py-3 rounded-full font-semibold text-sm whitespace-nowrap
-              transition-all duration-300
-              ${
-                selectedPlaystyle === "smash"
-                  ? "bg-red-500 text-white shadow-lg scale-105"
-                  : "bg-slate-100 text-slate-700 hover:bg-slate-200"
-              }
-            `}
-          >
-            Smash-Focused
-          </button>
-
-          <button
-            onClick={() => setSelectedPlaystyle("control")}
-            className={`
-              px-6 py-3 rounded-full font-semibold text-sm whitespace-nowrap
-              transition-all duration-300
-              ${
-                selectedPlaystyle === "control"
-                  ? "bg-blue-500 text-white shadow-lg scale-105"
-                  : "bg-slate-100 text-slate-700 hover:bg-slate-200"
-              }
-            `}
-          >
-            Control-Focused
-          </button>
-
-          <button
-            onClick={() => setSelectedPlaystyle("speed")}
-            className={`
-              px-6 py-3 rounded-full font-semibold text-sm whitespace-nowrap
-              transition-all duration-300
-              ${
-                selectedPlaystyle === "speed"
-                  ? "bg-purple-500 text-white shadow-lg scale-105"
-                  : "bg-slate-100 text-slate-700 hover:bg-slate-200"
-              }
-            `}
-          >
-            Speed
-          </button>
-        </div> */}
-        <div className="flex gap-2 mt-4 overflow-x-auto pb-2 ml-6">
-          <button
-            onClick={() => setSelectedPlaystyle("smash")}
-            className={`
-      px-6 py-3 rounded-full font-medium text-sm whitespace-nowrap
-      transition-all duration-200
-      border
-      ${
-        selectedPlaystyle === "smash"
-          ? "border-black text-black bg-red-200"
-          : "border-transparent text-slate-600 bg-slate-100 hover:border-slate-300"
-      }
-    `}
-          >
-            Smash-Focused
-          </button>
-
-          <button
-            onClick={() => setSelectedPlaystyle("control")}
-            className={`
-      px-6 py-3 rounded-full font-medium text-sm whitespace-nowrap
-      transition-all duration-200
-      border
-      ${
-        selectedPlaystyle === "control"
-          ? "border-black text-black bg-blue-200"
-          : "border-transparent text-slate-600 bg-slate-100 hover:border-slate-300"
-      }
-    `}
-          >
-            Control-Focused
-          </button>
-
-          <button
-            onClick={() => setSelectedPlaystyle("speed")}
-            className={`
-      px-6 py-3 rounded-full font-medium text-sm whitespace-nowrap
-      transition-all duration-200
-      border
-      ${
-        selectedPlaystyle === "speed"
-          ? "border-black text-black bg-yellow-200"
-          : "border-transparent text-slate-600 bg-slate-100 hover:border-slate-300"
-      }
-    `}
-          >
-            Speed
-          </button>
+        <div className="flex gap-2 mt-3 overflow-x-auto pb-2 -ml-1.9">
+          {(["smash", "control", "speed"] as PlaystyleKey[]).map((key) => (
+            <button
+              key={key}
+              onClick={() => setSelectedPlaystyle(key)}
+              className={`px-6 py-3 rounded-full font-medium text-sm whitespace-nowrap transition-all duration-200 border ${
+                selectedPlaystyle === key
+                  ? "border-black border-2 text-black bg-slate-200"
+                  : "border-transparent text-slate-600 bg-slate-100 hover:border-slate-300"
+              }`}
+            >
+              {key === "smash"
+                ? "Smash-Focused"
+                : key === "control"
+                  ? "Control-Focused"
+                  : "Speed"}
+            </button>
+          ))}
         </div>
 
-        {/* Horizontal Carousel */}
+        {/* Cards */}
         <div className="relative mt-6">
-          {/* Left Arrow */}
           {canGoPrev && (
             <button
               onClick={() => setPage((p) => p - 1)}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white hover:bg-slate-50 text-slate-700 p-2.5 rounded-full shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-              aria-label="Previous page"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white p-2.5 rounded-full shadow-lg"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
           )}
 
-          {/* Cards Container */}
           <div
             key={`${selectedPlaystyle}-${page}`}
             className="grid grid-cols-2 md:grid-cols-4 gap-4 animate-fadeIn"
@@ -259,19 +186,17 @@ export default function PlayStyleGuide() {
             ))}
           </div>
 
-          {/* Right Arrow */}
           {canGoNext && (
             <button
               onClick={() => setPage((p) => p + 1)}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white hover:bg-slate-50 text-slate-700 p-2.5 rounded-full shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-              aria-label="Next page"
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white p-2.5 rounded-full shadow-lg"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
           )}
         </div>
 
-        {/* Pagination Indicator */}
+        {/* Pagination Dots */}
         {totalPages > 1 && (
           <div className="flex justify-center gap-1.5 mt-4">
             {Array.from({ length: totalPages }).map((_, idx) => (
@@ -283,34 +208,10 @@ export default function PlayStyleGuide() {
                     ? "bg-emerald-600 w-6"
                     : "bg-slate-300 hover:bg-slate-400"
                 }`}
-                aria-label={`Go to page ${idx + 1}`}
               />
             ))}
           </div>
         )}
-
-        {/* View All Link */}
-        <div className="text-center mt-4">
-          <a
-            href={`/rackets/playStyles=${PLAYSTYLE_TO_META[selectedPlaystyle]}`}
-            className="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-semibold transition-colors"
-          >
-            View all {PLAYSTYLE_TO_META[selectedPlaystyle]} rackets
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
-          </a>
-        </div>
       </div>
 
       <style jsx>{`
@@ -324,7 +225,6 @@ export default function PlayStyleGuide() {
             transform: translateY(0);
           }
         }
-
         .animate-fadeIn {
           animation: fadeIn 0.4s ease-out;
         }

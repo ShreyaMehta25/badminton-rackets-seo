@@ -5,6 +5,7 @@ import { Racket } from "@/types/racket";
 import ComparisonTable from "@/components/rackets/ComparisonTable";
 import RacketComparisonTable from "@/components/rackets/RacketComparisonTable";
 import RacketListWithSort from "@/components/rackets/RacketListWithSort";
+import RacketSidebar from "@/components/rackets/RacketSidebar";
 import type { Metadata } from "next";
 import { PAGE_RULES } from "@/seo/pageRules";
 import { FILTER_MAPPINGS } from "@/seo/filterMappings";
@@ -650,51 +651,58 @@ export default async function FilteredRacketsPage({ params }: Props) {
         />
       )}
 
-      <h1 className="text-4xl font-extrabold mb-4 text-slate-700">{heading}</h1>
+      <div className="grid grid-cols-[20%_80%] gap-8">
+        <aside>
+          <RacketSidebar />
+        </aside>
+        <div>
+          <h1 className="text-4xl font-extrabold mb-4 text-slate-700">{heading}</h1>
 
-      <p className="text-slate-400 mb-8">
-        Showing {filteredRackets.length} rackets.
-      </p>
+          <p className="text-slate-400 mb-8">
+            Showing {filteredRackets.length} rackets.
+          </p>
 
-      {filteredRackets.length === 0 ? (
-        <div className="text-slate-400">
-          No rackets found for this combination.
+          {filteredRackets.length === 0 ? (
+            <div className="text-slate-400">
+              No rackets found for this combination.
+            </div>
+          ) : (
+            <RacketListWithSort rackets={filteredRackets} />
+          )}
+
+          {/* Internal Links Section */}
+          {(() => {
+            const currentPageUrl = buildFilterUrl(parsedFilters);
+            const internalLinks = generateInternalLinks(
+              parsedFilters,
+              currentPageUrl,
+            );
+
+            if (internalLinks.length >= 3) {
+              return (
+                <section className="mt-12 pt-8 border-t border-slate-200">
+                  <h2 className="text-2xl font-bold mb-4">
+                    Related Badminton Racket Categories
+                  </h2>
+                  <ul className="flex flex-wrap gap-3">
+                    {internalLinks.map((link) => (
+                      <li key={link.url}>
+                        <Link
+                          href={link.url}
+                          className="text-blue-600 hover:text-blue-800 underline"
+                        >
+                          {link.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              );
+            }
+            return null;
+          })()}
         </div>
-      ) : (
-        <RacketListWithSort rackets={filteredRackets} />
-      )}
-
-      {/* Internal Links Section */}
-      {(() => {
-        const currentPageUrl = buildFilterUrl(parsedFilters);
-        const internalLinks = generateInternalLinks(
-          parsedFilters,
-          currentPageUrl,
-        );
-
-        if (internalLinks.length >= 3) {
-          return (
-            <section className="mt-12 pt-8 border-t border-slate-200">
-              <h2 className="text-2xl font-bold mb-4">
-                Related Badminton Racket Categories
-              </h2>
-              <ul className="flex flex-wrap gap-3">
-                {internalLinks.map((link) => (
-                  <li key={link.url}>
-                    <Link
-                      href={link.url}
-                      className="text-blue-600 hover:text-blue-800 underline"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          );
-        }
-        return null;
-      })()}
+      </div>
     </main>
   );
 }

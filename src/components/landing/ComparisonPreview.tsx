@@ -94,13 +94,13 @@ export default function ComparisonPreview() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <span className="inline-block px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-sm font-semibold mb-4">
+            <span className="inline-block px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-sm font-semibold mb-1 -ml-11">
               Smart Comparison
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold italic text-slate-800 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold italic text-slate-800 mb-6 -ml-11">
               Compare Rackets Side by Side
             </h2>
-            <p className="text-lg text-slate-500 mb-8 leading-relaxed">
+            <p className="text-lg text-slate-500 mb-8 leading-relaxed -ml-11">
               Our intelligent filtering system helps you narrow down choices
               based on what matters most. Compare specifications, read reviews,
               and find the perfect match for your playing style.
@@ -132,7 +132,7 @@ export default function ComparisonPreview() {
               ))}
             </div> */}
             {/* Feature List */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 -ml-11">
               {comparisonFeatures.map((feature, index) => (
                 <motion.div
                   key={feature.title}
@@ -163,7 +163,7 @@ export default function ComparisonPreview() {
             {/* CTA */}
             <Link
               href="/rackets"
-              className="inline-flex items-center gap-2 h-12 px-6 rounded-xl bg-emerald-500 text-white font-semibold hover:bg-emerald-600 transition-colors"
+              className="inline-flex items-center border border-slate-300 gap-2 h-12 px-6 rounded-xl bg-slate-200 text-slate-800 font-semibold hover:bg-slate-300 transition-colors -ml-11"
             >
               Start Comparing
               <svg
@@ -188,11 +188,11 @@ export default function ComparisonPreview() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="relative"
+            className="relative lg:translate-x-30 "
           >
-            <div className="relativep-6 backdrop-blur-sm">
+            <div className="relative p-6 backdrop-blur-sm mr-20 ">
               {/* Preview Header */}
-              <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center justify-between mb-6 mr-10">
                 {/* <span className="text-xs font-semibold text-slate-600 uppercase tracking-wider">
                   Comparison Preview
                 </span> */}
@@ -263,7 +263,7 @@ export default function ComparisonPreview() {
             </div>
 
             {/* Decorative glow */}
-            <div className="absolute -inset-4 bg-gradient-to-r from-emerald-500/10 to-blue-500/10 rounded-3xl blur-xl -z-10"></div>
+            <div className="absolute -inset-4 bg-gradient-to-r from-white to-white rounded-3xl blur-xl -z-10"></div>
           </motion.div>
         </div>
       </div>

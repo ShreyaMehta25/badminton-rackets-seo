@@ -151,17 +151,20 @@ import { Users, Target, Trophy } from "lucide-react";
 
 export default function SkillLevelGuide() {
   return (
-    <section id="skill-level-guide" className="py-14 bg-slate-50">
+    <section id="skill-level-guide" className="py-12 bg-slate-50">
       <div className="max-w-[1400px] mx-auto px-6">
         {/* Section Header */}
-        <div className="mb-10">
+        <div className="mb-4">
           <h2 className="text-3xl md:text-4xl font-bold italic text-slate-900">
             What level of racket are you looking for?
           </h2>
+          <p className="text-base text-slate-600 ">
+            Play better with the right level.
+          </p>
         </div>
 
         {/* Main Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-[70%_30%] bg-white">
+        <div className="grid grid-cols-1 lg:grid-cols-[70%_30%] bg-white -ml-3 -mt-2">
           {/* LEFT 70% */}
           <div
             className="
@@ -194,7 +197,7 @@ export default function SkillLevelGuide() {
                   <div className="w-10 h-10 bg-white/20 flex items-center justify-center">
                     <Users className="w-5 h-5 text-white" />
                   </div>
-                  <span className="text-sm font-semibold uppercase tracking-wide text-orange-300">
+                  <span className="text-sm font-semibold uppercase tracking-wide text-white">
                     Easy to start
                   </span>
                 </div>
@@ -211,7 +214,7 @@ export default function SkillLevelGuide() {
                 </p>
 
                 <span className="text-emerald-300 font-semibold text-sm">
-                  Explore beginner rackets →
+                  Explore Beginner Rackets →
                 </span>
               </div>
             </Link>
@@ -239,7 +242,7 @@ export default function SkillLevelGuide() {
                   <div className="w-9 h-9 bg-white/20 flex items-center justify-center">
                     <Target className="w-4 h-4 text-white" />
                   </div>
-                  <span className="text-sm font-semibold uppercase text-blue-300">
+                  <span className="text-sm font-semibold uppercase text-white">
                     Skill building
                   </span>
                 </div>
@@ -252,7 +255,7 @@ export default function SkillLevelGuide() {
                 </p>
 
                 <span className="text-emerald-300 text-sm font-semibold">
-                  Explore intermediate →
+                  Explore Intermediate Rackets→
                 </span>
               </div>
             </Link>
@@ -280,7 +283,7 @@ export default function SkillLevelGuide() {
                   <div className="w-9 h-9 bg-white/20 flex items-center justify-center">
                     <Trophy className="w-4 h-4 text-white" />
                   </div>
-                  <span className="text-sm font-semibold uppercase text-red-400">
+                  <span className="text-sm font-semibold uppercase text-white">
                     Match ready
                   </span>
                 </div>
@@ -292,7 +295,7 @@ export default function SkillLevelGuide() {
                 </p>
 
                 <span className="text-emerald-300 text-sm font-semibold">
-                  Explore professional →
+                  Explore Professional Rackets→
                 </span>
               </div>
             </Link>

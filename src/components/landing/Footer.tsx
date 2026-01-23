@@ -1,52 +1,272 @@
-"use client";
+// import Link from "next/link";
 
+// export default function Footer() {
+//   const currentYear = new Date().getFullYear();
+
+//   return (
+//     <footer className="bg-slate-100 border-t border-slate-200 mt-8">
+//       <div className="max-w-7xl mx-auto px-6 py-12">
+//         {/* Top Section - 4 Columns */}
+//         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+//           {/* Brand Column */}
+//           <div>
+//             <h3 className="font-semibold text-slate-700 mb-3">SmashSelect</h3>
+//             <p className="text-sm text-slate-600 leading-relaxed">
+//               Expert-curated guides and comparisons to help you find the perfect
+//               racket for your game.
+//             </p>
+//           </div>
+
+//           {/* Explore Column */}
+//           <div>
+//             <h4 className="font-medium text-slate-900 mb-3">Explore</h4>
+//             <ul className="space-y-2 text-sm">
+//               <li>
+//                 <Link
+//                   href="/rackets"
+//                   className="text-slate-600 hover:text-slate-900 transition-colors"
+//                 >
+//                   All Rackets
+//                 </Link>
+//               </li>
+//               <li>
+//                 <Link
+//                   href="/rackets"
+//                   className="text-slate-600 hover:text-slate-900 transition-colors"
+//                 >
+//                   Compare Rackets
+//                 </Link>
+//               </li>
+//               <li>
+//                 <Link
+//                   href="/#expert-picks"
+//                   className="text-slate-600 hover:text-slate-900 transition-colors"
+//                 >
+//                   Expert Picks
+//                 </Link>
+//               </li>
+//               <li>
+//                 <Link
+//                   href="/#playstyle-guide"
+//                   className="text-slate-600 hover:text-slate-900 transition-colors"
+//                 >
+//                   Playstyle Guide
+//                 </Link>
+//               </li>
+//               <li>
+//                 <Link
+//                   href="/#weight-guide"
+//                   className="text-slate-600 hover:text-slate-900 transition-colors"
+//                 >
+//                   Weight Guide
+//                 </Link>
+//               </li>
+//             </ul>
+//           </div>
+
+//           {/* Learn Column */}
+//           <div>
+//             <h4 className="font-medium text-slate-900 mb-3">Learn</h4>
+//             <ul className="space-y-2 text-sm">
+//               <li>
+//                 <Link
+//                   href="/#buying-guide"
+//                   className="text-slate-600 hover:text-slate-900 transition-colors"
+//                 >
+//                   Buying Guide
+//                 </Link>
+//               </li>
+//               <li>
+//                 <Link
+//                   href="/#faq"
+//                   className="text-slate-600 hover:text-slate-900 transition-colors"
+//                 >
+//                   FAQs
+//                 </Link>
+//               </li>
+//               <li>
+//                 <Link
+//                   href="/#educational"
+//                   className="text-slate-600 hover:text-slate-900 transition-colors"
+//                 >
+//                   Blog / Guides
+//                 </Link>
+//               </li>
+//             </ul>
+//           </div>
+
+//           {/* About Column */}
+//           <div>
+//             <h4 className="font-medium text-slate-900 mb-3">About</h4>
+//             <ul className="space-y-2 text-sm">
+//               <li>
+//                 <Link
+//                   href="/#about"
+//                   className="text-slate-600 hover:text-slate-900 transition-colors"
+//                 >
+//                   About Us
+//                 </Link>
+//               </li>
+//               <li>
+//                 <Link
+//                   href="/#contact"
+//                   className="text-slate-600 hover:text-slate-900 transition-colors"
+//                 >
+//                   Contact
+//                 </Link>
+//               </li>
+//             </ul>
+//           </div>
+//         </div>
+
+//         {/* Bottom Section */}
+//         <div className="pt-8 border-t border-slate-200">
+//           <p className="text-sm text-slate-500 text-center">
+//             © {currentYear} Badminton Rackets Directory
+//           </p>
+//         </div>
+//       </div>
+//     </footer>
+//   );
+// }
 import Link from "next/link";
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="py-20 bg-slate-900 border-t border-slate-800">
-      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10">
-        <div className="flex items-center gap-3">
-          <div className="text-slate-500">
-            <svg
-              className="size-6"
-              fill="none"
-              viewBox="0 0 48 48"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.263 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z"
-                fill="currentColor"
-              ></path>
-            </svg>
+    <footer className="bg-slate-100 border-t border-slate-200 mt-9">
+      <div className="max-w-7xl mx-auto px-6 py-12">
+        {/* ONE ROW */}
+        <div className="flex items-start justify-between gap-10 mb-10">
+          {/* Brand */}
+          <div className="max-w-xs">
+            <h3 className="font-semibold text-slate-900 mb-3">SmashSelect</h3>
+            <p className="text-sm text-slate-600 leading-relaxed">
+              A badminton racket discovery platform built to simplify decisions.
+              Compare rackets by skill level, playstyle, weight, and real
+              performance — without marketing noise.
+            </p>
           </div>
-          <h2 className="text-lg font-bold text-slate-400 tracking-tight">
-            SmashSelect
-          </h2>
+
+          {/* Skill Level */}
+          <div>
+            <h4 className="font-medium text-slate-900 mb-3">Choose by Skill</h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link
+                  href="/rackets/beginner"
+                  className="text-slate-600 hover:text-slate-900"
+                >
+                  Beginner
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/rackets/intermediate"
+                  className="text-slate-600 hover:text-slate-900"
+                >
+                  Intermediate
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/rackets/advanced"
+                  className="text-slate-600 hover:text-slate-900"
+                >
+                  Advanced
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Playstyle & Specs */}
+          <div>
+            <h4 className="font-medium text-slate-900 mb-3">
+              Playstyle & Specs
+            </h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link
+                  href="/rackets/power"
+                  className="text-slate-600 hover:text-slate-900"
+                >
+                  Power / Smash
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/rackets/control"
+                  className="text-slate-600 hover:text-slate-900"
+                >
+                  Control
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/rackets/speed"
+                  className="text-slate-600 hover:text-slate-900"
+                >
+                  Speed
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/rackets/head-heavy"
+                  className="text-slate-600 hover:text-slate-900"
+                >
+                  Head-Heavy
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Explore */}
+          <div>
+            <h4 className="font-medium text-slate-900 mb-3">Explore</h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link
+                  href="/rackets"
+                  className="text-slate-600 hover:text-slate-900"
+                >
+                  Full Catalogue
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/#expert-picks"
+                  className="text-slate-600 hover:text-slate-900"
+                >
+                  Expert Picks
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/#playstyle-guide"
+                  className="text-slate-600 hover:text-slate-900"
+                >
+                  Playstyle Guide
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/#weight-guide"
+                  className="text-slate-600 hover:text-slate-900"
+                >
+                  Weight Guide
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div className="flex flex-wrap justify-center gap-8 text-sm font-medium text-slate-500">
-          <Link
-            href="/rackets"
-            className="hover:text-emerald-400 transition-colors"
-          >
-            Discover
-          </Link>
-          <Link
-            href="/players"
-            className="hover:text-emerald-400 transition-colors"
-          >
-            Pro Gears
-          </Link>
-          <Link
-            href="/rackets"
-            className="hover:text-emerald-400 transition-colors"
-          >
-            Compare
-          </Link>
+
+        {/* Bottom */}
+        <div className="pt-6 border-t border-slate-200">
+          <p className="text-sm text-slate-500">
+            © {currentYear} SmashSelect — Built for badminton players.
+          </p>
         </div>
-        <p className="text-sm text-slate-600">
-          © 2024 SmashSelect Lab. All rights reserved.
-        </p>
       </div>
     </footer>
   );

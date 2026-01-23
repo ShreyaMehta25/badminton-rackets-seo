@@ -2,6 +2,7 @@
 
 body {
   @apply bg-white text-slate-100;
+  overflow-x: hidden;
 }
 
 /* Smooth scrolling */

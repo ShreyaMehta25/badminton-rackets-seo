@@ -70,17 +70,17 @@ const articles = [
 
 const colorClasses = {
   emerald: {
-    bg: "bg-emerald-400",
+    bg: "white",
     border: "border-emerald-200 hover:border-emerald-300",
     icon: "bg-emerald-100 text-emerald-600",
   },
   amber: {
-    bg: "bg-amber-500",
+    bg: "white",
     border: "border-amber-200 hover:border-amber-300",
     icon: "bg-amber-100 text-amber-600",
   },
   blue: {
-    bg: "bg-blue-500",
+    bg: "white",
     border: "border-blue-200 hover:border-blue-300",
     icon: "bg-blue-100 text-blue-600",
   },
@@ -150,8 +150,8 @@ const colorClasses = {
 // }
 export default function EducationalContent() {
   return (
-    <div className="bg-white md:pt-5">
-      <section className="mt-7 md:mt-24 py-8 bg-emerald-900">
+    <div className="bg-white ">
+      <section className="mt-12  ">
         <div className="max-w-7xl mx-auto px-6">
           {/* Section Header */}
           <motion.div
@@ -159,12 +159,13 @@ export default function EducationalContent() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-center mb-14"
+            className="-ml-12 mb-6"
           >
-            <h2 className="text-3xl md:text-4xl font-bold italic text-black mb-4 text-right">
+            <h2 className="text-3xl md:text-4xl font-bold italic text-black mb-1">
               Learn Before You Buy
             </h2>
-            <p className="text-lg text-slate-900 max-w-xl ml-auto text-right">
+
+            <p className="text-lg text-slate-900 max-w-xl">
               Make smarter purchasing decisions with our expert guides and
               insights. Knowledge is the first step to finding your perfect
               racket.
@@ -172,7 +173,7 @@ export default function EducationalContent() {
           </motion.div>
 
           {/* Articles Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 ">
+          <div className=" grid grid-cols-1 md:grid-cols-3 gap-8 ">
             {articles.map((article, index) => {
               const colors =
                 colorClasses[article.color as keyof typeof colorClasses];
@@ -183,7 +184,7 @@ export default function EducationalContent() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`${colors.bg} ${colors.border} border border-slate-800 p-6 hover:shadow-lg min-h-[360px] transition-all duration-300 `}
+                  className={`${colors.bg} ${colors.border} border rounded-2xl border-1 border-slate-200 p-6 hover:shadow-lg min-h-[360px] transition-all duration-300 `}
                 >
                   <div className="mb-4">
                     <div
@@ -197,7 +198,7 @@ export default function EducationalContent() {
                     {article.title}
                   </h3>
 
-                  <p className="text-med text-white leading-relaxed">
+                  <p className="text-med text-slate-800 leading-relaxed">
                     {article.excerpt}
                   </p>
                 </motion.article>

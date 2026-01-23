@@ -44,18 +44,29 @@ export default function IkeaHeader() {
   };
 
   return (
-    <header className="top-0 z-50 bg-white backdrop-blur border-b border-slate-200">
-      <div className="max-w-[1440px] mx-auto px-6 h-16 flex items-center justify-between">
+    <header className="sticky top-0 z-50 bg-white backdrop-blur border-b border-slate-200 ">
+      <div className="max-w-[1440px] mx-auto px-6 h-16 flex items-center">
         {/* Brand */}
-        <Link href="/rackets" className="flex-shrink-0">
-          <h1 className="text-lg md:text-xl font-semibold tracking-tight text-slate-900">
-            Badminton Rackets
-            <span className="text-slate-600"> Directory</span>
-          </h1>
-        </Link>
+        <div className="flex items-center gap-9">
+          <Link href="/" className="flex-shrink-0">
+            <h1 className="text-8xl md:text-4xl font-bold tracking-tight text-slate-700">
+              SmashSelect
+            </h1>
+          </Link>
+          <Link href="/" className="flex-shrink-0 ">
+            <h1 className="text-lg md:text-lg  tracking-tight text-slate-900">
+              Home
+            </h1>
+          </Link>
+          <Link href="/rackets" className="flex-shrink-0 ">
+            <h1 className="text-lg md:text-lg tracking-tight text-slate-900">
+              Catalogue
+            </h1>
+          </Link>
+        </div>
 
         {/* Search */}
-        <div className="w-full max-w-xl">
+        <div className="ml-auto w-full max-w-lg">
           <SearchBar
             placeholder="What are you looking for?"
             onSearch={handleSearch}
