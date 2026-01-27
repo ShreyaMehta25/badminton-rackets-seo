@@ -4,16 +4,12 @@ import { Racket } from "@/types/racket";
 import RacketCard from "./RacketCard";
 import { useSort } from "@/contexts/SortContext";
 
-export default function RacketGrid({
-  rackets,
-}: {
-  rackets: Racket[];
-}) {
+export default function RacketGrid({ rackets }: { rackets: Racket[] }) {
   const { sortOrder } = useSort();
 
   // Remove duplicates by ID to prevent React key conflicts
   const uniqueRackets = Array.from(
-    new Map(rackets.map((racket) => [racket.id, racket])).values()
+    new Map(rackets.map((racket) => [racket.id, racket])).values(),
   );
 
   // Apply sorting based on selected order from context
@@ -26,7 +22,7 @@ export default function RacketGrid({
   });
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <div className="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-6">
       {sortedRackets.map((racket) => (
         <RacketCard key={racket.id} racket={racket} />
       ))}

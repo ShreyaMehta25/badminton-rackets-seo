@@ -137,11 +137,11 @@ export default function PlayerInspiration() {
   const activePlayers = players.filter((p) => p.isActive).slice(0, 8);
 
   return (
-    <section className="py-7 bg-white mt-12">
+    <section className=" bg-white pt-36">
       <div className="max-w-[1400px] mx-auto px-6">
         {/* Header */}
         <div className="mb-6">
-          <h2 className="text-3xl md:text-4xl font-bold italic text-slate-900 mb-1">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-1">
             Want to see what players use?
           </h2>
           <p className="text-lg text-slate-600">

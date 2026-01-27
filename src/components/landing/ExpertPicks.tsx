@@ -230,7 +230,7 @@ export default function ExpertPicks() {
   );
 
   return (
-    <section className="py-12 bg-slate-50">
+    <section className="py-36 bg-white">
       <div className="max-w-[1400px] mx-auto px-6">
         {/* Header */}
         <div className="mb-4">
@@ -238,7 +238,7 @@ export default function ExpertPicks() {
             ★ Editor’s Choice
           </div>
 
-          <h2 className="text-3xl md:text-4xl font-bold italic text-slate-900">
+          <h2 className="text-3xl md:text-4xl font-bold  text-slate-900">
             Expert Picks & Top Recommendations
           </h2>
 

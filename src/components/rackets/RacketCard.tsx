@@ -103,19 +103,19 @@ export default function RacketCard({ racket }: { racket: Racket }) {
       className="group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 block border border-slate-200 hover:border-emerald-300 hover:-translate-y-1"
     >
       {/* Image Area */}
-      <div className="aspect-square bg-slate-50 relative overflow-hidden rounded-t-2xl">
+      <div className="h-44 bg-slate-50 relative overflow-hidden rounded-t-2xl">
         <img
           src={racket.imageUrl}
           alt={racket.name}
-          className="w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-300"
+          className="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300"
         />
       </div>
 
       {/* Content Area */}
-      <div className="p-5 space-y-3">
+      <div className="p-3 space-y-2">
         {/* Title & Brand */}
         <div>
-          <h3 className="text-base font-semibold leading-tight text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-2">
+          <h3 className="text-sm font-medium leading-tight text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-2">
             {racket.name}
           </h3>
           <p className="text-xs text-slate-500 mt-1 uppercase tracking-wide">
@@ -125,7 +125,7 @@ export default function RacketCard({ racket }: { racket: Racket }) {
 
         {/* Price */}
         <div className="pt-1">
-          <span className="text-2xl font-bold text-slate-600">
+          <span className="text-base font-bold text-slate-600">
             ₹{racket.price.toLocaleString()}
           </span>
         </div>

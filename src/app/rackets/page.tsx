@@ -176,26 +176,28 @@ export default function RacketsPage() {
         }}
       />
 
-      <main className="max-w-7xl mx-auto px-6 py-10 bg-white ml-7">
-        <div className="grid grid-cols-[20%_80%] gap-8">
-          <aside>
-            <RacketSidebar />
-          </aside>
-          <div className="animate-fade-in">
-            {/* Header */}
-            <div className="relative mb-8">
-              <h1 className="text-2xl md:text-3xl font-bold mb-3 text-slate-900">
-                Best Badminton Rackets in 2026
-              </h1>
+      <main className="py-10 bg-white">
+        <div className="max-w-[1400px] mx-auto px-6">
+          <div className="grid grid-cols-[280px_1fr] gap-6">
+            <aside>
+              <RacketSidebar />
+            </aside>
+            <div className="animate-fade-in ">
+              {/* Header */}
+              <div className="relative mb-8">
+                <h1 className="text-2xl md:text-3xl font-bold mb-3 text-slate-900">
+                  Best Badminton Rackets in 2026
+                </h1>
 
-              <h2 className="text-med md:text-lg  text-slate-700 mb-4">
-                Compare Professional & Beginner Badminton Rackets
-              </h2>
+                <h2 className="text-med md:text-lg  text-slate-700 mb-4">
+                  Compare Professional & Beginner Badminton Rackets
+                </h2>
 
-              <div className="absolute -bottom-2 left-0 w-200 h-0.3 bg-slate-500/70 rounded-full"></div>
+                <div className="absolute -bottom-2 left-0 w-200 h-0.3 bg-slate-500/70 rounded-full"></div>
+              </div>
+
+              <RacketGrid rackets={allRackets} />
             </div>
-
-            <RacketGrid rackets={allRackets} />
           </div>
         </div>
       </main>

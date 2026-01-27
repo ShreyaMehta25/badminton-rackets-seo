@@ -84,187 +84,160 @@ const comparisonFeatures = [
 
 export default function ComparisonPreview() {
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left: Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <span className="inline-block px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-sm font-semibold mb-1 -ml-11">
-              Smart Comparison
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold italic text-slate-800 mb-6 -ml-11">
-              Compare Rackets Side by Side
-            </h2>
-            <p className="text-lg text-slate-500 mb-8 leading-relaxed -ml-11">
-              Our intelligent filtering system helps you narrow down choices
-              based on what matters most. Compare specifications, read reviews,
-              and find the perfect match for your playing style.
-            </p>
-
-            {/* Feature List */}
-            {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-              {comparisonFeatures.map((feature, index) => (
-                <motion.div
-                  key={feature.title}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="flex items-start gap-3"
-                >
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400">
-                    {feature.icon}
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-semibold text-white">
-                      {feature.title}
-                    </h3>
-                    <p className="text-sm text-slate-500">
-                      {feature.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div> */}
-            {/* Feature List */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 -ml-11">
-              {comparisonFeatures.map((feature, index) => (
-                <motion.div
-                  key={feature.title}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="flex items-center gap-3"
-                >
-                  {/* Icon */}
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400">
-                    {feature.icon}
-                  </div>
-
-                  {/* Text */}
-                  <div className="leading-tight">
-                    <h3 className="text-sm font-semibold text-slate-800">
-                      {feature.title}
-                    </h3>
-                    <p className="text-sm text-slate-500">
-                      {feature.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* CTA */}
-            <Link
-              href="/rackets"
-              className="inline-flex items-center border border-slate-300 gap-2 h-12 px-6 rounded-xl bg-slate-200 text-slate-800 font-semibold hover:bg-slate-300 transition-colors -ml-11"
+    <section className="pt-36 bg-white">
+      {/* Full-width wrapper with equal gutters */}
+      <div className="w-full px-8">
+        {/* Balanced content rail */}
+        <div className="max-w-[1680px] mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            {/* Left: Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
             >
-              Start Comparing
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 7l5 5m0 0l-5 5m5-5H6"
-                />
-              </svg>
-            </Link>
-          </motion.div>
+              {/* Badge */}
+              <span className="inline-block px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-sm font-semibold mb-3">
+                Smart Comparison
+              </span>
 
-          {/* Right: Visual Preview */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="relative lg:translate-x-30 "
-          >
-            <div className="relative p-6 backdrop-blur-sm mr-20 ">
-              {/* Preview Header */}
-              <div className="flex items-center justify-between mb-6 mr-10">
-                {/* <span className="text-xs font-semibold text-slate-600 uppercase tracking-wider">
-                  Comparison Preview
-                </span> */}
-                <span className="flex items-center gap-1.5 text-emerald-400 text-sm">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                  Live Data
-                </span>
+              {/* Heading */}
+              <h2 className="text-3xl md:text-4xl font-bold  text-slate-800 mb-6">
+                Compare Rackets Side by Side
+              </h2>
+
+              {/* Description */}
+              <p className="text-lg text-slate-500 mb-8 leading-relaxed max-w-2xl">
+                Our intelligent filtering system helps you narrow down choices
+                based on what matters most. Compare specifications, read
+                reviews, and find the perfect match for your playing style.
+              </p>
+
+              {/* Feature List */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
+                {comparisonFeatures.map((feature, index) => (
+                  <motion.div
+                    key={feature.title}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    className="flex items-center gap-3"
+                  >
+                    <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400">
+                      {feature.icon}
+                    </div>
+                    <div className="leading-tight">
+                      <h3 className="text-sm font-semibold text-slate-800">
+                        {feature.title}
+                      </h3>
+                      <p className="text-sm text-slate-500">
+                        {feature.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
 
-              {/* Comparison Bars */}
-              <div className="space-y-5">
-                {[
-                  { label: "Power", values: [92, 78, 85] },
-                  { label: "Control", values: [75, 95, 88] },
-                  { label: "Speed", values: [70, 88, 92] },
-                  { label: "Durability", values: [90, 85, 82] },
-                ].map((metric, idx) => (
-                  <div key={metric.label}>
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-sm font-medium text-slate-500">
+              {/* CTA */}
+              <Link
+                href="/rackets"
+                className="inline-flex items-center gap-2 h-12 px-6 rounded-xl border border-slate-300 bg-slate-200 text-slate-800 font-semibold hover:bg-slate-300 transition-colors"
+              >
+                Start Comparing
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
+                </svg>
+              </Link>
+            </motion.div>
+
+            {/* Right: Visual Preview */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="relative w-full"
+            >
+              <div className="relative p-6 rounded-2xl bg-white">
+                {/* Header */}
+                <div className="flex justify-end mb-6">
+                  <span className="flex items-center gap-2 text-emerald-400 text-sm">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    Live Data
+                  </span>
+                </div>
+
+                {/* Comparison Bars */}
+                <div className="space-y-6 mt-20">
+                  {[
+                    { label: "Power", values: [92, 78, 85] },
+                    { label: "Control", values: [75, 95, 88] },
+                    { label: "Speed", values: [70, 88, 92] },
+                    { label: "Durability", values: [90, 85, 82] },
+                  ].map((metric, idx) => (
+                    <div key={metric.label}>
+                      <span className="text-sm font-medium text-slate-500 block mb-2">
                         {metric.label}
                       </span>
+                      <div className="flex gap-2">
+                        {metric.values.map((value, i) => (
+                          <div
+                            key={i}
+                            className="flex-1 h-2 bg-slate-200 rounded-full overflow-hidden"
+                          >
+                            <motion.div
+                              initial={{ width: 0 }}
+                              whileInView={{ width: `${value}%` }}
+                              viewport={{ once: true }}
+                              transition={{
+                                duration: 0.8,
+                                delay: idx * 0.15 + i * 0.1,
+                              }}
+                              className={`h-full rounded-full ${
+                                i === 0
+                                  ? "bg-emerald-500"
+                                  : i === 1
+                                    ? "bg-blue-500"
+                                    : "bg-amber-500"
+                              }`}
+                            />
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                    <div className="flex gap-2">
-                      {metric.values.map((value, i) => (
-                        <div
-                          key={i}
-                          className="flex-1 h-2 bg-slate-700 rounded-full overflow-hidden"
-                        >
-                          <motion.div
-                            initial={{ width: 0 }}
-                            whileInView={{ width: `${value}%` }}
-                            viewport={{ once: true }}
-                            transition={{
-                              duration: 0.8,
-                              delay: idx * 0.15 + i * 0.1,
-                            }}
-                            className={`h-full rounded-full ${
-                              i === 0
-                                ? "bg-emerald-500"
-                                : i === 1
-                                  ? "bg-blue-500"
-                                  : "bg-amber-500"
-                            }`}
-                          />
-                        </div>
-                      ))}
+                  ))}
+                </div>
+
+                {/* Legend */}
+                <div className="flex justify-center gap-6 mt-8 pt-6 border-t border-slate-200">
+                  {[
+                    { color: "bg-emerald-500", label: "Astrox 100ZZ" },
+                    { color: "bg-blue-500", label: "Nanoflare 1000Z" },
+                    { color: "bg-amber-500", label: "Arcsaber 11 Pro" },
+                  ].map((item) => (
+                    <div key={item.label} className="flex items-center gap-2">
+                      <span className={`w-3 h-3 rounded-full ${item.color}`} />
+                      <span className="text-sm text-slate-500">
+                        {item.label}
+                      </span>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-
-              {/* Legend */}
-              <div className="flex justify-center gap-6 mt-6 pt-6 border-t border-slate-700/50">
-                {[
-                  { color: "bg-emerald-500", label: "Astrox 100ZZ" },
-                  { color: "bg-blue-500", label: "Nanoflare 1000Z" },
-                  { color: "bg-amber-500", label: "Arcsaber 11 Pro" },
-                ].map((item) => (
-                  <div key={item.label} className="flex items-center gap-2">
-                    <span
-                      className={`w-3 h-3 rounded-full ${item.color}`}
-                    ></span>
-                    <span className="text-sm text-slate-500">{item.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Decorative glow */}
-            <div className="absolute -inset-4 bg-gradient-to-r from-white to-white rounded-3xl blur-xl -z-10"></div>
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>

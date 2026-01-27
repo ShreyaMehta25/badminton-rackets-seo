@@ -151,11 +151,11 @@ import { Users, Target, Trophy } from "lucide-react";
 
 export default function SkillLevelGuide() {
   return (
-    <section id="skill-level-guide" className="py-12 bg-slate-50">
+    <section id="skill-level-guide" className=" bg-white mt-0">
       <div className="max-w-[1400px] mx-auto px-6">
         {/* Section Header */}
         <div className="mb-4">
-          <h2 className="text-3xl md:text-4xl font-bold italic text-slate-900">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
             What level of racket are you looking for?
           </h2>
           <p className="text-base text-slate-600 ">
@@ -169,7 +169,7 @@ export default function SkillLevelGuide() {
           <div
             className="
               grid grid-cols-2 gap-3 p-4
-              bg-amber-50
+              bg-white
               h-[700px]   /* ✅ controlled height increase */
             "
           >
@@ -302,7 +302,7 @@ export default function SkillLevelGuide() {
           </div>
 
           {/* RIGHT 30% — Quote */}
-          <div className="hidden lg:flex items-center justify-center bg-slate-50 p-10">
+          <div className="hidden lg:flex items-center justify-center bg-white p-10">
             <div className="max-w-sm">
               <div className="border-l-4 border-emerald-500 pl-6">
                 <blockquote className="text-3xl font-light italic  text-slate-700 leading-relaxed">

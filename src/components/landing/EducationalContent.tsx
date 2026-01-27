@@ -151,21 +151,21 @@ const colorClasses = {
 export default function EducationalContent() {
   return (
     <div className="bg-white ">
-      <section className="mt-12  ">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="pl-8 pr-8 pt-36">
+        <div className="max-w-[1600px]">
           {/* Section Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="-ml-12 mb-6"
+            className="mb-6"
           >
-            <h2 className="text-3xl md:text-4xl font-bold italic text-black mb-1">
+            <h2 className="text-3xl md:text-4xl font-bold  text-black mb-1">
               Learn Before You Buy
             </h2>
 
-            <p className="text-lg text-slate-900 max-w-xl">
+            <p className="text-lg text-slate-600 max-w-xl">
               Make smarter purchasing decisions with our expert guides and
               insights. Knowledge is the first step to finding your perfect
               racket.
@@ -173,7 +173,7 @@ export default function EducationalContent() {
           </motion.div>
 
           {/* Articles Grid */}
-          <div className=" grid grid-cols-1 md:grid-cols-3 gap-8 ">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {articles.map((article, index) => {
               const colors =
                 colorClasses[article.color as keyof typeof colorClasses];

@@ -82,7 +82,7 @@ export default function BrandBannerCarousel() {
     >
       {/* Section Title */}
       <div className="max-w-[1400px] mx-auto px-6 pt-8 pb-4">
-        <h3 className="text-2xl md:text-3xl font-bold italic text-slate-900">
+        <h3 className="text-2xl md:text-3xl font-bold  text-slate-900">
           Find your perfect Badminton Racket
         </h3>
       </div>

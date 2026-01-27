@@ -305,26 +305,26 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-8 bg-white -mt-12 -mb-7">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="pt-36 bg-white ">
+      <div className="max-w-9xl  px-6">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4 }}
-          className="mb-8"
+          className="mb-2"
         >
-          <h2 className="text-3xl md:text-4xl font-bold italic text-slate-900 -ml-10">
+          <h2 className="text-3xl md:text-4xl font-bold  text-slate-900">
             Frequently Asked Questions
           </h2>
-          <p className="text-slate-600 text-med mt-1 -ml-10">
+          <p className="text-slate-600 text-med mt-1 mb-2">
             Quick answers to common questions about choosing badminton rackets.
           </p>
         </motion.div>
 
         {/* FAQ List */}
-        <div className="max-w-2xl -ml-10">
+        <div className="w-full">
           {faqs.map((faq, index) => {
             const isLast = index === faqs.length - 1;
             const isOpen = openIndex === index;
@@ -344,20 +344,17 @@ export default function FAQSection() {
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className="w-full text-left py-4 flex items-start justify-between gap-4"
+                  className="w-full text-left py-4 flex items-start gap-3"
                   aria-expanded={isOpen}
                 >
-                  <h3 className="text-sm md:text-base font-semibold text-slate-900">
-                    {faq.question}
-                  </h3>
-
+                  {/* Arrow (LEFT) */}
                   <span
-                    className={`transition-transform mt-1 ${
-                      isOpen ? "rotate-180" : ""
+                    className={`mt-1 transition-transform duration-300 ${
+                      isOpen ? "rotate-90" : ""
                     }`}
                   >
                     <svg
-                      className="w-5 h-5 text-slate-500"
+                      className="w-4 h-4 text-slate-500"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -366,18 +363,24 @@ export default function FAQSection() {
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         strokeWidth={2}
-                        d="M19 9l-7 7-7-7"
+                        d="M9 5l7 7-7 7"
                       />
                     </svg>
                   </span>
+
+                  {/* Question */}
+                  <h3 className="flex-1 text-med md:text-base font-semibold text-slate-900">
+                    {faq.question}
+                  </h3>
                 </button>
 
+                {/* Answer */}
                 <div
                   className={`overflow-hidden transition-all duration-300 ${
                     isOpen ? "max-h-96 pb-4" : "max-h-0"
                   }`}
                 >
-                  <p className="text-sm text-slate-600 leading-relaxed pr-6">
+                  <p className="text-med text-slate-700 leading-relaxed pl-7 pr-1">
                     {faq.answer}
                   </p>
                 </div>
