@@ -275,18 +275,18 @@ export default async function RacketPage({ params }: Props) {
           allRackets={rackets as Racket[]}
         />
 
-        <section>
-          <h2 className="text-2xl font-bold mb-3 text-slate-700 mt-10">
+        <section className="max-w-5xl mx-auto">
+          <h2 className="text-2xl font-bold mb-6 text-slate-700">
             Frequently Asked Questions
           </h2>
 
           <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <details key={index} className="group   p-4">
+              <details key={index} className="group p-4">
                 <summary className="cursor-pointer font-medium text-slate-600">
                   {faq.question}
                 </summary>
-                <p className="mt-2 text-slate-500 max-w-2xl">{faq.answer}</p>
+                <p className="mt-2 text-slate-500">{faq.answer}</p>
               </details>
             ))}
           </div>

@@ -638,7 +638,7 @@ export default async function FilteredRacketsPage({ params }: Props) {
     : null;
 
   return (
-    <main className="max-w-7xl mx-auto px-6 py-10">
+    <main className="w-full px-6 py-10">
       {/* Consolidated schema - only for indexable pages */}
       {schema && (
         <Script
@@ -651,12 +651,14 @@ export default async function FilteredRacketsPage({ params }: Props) {
         />
       )}
 
-      <div className="grid grid-cols-[20%_80%] gap-8">
+      <div className="grid grid-cols-[280px_1fr] gap-8">
         <aside>
           <RacketSidebar />
         </aside>
         <div>
-          <h1 className="text-4xl font-extrabold mb-4 text-slate-700">{heading}</h1>
+          <h1 className="text-4xl font-extrabold mb-4 text-slate-700">
+            {heading}
+          </h1>
 
           <p className="text-slate-400 mb-8">
             Showing {filteredRackets.length} rackets.
@@ -667,7 +669,9 @@ export default async function FilteredRacketsPage({ params }: Props) {
               No rackets found for this combination.
             </div>
           ) : (
-            <RacketListWithSort rackets={filteredRackets} />
+            <div className="max-w-full pr-1">
+              <RacketListWithSort rackets={filteredRackets} />
+            </div>
           )}
 
           {/* Internal Links Section */}
@@ -681,7 +685,7 @@ export default async function FilteredRacketsPage({ params }: Props) {
             if (internalLinks.length >= 3) {
               return (
                 <section className="mt-12 pt-8 border-t border-slate-200">
-                  <h2 className="text-2xl font-bold mb-4">
+                  <h2 className="text-2xl font-bold mb-4 text-slate-700">
                     Related Badminton Racket Categories
                   </h2>
                   <ul className="flex flex-wrap gap-3">

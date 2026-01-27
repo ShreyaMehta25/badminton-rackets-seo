@@ -248,7 +248,7 @@ export default function ComparisonTable({ rackets }: { rackets: Racket[] }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
-                  className="inline-block px-5 py-2 rounded-md bg-emerald-600 hover:bg-emerald-500 text-white font-semibold transition"
+                  className="inline-block px-5 py-2 rounded-md bg-slate-400 hover:bg-slate-300 text-white font-semibold transition"
                 >
                   Buy Now
                 </a>
