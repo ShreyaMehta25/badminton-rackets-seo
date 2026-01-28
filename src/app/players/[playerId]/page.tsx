@@ -371,7 +371,7 @@ export default async function PlayerPage({ params }: Props) {
 
   return (
     <>
-      <main className="max-w-7xl mx-auto px-6 py-8">
+      <main className="max-w-[1920px] mx-auto px-6 py-8">
         {/* Back */}
         <Link
           href="/rackets"

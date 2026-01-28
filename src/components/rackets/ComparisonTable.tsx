@@ -139,8 +139,10 @@ export default function ComparisonTable({ rackets }: { rackets: Racket[] }) {
   const router = useRouter();
 
   return (
-    <div className="overflow-x-auto border border-slate-200 bg-white shadow-md rounded-lg">
-      <table className="min-w-full text-xs md:text-sm">
+    <>
+      {/* Desktop Table - visible on md+ only */}
+      <div className="hidden md:block overflow-x-auto border border-slate-200 bg-white shadow-md rounded-lg">
+        <table className="min-w-full text-xs md:text-sm">
         <thead className="bg-slate-50 border-b border-slate-200">
           <tr>
             <th className="px-3 md:px-6 py-3 md:py-4 text-left font-semibold text-slate-700 text-xs md:text-sm">
@@ -258,5 +260,110 @@ export default function ComparisonTable({ rackets }: { rackets: Racket[] }) {
         </tbody>
       </table>
     </div>
+
+      {/* Mobile Card View - visible on mobile only */}
+      <div className="md:hidden space-y-4">
+        {rackets.map((r, index) => (
+          <div
+            key={r.id}
+            onClick={() => router.push(`/rackets/${r.id}`)}
+            className="bg-white border border-slate-200 rounded-lg shadow-sm overflow-hidden cursor-pointer hover:shadow-md transition-shadow"
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                router.push(`/rackets/${r.id}`);
+              }
+            }}
+          >
+            {/* Header with Image and Name */}
+            <div className="p-4 bg-slate-50 border-b border-slate-200">
+              <div className="flex items-center gap-3">
+                <img
+                  src={r.imageUrl}
+                  alt={r.name}
+                  className="w-16 h-16 object-contain rounded-md border border-slate-200 bg-white shadow-sm flex-shrink-0"
+                />
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-sm font-semibold text-slate-800 line-clamp-2">
+                    {r.name}
+                  </h3>
+                  <div className="flex items-center justify-between mt-2">
+                    <span className="text-base font-bold text-slate-800">
+                      ₹{r.price}
+                    </span>
+                    <span className="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-yellow-50 border border-yellow-200 text-yellow-700 font-semibold text-xs">
+                      ⭐ {r.reviewScore}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Content */}
+            <div className="p-4 space-y-3">
+              {/* Pros */}
+              <div>
+                <h4 className="text-xs font-semibold text-slate-700 mb-1.5 uppercase tracking-wide">
+                  Pros
+                </h4>
+                <ul className="list-disc pl-4 space-y-0.5 text-slate-600 text-xs">
+                  {r.pros.map((p) => (
+                    <li key={p} className="leading-relaxed">
+                      {p}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Cons */}
+              <div>
+                <h4 className="text-xs font-semibold text-slate-700 mb-1.5 uppercase tracking-wide">
+                  Cons
+                </h4>
+                <ul className="list-disc pl-4 space-y-0.5 text-slate-500 text-xs">
+                  {r.cons.map((c) => (
+                    <li key={c} className="leading-relaxed">
+                      {c}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Best For */}
+              <div>
+                <h4 className="text-xs font-semibold text-slate-700 mb-1.5 uppercase tracking-wide">
+                  Best For
+                </h4>
+                <div className="flex flex-wrap gap-1.5">
+                  {r.bestFor.map((b) => (
+                    <span
+                      key={b}
+                      className="px-2 py-1 text-xs rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200 font-medium"
+                    >
+                      {formatBestForLabel(b)}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Buy Button */}
+              <div className="pt-2">
+                <a
+                  href={r.affiliateUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="block w-full text-center px-4 py-2.5 rounded-md bg-slate-400 hover:bg-slate-300 text-white font-semibold transition text-sm"
+                >
+                  Buy Now
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
   );
 }

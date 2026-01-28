@@ -268,14 +268,14 @@ export default async function RacketPage({ params }: Props) {
           </div>
         </section>
       </main> */}
-      <main className="w-full px-4 md:px-6 py-6 md:py-10 space-y-8 md:space-y-10">
+      <main className="max-w-[1920px] mx-auto px-4 md:px-6 py-6 md:py-10 space-y-8 md:space-y-10">
         <RacketDetailContent
           racket={racket}
           associatedPlayers={associatedPlayers}
           allRackets={rackets as Racket[]}
         />
 
-        <section className="w-full mx-auto">
+        <section className="max-w-[1920px]  mx-auto">
           <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-slate-700">
             Frequently Asked Questions
           </h2>

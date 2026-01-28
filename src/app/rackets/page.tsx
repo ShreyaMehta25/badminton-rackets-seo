@@ -177,7 +177,7 @@ export default function RacketsPage() {
       />
 
       <main className="py-6 md:py-10 bg-white">
-        <div className="w-full px-4 md:px-6">
+        <div className="max-w-[1920px] mx-auto px-4 md:px-6">
           {/* Desktop: 2-column with sidebar | Mobile: 1-column without sidebar */}
           <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-6">
             {/* Sidebar - hidden on mobile, visible on lg+ */}

@@ -103,43 +103,43 @@ export default function RacketCard({ racket }: { racket: Racket }) {
       className="group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 block border border-slate-200 hover:border-emerald-300 hover:-translate-y-1"
     >
       {/* Image Area */}
-      <div className="h-44 bg-slate-50 relative overflow-hidden rounded-t-2xl">
+      <div className="h-32 md:h-44 bg-slate-50 relative overflow-hidden rounded-t-2xl">
         <img
           src={racket.imageUrl}
           alt={racket.name}
-          className="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300"
+          className="w-full h-full object-contain p-1.5 md:p-2 group-hover:scale-105 transition-transform duration-300"
         />
       </div>
 
       {/* Content Area */}
-      <div className="p-3 space-y-2">
+      <div className="p-2 md:p-3 space-y-1.5 md:space-y-2">
         {/* Title & Brand */}
         <div>
-          <h3 className="text-sm font-medium leading-tight text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-2">
+          <h3 className="text-xs md:text-sm font-medium leading-tight text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-2">
             {racket.name}
           </h3>
-          <p className="text-xs text-slate-500 mt-1 uppercase tracking-wide">
+          <p className="text-xs text-slate-500 mt-0.5 md:mt-1 uppercase tracking-wide">
             {racket.brand}
           </p>
         </div>
 
         {/* Price */}
-        <div className="pt-1">
-          <span className="text-base font-bold text-slate-600">
+        <div className="pt-0.5 md:pt-1">
+          <span className="text-sm md:text-base font-bold text-slate-600">
             ₹{racket.price.toLocaleString()}
           </span>
         </div>
 
         {/* Tags/Capsules */}
-        <div className="flex flex-wrap gap-1.5">
+        <div className="flex flex-wrap gap-1">
           <span
-            className={`px-2.5 py-1 text-xs font-medium rounded-full border ${levelColor[racket.playerLevel]}`}
+            className={`px-1.5 md:px-2.5 py-0.5 md:py-1 text-xs font-medium rounded-full border ${levelColor[racket.playerLevel]}`}
           >
             {formatLabel(racket.playerLevel)}
           </span>
 
           <span
-            className={`px-2.5 py-1 text-xs font-medium rounded-full border ${
+            className={`px-1.5 md:px-2.5 py-0.5 md:py-1 text-xs font-medium rounded-full border ${
               balanceColor[racket.balance] ||
               "bg-slate-50 text-slate-700 border-slate-200"
             }`}
@@ -150,10 +150,10 @@ export default function RacketCard({ racket }: { racket: Racket }) {
 
         {/* Why this racket */}
         {racket.bestFor && racket.bestFor.length > 0 && (
-          <div className="pt-2 border-t border-slate-100">
-            <p className="text-xs text-slate-600 leading-snug">
+          <div className="pt-1.5 md:pt-2 border-t border-slate-100">
+            <p className="text-xs text-slate-600 leading-snug line-clamp-2">
               <span className="font-medium text-slate-700">
-                Why this racket:{" "}
+                Why:{" "}
               </span>
               {racket.bestFor.slice(0, 2).map(formatLabel).join(", ")}
             </p>

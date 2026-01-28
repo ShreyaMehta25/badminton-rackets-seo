@@ -638,7 +638,7 @@ export default async function FilteredRacketsPage({ params }: Props) {
     : null;
 
   return (
-    <main className="w-full px-4 md:px-6 py-6 md:py-10">
+    <main className="max-w-[1920px] mx-auto px-4 md:px-6 py-6 md:py-10">
       {/* Consolidated schema - only for indexable pages */}
       {schema && (
         <Script
