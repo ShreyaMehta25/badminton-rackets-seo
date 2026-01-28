@@ -247,9 +247,9 @@ export default function WeightGuide() {
           {canGoPrev && (
             <button
               onClick={() => setPage((p) => p - 1)}
-              className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white p-2.5 rounded-full shadow-lg hover:shadow-xl transition-shadow"
+              className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white border border-slate-200 p-2.5 rounded-full shadow-lg hover:shadow-xl transition-shadow"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-5 h-5 text-slate-300" />
             </button>
           )}
 
@@ -326,9 +326,9 @@ export default function WeightGuide() {
           {canGoNext && (
             <button
               onClick={() => setPage((p) => p + 1)}
-              className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white p-2.5 rounded-full shadow-lg hover:shadow-xl transition-shadow"
+              className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white border border-slate-200 p-2.5 rounded-full shadow-lg hover:shadow-xl transition-shadow"
             >
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="w-5 h-5 text-slate-300" />
             </button>
           )}
         </div>

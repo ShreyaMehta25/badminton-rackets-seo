@@ -253,9 +253,9 @@ export default function ExpertPicks() {
           {page > 0 && (
             <button
               onClick={() => setPage((p) => p - 1)}
-              className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white p-2 rounded-full shadow hover:shadow-lg transition-shadow"
+              className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white border border-slate-200 p-2 rounded-full shadow hover:shadow-lg transition-shadow"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-5 h-5 text-slate-300" />
             </button>
           )}
 
@@ -271,9 +271,9 @@ export default function ExpertPicks() {
           {page < totalPages - 1 && (
             <button
               onClick={() => setPage((p) => p + 1)}
-              className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white p-2 rounded-full shadow hover:shadow-lg transition-shadow"
+              className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white border border-slate-200 p-2 rounded-full shadow hover:shadow-lg transition-shadow"
             >
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="w-5 h-5 text-slate-300" />
             </button>
           )}
         </div>
@@ -286,7 +286,9 @@ export default function ExpertPicks() {
                 key={i}
                 onClick={() => setPage(i)}
                 className={`h-2 rounded-full transition-all ${
-                  i === page ? "bg-emerald-600 w-6 md:w-8" : "bg-slate-300 hover:bg-slate-400 w-2"
+                  i === page
+                    ? "bg-emerald-600 w-6 md:w-8"
+                    : "bg-slate-300 hover:bg-slate-400 w-2"
                 }`}
               />
             ))}

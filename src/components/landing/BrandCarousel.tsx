@@ -94,9 +94,9 @@ export default function BrandBannerCarousel() {
           onClick={() =>
             setCurrentSlide((p) => (p === 0 ? totalSlides - 1 : p - 1))
           }
-          className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 bg-white p-2 md:p-3 rounded-full shadow hover:shadow-md transition-shadow"
+          className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 bg-white border border-slate-200 p-2 md:p-3 rounded-full shadow hover:shadow-md transition-shadow"
         >
-          <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
+          <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-slate-300 " />
         </button>
 
         {/* Slides */}
@@ -135,8 +135,8 @@ export default function BrandBannerCarousel() {
                   </div>
 
                   {/* Content */}
-                  <div className="relative z-10 max-w-[1600px] mx-auto px-4 md:px-6 h-full flex items-end md:items-center pt-48 md:pt-0 pb-6 md:pb-0">
-                    <div className="w-full max-w-[700px]">
+                  <div className="relative z-10     max-w-[1600px] mx-auto     pl-14 pr-6 md:pl-20 md:pr-10    h-full flex items-end md:items-center     pt-48 md:pt-0 pb-6 md:pb-0  ">
+                    <div className="w-full max-w-[560px] lg:max-w-[620px]">
                       <span className="inline-block px-3 md:px-4 py-1.5 md:py-2 bg-emerald-100 text-emerald-700 rounded-full text-xs md:text-sm font-semibold mb-3 md:mb-6">
                         Featured Brand
                       </span>
@@ -167,9 +167,9 @@ export default function BrandBannerCarousel() {
         {/* Right Arrow */}
         <button
           onClick={() => setCurrentSlide((p) => (p + 1) % totalSlides)}
-          className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 bg-white p-2 md:p-3 rounded-full shadow hover:shadow-md transition-shadow"
+          className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 bg-white border border-slate-200 p-2 md:p-3 rounded-full shadow hover:shadow-md transition-shadow"
         >
-          <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
+          <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-slate-300 " />
         </button>
       </div>
       {/* Play / Pause Control */}
