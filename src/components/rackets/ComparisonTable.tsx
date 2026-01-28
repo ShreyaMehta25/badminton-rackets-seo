@@ -139,29 +139,29 @@ export default function ComparisonTable({ rackets }: { rackets: Racket[] }) {
   const router = useRouter();
 
   return (
-    <div className="overflow-x-auto  border border-slate-200 bg-white shadow-md">
-      <table className="min-w-full text-sm">
+    <div className="overflow-x-auto border border-slate-200 bg-white shadow-md rounded-lg">
+      <table className="min-w-full text-xs md:text-sm">
         <thead className="bg-slate-50 border-b border-slate-200">
           <tr>
-            <th className="px-6 py-4 text-left font-semibold text-slate-700">
+            <th className="px-3 md:px-6 py-3 md:py-4 text-left font-semibold text-slate-700 text-xs md:text-sm">
               Racket
             </th>
-            <th className="px-6 py-4 text-center font-semibold text-slate-700">
+            <th className="px-3 md:px-6 py-3 md:py-4 text-center font-semibold text-slate-700 text-xs md:text-sm">
               Pros
             </th>
-            <th className="px-6 py-4 text-center font-semibold text-slate-700">
+            <th className="px-3 md:px-6 py-3 md:py-4 text-center font-semibold text-slate-700 text-xs md:text-sm">
               Cons
             </th>
-            <th className="px-6 py-4 text-center font-semibold text-slate-700">
+            <th className="px-3 md:px-6 py-3 md:py-4 text-center font-semibold text-slate-700 text-xs md:text-sm">
               Best For
             </th>
-            <th className="px-6 py-4 text-center font-semibold text-slate-700">
+            <th className="px-3 md:px-6 py-3 md:py-4 text-center font-semibold text-slate-700 text-xs md:text-sm">
               Score
             </th>
-            <th className="px-6 py-4 text-center font-semibold text-slate-700">
+            <th className="px-3 md:px-6 py-3 md:py-4 text-center font-semibold text-slate-700 text-xs md:text-sm">
               Price
             </th>
-            <th className="px-6 py-4"></th>
+            <th className="px-3 md:px-6 py-3 md:py-4"></th>
           </tr>
         </thead>
 
@@ -182,20 +182,20 @@ export default function ComparisonTable({ rackets }: { rackets: Racket[] }) {
               }}
             >
               {/* Racket */}
-              <td className="px-6 py-5 font-medium text-slate-800">
-                <div className="flex items-center gap-4">
+              <td className="px-3 md:px-6 py-4 md:py-5 font-medium text-slate-800">
+                <div className="flex items-center gap-2 md:gap-4">
                   <img
                     src={r.imageUrl}
                     alt={r.name}
-                    className="w-14 h-14 object-contain rounded-md border border-slate-200 bg-white shadow-sm"
+                    className="w-10 h-10 md:w-14 md:h-14 object-contain rounded-md border border-slate-200 bg-white shadow-sm flex-shrink-0"
                   />
-                  <span>{r.name}</span>
+                  <span className="text-xs md:text-sm">{r.name}</span>
                 </div>
               </td>
 
               {/* Pros */}
-              <td className="px-6 py-5">
-                <ul className="list-disc pl-5 space-y-1 text-slate-600">
+              <td className="px-3 md:px-6 py-4 md:py-5">
+                <ul className="list-disc pl-4 md:pl-5 space-y-0.5 md:space-y-1 text-slate-600 text-xs md:text-sm">
                   {r.pros.map((p) => (
                     <li key={p} className="leading-relaxed">
                       {p}
@@ -205,8 +205,8 @@ export default function ComparisonTable({ rackets }: { rackets: Racket[] }) {
               </td>
 
               {/* Cons */}
-              <td className="px-6 py-5">
-                <ul className="list-disc pl-5 space-y-1 text-slate-500">
+              <td className="px-3 md:px-6 py-4 md:py-5">
+                <ul className="list-disc pl-4 md:pl-5 space-y-0.5 md:space-y-1 text-slate-500 text-xs md:text-sm">
                   {r.cons.map((c) => (
                     <li key={c} className="leading-relaxed">
                       {c}
@@ -216,12 +216,12 @@ export default function ComparisonTable({ rackets }: { rackets: Racket[] }) {
               </td>
 
               {/* Best For */}
-              <td className="px-6 py-5">
-                <div className="flex flex-wrap justify-center gap-2">
+              <td className="px-3 md:px-6 py-4 md:py-5">
+                <div className="flex flex-wrap justify-center gap-1 md:gap-2">
                   {r.bestFor.map((b) => (
                     <span
                       key={b}
-                      className="px-3 py-1 text-xs rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200 font-medium"
+                      className="px-2 md:px-3 py-0.5 md:py-1 text-xs rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200 font-medium"
                     >
                       {formatBestForLabel(b)}
                     </span>
@@ -230,25 +230,25 @@ export default function ComparisonTable({ rackets }: { rackets: Racket[] }) {
               </td>
 
               {/* Score */}
-              <td className="px-6 py-5 text-center">
-                <span className="inline-flex items-center gap-1 px-3 py-1 rounded-md bg-yellow-50 border border-yellow-200 text-yellow-700 font-semibold">
+              <td className="px-3 md:px-6 py-4 md:py-5 text-center">
+                <span className="inline-flex items-center gap-0.5 md:gap-1 px-2 md:px-3 py-0.5 md:py-1 rounded-md bg-yellow-50 border border-yellow-200 text-yellow-700 font-semibold text-xs md:text-sm">
                   ⭐ {r.reviewScore}
                 </span>
               </td>
 
               {/* Price */}
-              <td className="px-6 py-5 text-center">
-                <span className="font-bold text-slate-800">₹{r.price}</span>
+              <td className="px-3 md:px-6 py-4 md:py-5 text-center">
+                <span className="font-bold text-slate-800 text-xs md:text-sm">₹{r.price}</span>
               </td>
 
               {/* Buy */}
-              <td className="px-6 py-5">
+              <td className="px-3 md:px-6 py-4 md:py-5">
                 <a
                   href={r.affiliateUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
-                  className="inline-block px-5 py-2 rounded-md bg-slate-400 hover:bg-slate-300 text-white font-semibold transition"
+                  className="inline-block px-3 md:px-5 py-1.5 md:py-2 rounded-md bg-slate-400 hover:bg-slate-300 text-white font-semibold transition text-xs md:text-sm whitespace-nowrap"
                 >
                   Buy Now
                 </a>

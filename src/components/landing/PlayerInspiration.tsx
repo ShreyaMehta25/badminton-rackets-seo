@@ -137,20 +137,20 @@ export default function PlayerInspiration() {
   const activePlayers = players.filter((p) => p.isActive).slice(0, 8);
 
   return (
-    <section className=" bg-white pt-36">
-      <div className="w-full px-6">
+    <section className="bg-white pt-12 md:pt-24 lg:pt-36">
+      <div className="w-full px-4 md:px-6">
         {/* Header */}
-        <div className="mb-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-1">
+        <div className="mb-4 md:mb-6">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-1 md:mb-2">
             Want to see what players use?
           </h2>
-          <p className="text-lg text-slate-600">
+          <p className="text-base md:text-lg text-slate-600">
             Discover the rackets chosen by world-class badminton players
           </p>
         </div>
 
-        {/* Collage Grid */}
-        <div className="grid grid-cols-12 grid-rows-6 gap-1.5 h-[900px] ">
+        {/* Collage Grid - Simple 2-col on mobile, complex grid on desktop */}
+        <div className="grid grid-cols-2 md:grid-cols-12 md:grid-rows-6 gap-1.5 md:h-[900px]">
           {activePlayers.map((player, index) => {
             const racketUsed = player.racketsUsed.find(
               (r) => r.usageType === "current",
@@ -160,21 +160,21 @@ export default function PlayerInspiration() {
               : null;
 
             const layoutClasses = [
-              "col-span-6 row-span-4",
-              "col-span-3 row-span-2",
-              "col-span-3 row-span-2",
-              "col-span-3 row-span-2",
-              "col-span-3 row-span-2",
-              "col-span-6 row-span-2",
-              "col-span-4 row-span-2",
-              "col-span-2 row-span-2",
+              "col-span-1 md:col-span-6 md:row-span-4",
+              "col-span-1 md:col-span-3 md:row-span-2",
+              "col-span-1 md:col-span-3 md:row-span-2",
+              "col-span-1 md:col-span-3 md:row-span-2",
+              "col-span-1 md:col-span-3 md:row-span-2",
+              "col-span-2 md:col-span-6 md:row-span-2",
+              "col-span-1 md:col-span-4 md:row-span-2",
+              "col-span-1 md:col-span-2 md:row-span-2",
             ][index];
 
             return (
               <Link
                 key={player.id}
                 href={`/players/${player.id}`}
-                className={`group relative  overflow-hidden border border-slate-200 ${layoutClasses}`}
+                className={`group relative overflow-hidden border border-slate-200 min-h-[240px] md:min-h-0 ${layoutClasses}`}
               >
                 {/* 🔴 ONLY CHANGE IS HERE */}
                 <div
@@ -203,20 +203,20 @@ export default function PlayerInspiration() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
 
                 {/* Content */}
-                <div className="relative z-10 h-full p-6 flex flex-col justify-end">
-                  <h3 className="text-xl md:text-2xl font-bold text-white">
+                <div className="relative z-10 h-full p-3 md:p-6 flex flex-col justify-end">
+                  <h3 className="text-base md:text-xl lg:text-2xl font-bold text-white">
                     {player.name}
                   </h3>
 
-                  <p className="text-sm text-white/80 mb-2">
+                  <p className="text-xs md:text-sm text-white/80 mb-1.5 md:mb-2">
                     {categoryLabels[player.category]}
                   </p>
 
-                  <div className="flex flex-wrap gap-2 mb-3">
+                  <div className="flex flex-wrap gap-1 md:gap-2 mb-2 md:mb-3">
                     {player.playStyle.slice(0, 2).map((style) => (
                       <span
                         key={style}
-                        className="px-2 py-1 text-xs rounded bg-white/20 text-white backdrop-blur"
+                        className="px-1.5 md:px-2 py-0.5 md:py-1 text-xs rounded bg-white/20 text-white backdrop-blur"
                       >
                         {style}
                       </span>
@@ -224,14 +224,14 @@ export default function PlayerInspiration() {
                   </div>
 
                   {racket && (
-                    <div className="flex items-center gap-3 bg-white/90 rounded-lg p-3">
+                    <div className="flex items-center gap-2 md:gap-3 bg-white/90 rounded-lg p-2 md:p-3">
                       <img
                         src={racket.imageUrl}
                         alt={racket.name}
-                        className="w-12 h-12 object-contain"
+                        className="w-10 h-10 md:w-12 md:h-12 object-contain flex-shrink-0"
                       />
-                      <div>
-                        <p className="text-sm font-semibold text-slate-900">
+                      <div className="min-w-0">
+                        <p className="text-xs md:text-sm font-semibold text-slate-900 truncate">
                           {racket.name}
                         </p>
                         <p className="text-xs text-slate-600">{racket.brand}</p>
@@ -239,7 +239,7 @@ export default function PlayerInspiration() {
                     </div>
                   )}
 
-                  <span className="mt-3 text-sm font-semibold text-emerald-300">
+                  <span className="mt-2 md:mt-3 text-xs md:text-sm font-semibold text-emerald-300">
                     View player →
                   </span>
                 </div>

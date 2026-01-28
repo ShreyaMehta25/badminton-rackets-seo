@@ -638,7 +638,7 @@ export default async function FilteredRacketsPage({ params }: Props) {
     : null;
 
   return (
-    <main className="w-full px-6 py-10">
+    <main className="w-full px-4 md:px-6 py-6 md:py-10">
       {/* Consolidated schema - only for indexable pages */}
       {schema && (
         <Script
@@ -651,25 +651,28 @@ export default async function FilteredRacketsPage({ params }: Props) {
         />
       )}
 
-      <div className="grid grid-cols-[280px_1fr] gap-8">
-        <aside>
+      {/* Desktop: 2-column with sidebar | Mobile: 1-column without sidebar */}
+      <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-6 lg:gap-8">
+        {/* Sidebar - hidden on mobile, visible on lg+ */}
+        <aside className="hidden lg:block">
           <RacketSidebar />
         </aside>
+
         <div>
-          <h1 className="text-4xl font-extrabold mb-4 text-slate-700">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold mb-3 md:mb-4 text-slate-700">
             {heading}
           </h1>
 
-          <p className="text-slate-400 mb-8">
+          <p className="text-sm md:text-base text-slate-400 mb-6 md:mb-8">
             Showing {filteredRackets.length} rackets.
           </p>
 
           {filteredRackets.length === 0 ? (
-            <div className="text-slate-400">
+            <div className="text-sm md:text-base text-slate-400">
               No rackets found for this combination.
             </div>
           ) : (
-            <div className="max-w-full pr-1">
+            <div className="max-w-full">
               <RacketListWithSort rackets={filteredRackets} />
             </div>
           )}
@@ -684,16 +687,16 @@ export default async function FilteredRacketsPage({ params }: Props) {
 
             if (internalLinks.length >= 3) {
               return (
-                <section className="mt-12 pt-8 border-t border-slate-200">
-                  <h2 className="text-2xl font-bold mb-4 text-slate-700">
+                <section className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-slate-200">
+                  <h2 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-slate-700">
                     Related Badminton Racket Categories
                   </h2>
-                  <ul className="flex flex-wrap gap-3">
+                  <ul className="flex flex-wrap gap-2 md:gap-3">
                     {internalLinks.map((link) => (
                       <li key={link.url}>
                         <Link
                           href={link.url}
-                          className="text-blue-600 hover:text-blue-800 underline"
+                          className="text-sm md:text-base text-blue-600 hover:text-blue-800 underline"
                         >
                           {link.label}
                         </Link>

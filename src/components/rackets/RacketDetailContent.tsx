@@ -825,7 +825,7 @@ export default function RacketDetailContent({
   return (
     <div className="bg-white text-slate-800">
       {/* Back */}
-      <div className="max-w-5xl mx-auto px-4 pt-4 pb-2">
+      <div className="w-full px-4 pt-4 pb-2">
         <button
           onClick={() => router.back()}
           className="flex items-center gap-2 text-sm font-medium hover:text-emerald-600"
@@ -834,7 +834,7 @@ export default function RacketDetailContent({
         </button>
       </div>
 
-      <main className="max-w-5xl mx-auto px-4 pb-6">
+      <main className="w-full px-4 pb-6">
         {/* HERO */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           <div className="flex justify-center">

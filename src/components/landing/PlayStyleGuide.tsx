@@ -133,25 +133,25 @@ export default function PlayStyleGuide() {
   const canGoNext = page < totalPages - 1;
 
   return (
-    <section className="py-36 bg-white">
-      <div className="max-w-[1400px] mx-auto px-6">
+    <section className="py-12 md:py-24 lg:py-36 bg-white">
+      <div className="w-full px-4 md:px-6">
         {/* Header */}
-        <div className="space-y-2">
-          <h2 className="text-3xl md:text-4xl font-bold  text-slate-900">
+        <div className="space-y-1 md:space-y-2">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900">
             Your style. Your racket.
           </h2>
-          <p className="text-med text-slate-600 -mt-1">
+          <p className="text-sm md:text-med text-slate-600">
             Find rackets engineered for the way you play
           </p>
         </div>
 
         {/* Playstyle Capsule Filters */}
-        <div className="flex gap-2 mt-3 overflow-x-auto pb-2 -ml-1.9">
+        <div className="flex gap-2 mt-3 md:mt-4 overflow-x-auto pb-2 scrollbar-hide">
           {(["smash", "control", "speed"] as PlaystyleKey[]).map((key) => (
             <button
               key={key}
               onClick={() => setSelectedPlaystyle(key)}
-              className={`px-6 py-3 rounded-full font-medium text-sm whitespace-nowrap transition-all duration-200 border ${
+              className={`px-4 md:px-6 py-2 md:py-3 rounded-full font-medium text-xs md:text-sm whitespace-nowrap transition-all duration-200 border ${
                 selectedPlaystyle === key
                   ? "border-black border-2 text-black bg-slate-200"
                   : "border-transparent text-slate-600 bg-slate-100 hover:border-slate-300"
@@ -167,11 +167,11 @@ export default function PlayStyleGuide() {
         </div>
 
         {/* Cards */}
-        <div className="relative mt-6">
+        <div className="relative mt-4 md:mt-6">
           {canGoPrev && (
             <button
               onClick={() => setPage((p) => p - 1)}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white p-2.5 rounded-full shadow-lg"
+              className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white p-2.5 rounded-full shadow-lg hover:shadow-xl transition-shadow"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
@@ -179,7 +179,7 @@ export default function PlayStyleGuide() {
 
           <div
             key={`${selectedPlaystyle}-${page}`}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 animate-fadeIn"
+            className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 animate-fadeIn"
           >
             {paginatedRackets.map((racket) => (
               <CompactRacketCard key={racket.id} racket={racket} />
@@ -189,7 +189,7 @@ export default function PlayStyleGuide() {
           {canGoNext && (
             <button
               onClick={() => setPage((p) => p + 1)}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white p-2.5 rounded-full shadow-lg"
+              className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white p-2.5 rounded-full shadow-lg hover:shadow-xl transition-shadow"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -198,15 +198,15 @@ export default function PlayStyleGuide() {
 
         {/* Pagination Dots */}
         {totalPages > 1 && (
-          <div className="flex justify-center gap-1.5 mt-4">
+          <div className="flex justify-center gap-1.5 md:gap-2 mt-3 md:mt-4">
             {Array.from({ length: totalPages }).map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => setPage(idx)}
-                className={`w-2 h-2 rounded-full transition-all ${
+                className={`h-2 rounded-full transition-all ${
                   idx === page
-                    ? "bg-emerald-600 w-6"
-                    : "bg-slate-300 hover:bg-slate-400"
+                    ? "bg-emerald-600 w-6 md:w-8"
+                    : "bg-slate-300 hover:bg-slate-400 w-2"
                 }`}
               />
             ))}

@@ -176,24 +176,27 @@ export default function RacketsPage() {
         }}
       />
 
-      <main className="py-10 bg-white">
-        <div className="max-w-[1400px] mx-auto px-6">
-          <div className="grid grid-cols-[280px_1fr] gap-6">
-            <aside>
+      <main className="py-6 md:py-10 bg-white">
+        <div className="w-full px-4 md:px-6">
+          {/* Desktop: 2-column with sidebar | Mobile: 1-column without sidebar */}
+          <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-6">
+            {/* Sidebar - hidden on mobile, visible on lg+ */}
+            <aside className="hidden lg:block">
               <RacketSidebar />
             </aside>
-            <div className="animate-fade-in ">
+
+            <div className="animate-fade-in">
               {/* Header */}
-              <div className="relative mb-8">
-                <h1 className="text-2xl md:text-3xl font-bold mb-3 text-slate-900">
+              <div className="relative mb-6 md:mb-8">
+                <h1 className="text-xl md:text-2xl lg:text-3xl font-bold mb-2 md:mb-3 text-slate-900">
                   Best Badminton Rackets in 2026
                 </h1>
 
-                <h2 className="text-med md:text-lg  text-slate-700 mb-4">
+                <h2 className="text-sm md:text-med lg:text-lg text-slate-700 mb-3 md:mb-4">
                   Compare Professional & Beginner Badminton Rackets
                 </h2>
 
-                <div className="absolute -bottom-2 left-0 w-200 h-0.3 bg-slate-500/70 rounded-full"></div>
+                <div className="absolute -bottom-2 left-0 w-32 md:w-48 h-0.5 bg-slate-500/70 rounded-full"></div>
               </div>
 
               <RacketGrid rackets={allRackets} />

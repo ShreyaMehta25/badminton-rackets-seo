@@ -4,15 +4,15 @@ import { motion } from "framer-motion";
 
 export default function AboutSection() {
   return (
-    <section className="pt-36 pb-36 bg-white">
-      <div className="w-full px-6">
-        <h2 className="text-3xl md:text-4xl font-bold  text-slate-900 mb-8 ">
+    <section className="pt-12 md:pt-24 lg:pt-36 pb-12 md:pb-24 lg:pb-36 bg-white">
+      <div className="w-full px-4 md:px-6">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-4 md:mb-6 lg:mb-8">
           About This Platform
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 lg:gap-14">
           {/* Left paragraph */}
-          <p className="text-med text-slate-700 leading-relaxed ">
+          <p className="text-sm md:text-med text-slate-700 leading-relaxed">
             SmashSelect is a badminton-focused discovery platform built to
             simplify one of the most confusing decisions for players — choosing
             the right racket. With hundreds of models, technical specifications,
@@ -29,7 +29,7 @@ export default function AboutSection() {
           </p>
 
           {/* Right paragraph */}
-          <p className="text-med text-slate-700 leading-relaxed ">
+          <p className="text-sm md:text-med text-slate-700 leading-relaxed">
             Unlike traditional catalog or e-commerce sites, SmashSelect does not
             prioritize promotions, sponsorships, or brand-driven
             recommendations. Every comparison and filter is designed around the

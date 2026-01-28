@@ -81,8 +81,8 @@ export default function BrandBannerCarousel() {
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* Section Title */}
-      <div className=" px-6 pt-8 pb-4">
-        <h3 className="text-2xl md:text-3xl font-bold  text-slate-900">
+      <div className="px-4 md:px-6 pt-6 md:pt-8 pb-3 md:pb-4">
+        <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-slate-900">
           Find your perfect Badminton Racket
         </h3>
       </div>
@@ -94,9 +94,9 @@ export default function BrandBannerCarousel() {
           onClick={() =>
             setCurrentSlide((p) => (p === 0 ? totalSlides - 1 : p - 1))
           }
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white p-3 rounded-full shadow"
+          className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 bg-white p-2 md:p-3 rounded-full shadow hover:shadow-md transition-shadow"
         >
-          <ChevronLeft />
+          <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
         </button>
 
         {/* Slides */}
@@ -107,10 +107,11 @@ export default function BrandBannerCarousel() {
           >
             {brands.map(({ brand }) => (
               <div key={brand} className="w-full flex-shrink-0">
-                <div className="relative h-[360px] md:h-[420px] overflow-hidden bg-white">
-                  {/* Diagonal Image */}
+                {/* MOBILE: Stack vertically | DESKTOP: Diagonal overlay */}
+                <div className="relative h-[480px] md:h-[420px] overflow-hidden bg-white">
+                  {/* Diagonal Image - Hidden on mobile, shows on md+ */}
                   <div
-                    className="absolute right-0 top-0 h-full w-[55%]"
+                    className="hidden md:block absolute right-0 top-0 h-full w-[50%]"
                     style={{
                       backgroundImage: `url(${brandImages[brand] || ""})`,
                       backgroundSize: "cover",
@@ -121,25 +122,37 @@ export default function BrandBannerCarousel() {
                     <div className="absolute inset-0 bg-black/20" />
                   </div>
 
+                  {/* Mobile Image - Shows only on mobile, full width */}
+                  <div
+                    className="md:hidden absolute top-0 left-0 w-full h-48"
+                    style={{
+                      backgroundImage: `url(${brandImages[brand] || ""})`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }}
+                  >
+                    <div className="absolute inset-0 bg-black/30" />
+                  </div>
+
                   {/* Content */}
-                  <div className="relative z-10 max-w-[1400px] mx-auto px-6 h-full flex items-center">
-                    <div className="max-w-xl ml-8 md:ml-16">
-                      <span className="inline-block px-4 py-2 bg-emerald-100 text-emerald-700 rounded-full text-sm font-semibold mb-6">
+                  <div className="relative z-10 max-w-[1600px] mx-auto px-4 md:px-6 h-full flex items-end md:items-center pt-48 md:pt-0 pb-6 md:pb-0">
+                    <div className="w-full max-w-[700px]">
+                      <span className="inline-block px-3 md:px-4 py-1.5 md:py-2 bg-emerald-100 text-emerald-700 rounded-full text-xs md:text-sm font-semibold mb-3 md:mb-6">
                         Featured Brand
                       </span>
 
-                      <h2 className="text-5xl md:text-6xl font-bold text-slate-900">
+                      <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-slate-900">
                         {brand}
                       </h2>
 
-                      {/* ✅ NEW ITALIC DESCRIPTION */}
-                      <p className="mt-3 mb-8 text-lg italic text-slate-600">
+                      {/* Description */}
+                      <p className="mt-2 md:mt-3 mb-4 md:mb-8 text-sm md:text-lg italic text-slate-600 line-clamp-3 md:line-clamp-none">
                         {brandDescriptions[brand]}
                       </p>
 
                       <a
                         href={`/rackets?brand=${encodeURIComponent(brand)}`}
-                        className="inline-block border border-slate-300 bg-slate-200 hover:bg-slate-300 text-slate-800 text-lg font-semibold px-10 py-4 rounded-lg shadow"
+                        className="inline-block border border-slate-300 bg-slate-200 hover:bg-slate-300 text-slate-800 text-sm md:text-lg font-semibold px-6 md:px-10 py-3 md:py-4 rounded-lg shadow"
                       >
                         Explore {brand} Collection →
                       </a>
@@ -154,40 +167,40 @@ export default function BrandBannerCarousel() {
         {/* Right Arrow */}
         <button
           onClick={() => setCurrentSlide((p) => (p + 1) % totalSlides)}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white p-3 rounded-full shadow"
+          className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 bg-white p-2 md:p-3 rounded-full shadow hover:shadow-md transition-shadow"
         >
-          <ChevronRight />
+          <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
         </button>
       </div>
       {/* Play / Pause Control */}
-      <div className="absolute left-1/2 bottom-16 -translate-x-1/2 z-30">
+      <div className="absolute left-1/2 bottom-14 md:bottom-16 -translate-x-1/2 z-30">
         <button
           onClick={() => setIsPaused((p) => !p)}
           className="flex items-center justify-center
-               w-9 h-9 rounded-full
+               w-8 h-8 md:w-9 md:h-9 rounded-full
                bg-white/90 backdrop-blur
                shadow-md hover:shadow-lg
                hover:scale-105 transition"
           aria-label={isPaused ? "Play carousel" : "Pause carousel"}
         >
           {isPaused ? (
-            <Play className="w-4 h-4 text-slate-700" />
+            <Play className="w-3.5 h-3.5 md:w-4 md:h-4 text-slate-700" />
           ) : (
-            <Pause className="w-4 h-4 text-slate-700" />
+            <Pause className="w-3.5 h-3.5 md:w-4 md:h-4 text-slate-700" />
           )}
         </button>
       </div>
 
       {/* Pagination */}
-      <div className="flex justify-center gap-2 py-6">
+      <div className="flex justify-center gap-1.5 md:gap-2 py-4 md:py-6">
         {brands.map((_, i) => (
           <button
             key={i}
             onClick={() => setCurrentSlide(i)}
             className={`transition-all ${
               currentSlide === i
-                ? "w-8 h-3 bg-emerald-600 rounded-full"
-                : "w-3 h-3 bg-slate-300 rounded-full"
+                ? "w-6 md:w-8 h-2 md:h-3 bg-emerald-600 rounded-full"
+                : "w-2 md:w-3 h-2 md:h-3 bg-slate-300 rounded-full hover:bg-slate-400"
             }`}
           />
         ))}

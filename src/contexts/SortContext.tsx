@@ -9,7 +9,7 @@ interface SortContextType {
   setSortOrder: (order: SortOption) => void;
 }
 
-const SortContext = createContext<SortContextType | undefined>(undefined);
+export const SortContext = createContext<SortContextType | undefined>(undefined);
 
 export function SortProvider({ children }: { children: ReactNode }) {
   const [sortOrder, setSortOrder] = useState<SortOption>("low-to-high");

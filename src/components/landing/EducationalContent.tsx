@@ -150,22 +150,22 @@ const colorClasses = {
 // }
 export default function EducationalContent() {
   return (
-    <div className="bg-white ">
-      <section className="pl-8 pr-8 pt-36">
-        <div className="max-w-[1600px]">
+    <div className="bg-white">
+      <section className="px-4 md:px-6 lg:px-8 pt-12 md:pt-24 lg:pt-36">
+        <div className="w-full">
           {/* Section Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="mb-6"
+            className="mb-4 md:mb-6"
           >
-            <h2 className="text-3xl md:text-4xl font-bold  text-black mb-1">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-black mb-1 md:mb-2">
               Learn Before You Buy
             </h2>
 
-            <p className="text-lg text-slate-600 max-w-xl">
+            <p className="text-base md:text-lg text-slate-600 max-w-xl">
               Make smarter purchasing decisions with our expert guides and
               insights. Knowledge is the first step to finding your perfect
               racket.
@@ -173,7 +173,7 @@ export default function EducationalContent() {
           </motion.div>
 
           {/* Articles Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
             {articles.map((article, index) => {
               const colors =
                 colorClasses[article.color as keyof typeof colorClasses];
@@ -184,21 +184,21 @@ export default function EducationalContent() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`${colors.bg} ${colors.border} border rounded-2xl border-1 border-slate-200 p-6 hover:shadow-lg min-h-[360px] transition-all duration-300 `}
+                  className={`${colors.bg} ${colors.border} border rounded-2xl border-1 border-slate-200 p-4 md:p-6 hover:shadow-lg min-h-[280px] md:min-h-[360px] transition-all duration-300`}
                 >
-                  <div className="mb-4">
+                  <div className="mb-3 md:mb-4">
                     <div
-                      className={`${colors.icon} w-12 h-12 rounded-xl flex items-center justify-center`}
+                      className={`${colors.icon} w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center`}
                     >
                       {article.icon}
                     </div>
                   </div>
 
-                  <h3 className="text-lg font-bold text-slate-900 mb-3">
+                  <h3 className="text-base md:text-lg font-bold text-slate-900 mb-2 md:mb-3">
                     {article.title}
                   </h3>
 
-                  <p className="text-med text-slate-800 leading-relaxed">
+                  <p className="text-sm md:text-med text-slate-800 leading-relaxed">
                     {article.excerpt}
                   </p>
                 </motion.article>

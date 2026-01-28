@@ -124,7 +124,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import rackets from "@/data/rackets.json";
 import { Racket } from "@/types/racket";
-import { useSort } from "@/contexts/SortContext";
+import { useContext } from "react";
+import { SortContext } from "@/contexts/SortContext";
 
 const normalize = (v: string) => v.toLowerCase().trim().replace(/\s+/g, "-");
 const formatLabel = (v: string) =>
@@ -133,10 +134,15 @@ const formatLabel = (v: string) =>
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
 
-export default function RacketSidebar() {
+// Make showSort optional prop - default to true
+export default function RacketSidebar({ showSort = true }: { showSort?: boolean }) {
   const pathname = usePathname();
   const data = rackets as Racket[];
-  const { sortOrder, setSortOrder } = useSort();
+
+  // Safely get sort context - may be undefined in mobile menu
+  const sortContext = useContext(SortContext);
+  const sortOrder = sortContext?.sortOrder || "low-to-high";
+  const setSortOrder = sortContext?.setSortOrder || (() => {});
 
   const brands = [...new Set(data.map((r) => normalize(r.brand)))];
   const levels = [...new Set(data.map((r) => normalize(r.playerLevel)))];
@@ -154,18 +160,18 @@ export default function RacketSidebar() {
     filters.length ? `/rackets/${filters.join("/")}` : "/rackets";
 
   const Section = ({ title, items }: { title: string; items: string[] }) => (
-    <details className="mb-10 ">
-      <summary className="text-sm font-bold text-slate-800 uppercase tracking-wider flex items-center justify-between cursor-pointer py-2">
+    <details className="mb-6 lg:mb-10">
+      <summary className="text-xs md:text-sm font-bold text-slate-800 uppercase tracking-wider flex items-center justify-between cursor-pointer py-2">
         <div className="flex items-center gap-2">
-          <span className="w-1 h-4 bg-slate-500 rounded-full" />
+          <span className="w-1 h-3 md:h-4 bg-slate-500 rounded-full" />
           {title}
         </div>
-        <span className="transition-transform duration-200 inline-block">
+        <span className="transition-transform duration-200 inline-block text-xs">
           ▼
         </span>
       </summary>
 
-      <div className="flex flex-wrap gap-2 pt-2">
+      <div className="flex flex-wrap gap-1.5 md:gap-2 pt-2">
         {items.map((item) => {
           const isActive = activeFilters.includes(item);
           const nextAdd = Array.from(new Set([...activeFilters, item]));
@@ -175,12 +181,12 @@ export default function RacketSidebar() {
             return (
               <div
                 key={item}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-sm bg-emerald-500 text-white"
+                className="flex items-center gap-1 md:gap-1.5 px-2 md:px-3 py-1 md:py-1.5 rounded-xl text-xs md:text-sm bg-emerald-500 text-white"
               >
                 <span className="font-medium">{formatLabel(item)}</span>
                 <Link
                   href={buildPath(nextRemove)}
-                  className="px-1.5 rounded bg-emerald-600 hover:bg-emerald-700 text-xs"
+                  className="px-1 md:px-1.5 rounded bg-emerald-600 hover:bg-emerald-700 text-xs"
                 >
                   ✕
                 </Link>
@@ -192,7 +198,7 @@ export default function RacketSidebar() {
             <Link
               key={item}
               href={buildPath(nextAdd)}
-              className="px-3 py-1.5 rounded-xl text-sm bg-slate-100 border border-slate-300 text-slate-600 hover:bg-slate-200 transition"
+              className="px-2 md:px-3 py-1 md:py-1.5 rounded-xl text-xs md:text-sm bg-slate-100 border border-slate-300 text-slate-600 hover:bg-slate-200 transition"
             >
               {formatLabel(item)}
             </Link>
@@ -203,36 +209,38 @@ export default function RacketSidebar() {
   );
 
   return (
-    <div className="sticky top-24 max-h-[calc(100vh-8rem)] overflow-y-auto border-r border-slate-200 pr-4">
+    <div className="lg:sticky lg:top-24 max-h-none lg:max-h-[calc(100vh-8rem)] overflow-y-visible lg:overflow-y-auto lg:border-r border-slate-200 lg:pr-4">
       <style>{`
         details > summary::-webkit-details-marker { display: none; }
         details > summary { list-style: none; }
         details[open] > summary span:last-child { transform: rotate(180deg); }
       `}</style>
 
-      {/* SORT */}
-      <details className="mb-10">
-        <summary className="text-sm font-bold text-slate-800 uppercase tracking-wider flex items-center justify-between cursor-pointer py-2">
-          <div className="flex items-center gap-2">
-            <span className="w-1 h-4 bg-slate-500 rounded-full" />
-            Sort by Price
-          </div>
-          <span className="transition-transform duration-200 inline-block">
-            ▼
-          </span>
-        </summary>
+      {/* SORT - only show if showSort prop is true and context is available */}
+      {showSort && sortContext && (
+        <details className="mb-6 lg:mb-10">
+          <summary className="text-xs md:text-sm font-bold text-slate-800 uppercase tracking-wider flex items-center justify-between cursor-pointer py-2">
+            <div className="flex items-center gap-2">
+              <span className="w-1 h-3 md:h-4 bg-slate-500 rounded-full" />
+              Sort by Price
+            </div>
+            <span className="transition-transform duration-200 inline-block text-xs">
+              ▼
+            </span>
+          </summary>
 
-        <select
-          value={sortOrder}
-          onChange={(e) =>
-            setSortOrder(e.target.value as "low-to-high" | "high-to-low")
-          }
-          className="w-full px-3 py-2 rounded-xl bg-slate-100 border border-slate-300 text-slate-600 mt-2 [&>option:hover]:bg-slate-300"
-        >
-          <option value="low-to-high">Low to High</option>
-          <option value="high-to-low">High to Low</option>
-        </select>
-      </details>
+          <select
+            value={sortOrder}
+            onChange={(e) =>
+              setSortOrder(e.target.value as "low-to-high" | "high-to-low")
+            }
+            className="w-full px-2 md:px-3 py-1.5 md:py-2 rounded-xl bg-slate-100 border border-slate-300 text-slate-600 text-xs md:text-sm mt-2"
+          >
+            <option value="low-to-high">Low to High</option>
+            <option value="high-to-low">High to Low</option>
+          </select>
+        </details>
+      )}
 
       <Section title="Brand" items={brands} />
       <Section title="Skill Level" items={levels} />

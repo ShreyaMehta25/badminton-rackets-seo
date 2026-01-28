@@ -305,20 +305,20 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="pt-36 bg-white ">
-      <div className="max-w-9xl  px-6">
+    <section className="pt-12 md:pt-24 lg:pt-36 bg-white">
+      <div className="max-w-9xl px-4 md:px-6">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4 }}
-          className="mb-2"
+          className="mb-4 md:mb-6"
         >
-          <h2 className="text-3xl md:text-4xl font-bold  text-slate-900">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900">
             Frequently Asked Questions
           </h2>
-          <p className="text-slate-600 text-med mt-1 mb-2">
+          <p className="text-slate-600 text-sm md:text-med mt-1 md:mt-2 mb-2">
             Quick answers to common questions about choosing badminton rackets.
           </p>
         </motion.div>
@@ -344,17 +344,17 @@ export default function FAQSection() {
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className="w-full text-left py-4 flex items-start gap-3"
+                  className="w-full text-left py-3 md:py-4 flex items-start gap-2 md:gap-3"
                   aria-expanded={isOpen}
                 >
                   {/* Arrow (LEFT) */}
                   <span
-                    className={`mt-1 transition-transform duration-300 ${
+                    className={`mt-0.5 md:mt-1 transition-transform duration-300 flex-shrink-0 ${
                       isOpen ? "rotate-90" : ""
                     }`}
                   >
                     <svg
-                      className="w-4 h-4 text-slate-500"
+                      className="w-3.5 h-3.5 md:w-4 md:h-4 text-slate-500"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -369,7 +369,7 @@ export default function FAQSection() {
                   </span>
 
                   {/* Question */}
-                  <h3 className="flex-1 text-med md:text-base font-semibold text-slate-900">
+                  <h3 className="flex-1 text-sm md:text-med lg:text-base font-semibold text-slate-900">
                     {faq.question}
                   </h3>
                 </button>
@@ -377,10 +377,10 @@ export default function FAQSection() {
                 {/* Answer */}
                 <div
                   className={`overflow-hidden transition-all duration-300 ${
-                    isOpen ? "max-h-96 pb-4" : "max-h-0"
+                    isOpen ? "max-h-96 pb-3 md:pb-4" : "max-h-0"
                   }`}
                 >
-                  <p className="text-med text-slate-700 leading-relaxed pl-7 pr-1">
+                  <p className="text-sm md:text-med text-slate-700 leading-relaxed pl-5 md:pl-7 pr-1">
                     {faq.answer}
                   </p>
                 </div>

@@ -130,7 +130,7 @@ export default function HomePage() {
       />
 
       <>
-        <main>
+        <main style={{ maxWidth: "1920px", margin: "auto" }}>
           {/* Compact Hero - Just the heading
           <CompactHero /> */}
           {/* Flipkart-Style Auto-Banner Carousel - IMMEDIATELY below hero */}

@@ -135,14 +135,14 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-slate-100 border-t border-slate-200 mt-9">
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        {/* ONE ROW */}
-        <div className="flex items-start justify-between gap-10 mb-10">
+    <footer className="bg-slate-100 border-t border-slate-200 mt-6 md:mt-9 max-w-[1920px] mx-auto">
+      <div className="w-full px-4 md:px-6 py-8 md:py-12">
+        {/* ONE ROW on desktop, stacked on mobile */}
+        <div className="flex flex-col md:flex-row items-start justify-between gap-6 md:gap-8 lg:gap-10 mb-6 md:mb-10">
           {/* Brand */}
-          <div className="max-w-xs">
-            <h3 className="font-semibold text-slate-900 mb-3">SmashSelect</h3>
-            <p className="text-sm text-slate-600 leading-relaxed">
+          <div className="w-full md:max-w-xs">
+            <h3 className="font-semibold text-slate-900 mb-2 md:mb-3">SmashSelect</h3>
+            <p className="text-xs md:text-sm text-slate-600 leading-relaxed">
               A badminton racket discovery platform built to simplify decisions.
               Compare rackets by skill level, playstyle, weight, and real
               performance — without marketing noise.
@@ -151,8 +151,8 @@ export default function Footer() {
 
           {/* Skill Level */}
           <div>
-            <h4 className="font-medium text-slate-900 mb-3">Choose by Skill</h4>
-            <ul className="space-y-2 text-sm">
+            <h4 className="font-medium text-slate-900 mb-2 md:mb-3 text-sm md:text-base">Choose by Skill</h4>
+            <ul className="space-y-1.5 md:space-y-2 text-xs md:text-sm">
               <li>
                 <Link
                   href="/rackets/beginner"
@@ -182,10 +182,10 @@ export default function Footer() {
 
           {/* Playstyle & Specs */}
           <div>
-            <h4 className="font-medium text-slate-900 mb-3">
+            <h4 className="font-medium text-slate-900 mb-2 md:mb-3 text-sm md:text-base">
               Playstyle & Specs
             </h4>
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-1.5 md:space-y-2 text-xs md:text-sm">
               <li>
                 <Link
                   href="/rackets/power"
@@ -223,8 +223,8 @@ export default function Footer() {
 
           {/* Explore */}
           <div>
-            <h4 className="font-medium text-slate-900 mb-3">Explore</h4>
-            <ul className="space-y-2 text-sm">
+            <h4 className="font-medium text-slate-900 mb-2 md:mb-3 text-sm md:text-base">Explore</h4>
+            <ul className="space-y-1.5 md:space-y-2 text-xs md:text-sm">
               <li>
                 <Link
                   href="/rackets"
@@ -262,8 +262,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="pt-6 border-t border-slate-200">
-          <p className="text-sm text-slate-500">
+        <div className="pt-4 md:pt-6 border-t border-slate-200">
+          <p className="text-xs md:text-sm text-slate-500">
             © {currentYear} SmashSelect — Built for badminton players.
           </p>
         </div>

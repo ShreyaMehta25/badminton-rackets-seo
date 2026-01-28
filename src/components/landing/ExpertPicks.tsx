@@ -230,30 +230,30 @@ export default function ExpertPicks() {
   );
 
   return (
-    <section className="py-36 bg-white">
-      <div className=" px-6">
+    <section className="py-12 md:py-24 lg:py-36 bg-white">
+      <div className="px-4 md:px-6">
         {/* Header */}
-        <div className="mb-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-700 text-sm font-semibold mb-2">
-            ★ Editor’s Choice
+        <div className="mb-4 md:mb-6">
+          <div className="inline-flex items-center gap-2 px-2.5 md:px-3 py-1 rounded-full bg-amber-100 text-amber-700 text-xs md:text-sm font-semibold mb-2">
+            ★ Editor's Choice
           </div>
 
-          <h2 className="text-3xl md:text-4xl font-bold  text-slate-900">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900">
             Expert Picks & Top Recommendations
           </h2>
 
-          <p className="text-base text-slate-600">
+          <p className="text-sm md:text-base text-slate-600 mt-1">
             Top-rated rackets with 4.5+ stars. Hand-selected for exceptional
             performance and value.
           </p>
         </div>
 
         {/* Cards + arrows */}
-        <div className="relative mt-6">
+        <div className="relative mt-4 md:mt-6">
           {page > 0 && (
             <button
               onClick={() => setPage((p) => p - 1)}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white p-2 rounded-full shadow"
+              className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white p-2 rounded-full shadow hover:shadow-lg transition-shadow"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
@@ -261,7 +261,7 @@ export default function ExpertPicks() {
 
           <div
             key={page}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 animate-fadeIn"
+            className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 animate-fadeIn"
           >
             {paginated.map((racket) => (
               <CompactRacketCard key={racket.id} racket={racket} />
@@ -271,7 +271,7 @@ export default function ExpertPicks() {
           {page < totalPages - 1 && (
             <button
               onClick={() => setPage((p) => p + 1)}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white p-2 rounded-full shadow"
+              className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white p-2 rounded-full shadow hover:shadow-lg transition-shadow"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -280,13 +280,13 @@ export default function ExpertPicks() {
 
         {/* Dots */}
         {totalPages > 1 && (
-          <div className="flex justify-center gap-1.5 mt-4">
+          <div className="flex justify-center gap-1.5 md:gap-2 mt-3 md:mt-4">
             {Array.from({ length: totalPages }).map((_, i) => (
               <button
                 key={i}
                 onClick={() => setPage(i)}
                 className={`h-2 rounded-full transition-all ${
-                  i === page ? "bg-emerald-600 w-6" : "bg-slate-300 w-2"
+                  i === page ? "bg-emerald-600 w-6 md:w-8" : "bg-slate-300 hover:bg-slate-400 w-2"
                 }`}
               />
             ))}

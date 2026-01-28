@@ -84,12 +84,12 @@ const comparisonFeatures = [
 
 export default function ComparisonPreview() {
   return (
-    <section className="pt-36 bg-white">
+    <section className="pt-12 md:pt-24 lg:pt-36 bg-white">
       {/* Full-width wrapper with equal gutters */}
-      <div className="w-full px-8">
+      <div className="w-full px-4 md:px-6 lg:px-8">
         {/* Balanced content rail */}
-        <div className="max-w-[1680px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div className="w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start">
             {/* Left: Content */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -98,24 +98,24 @@ export default function ComparisonPreview() {
               transition={{ duration: 0.5 }}
             >
               {/* Badge */}
-              <span className="inline-block px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-sm font-semibold mb-3">
+              <span className="inline-block px-2.5 md:px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs md:text-sm font-semibold mb-2 md:mb-3">
                 Smart Comparison
               </span>
 
               {/* Heading */}
-              <h2 className="text-3xl md:text-4xl font-bold  text-slate-800 mb-6">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800 mb-4 md:mb-6">
                 Compare Rackets Side by Side
               </h2>
 
               {/* Description */}
-              <p className="text-lg text-slate-500 mb-8 leading-relaxed max-w-2xl">
+              <p className="text-base md:text-lg text-slate-500 mb-6 md:mb-8 leading-relaxed max-w-2xl">
                 Our intelligent filtering system helps you narrow down choices
                 based on what matters most. Compare specifications, read
                 reviews, and find the perfect match for your playing style.
               </p>
 
               {/* Feature List */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-10">
                 {comparisonFeatures.map((feature, index) => (
                   <motion.div
                     key={feature.title}
@@ -123,16 +123,16 @@ export default function ComparisonPreview() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: index * 0.1 }}
-                    className="flex items-center gap-3"
+                    className="flex items-center gap-2 md:gap-3"
                   >
-                    <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400">
+                    <div className="flex-shrink-0 w-9 h-9 md:w-10 md:h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400">
                       {feature.icon}
                     </div>
                     <div className="leading-tight">
-                      <h3 className="text-sm font-semibold text-slate-800">
+                      <h3 className="text-xs md:text-sm font-semibold text-slate-800">
                         {feature.title}
                       </h3>
-                      <p className="text-sm text-slate-500">
+                      <p className="text-xs md:text-sm text-slate-500">
                         {feature.description}
                       </p>
                     </div>
@@ -143,11 +143,11 @@ export default function ComparisonPreview() {
               {/* CTA */}
               <Link
                 href="/rackets"
-                className="inline-flex items-center gap-2 h-12 px-6 rounded-xl border border-slate-300 bg-slate-200 text-slate-800 font-semibold hover:bg-slate-300 transition-colors"
+                className="inline-flex items-center gap-2 h-10 md:h-12 px-5 md:px-6 rounded-xl border border-slate-300 bg-slate-200 text-slate-800 text-sm md:text-base font-semibold hover:bg-slate-300 transition-colors"
               >
                 Start Comparing
                 <svg
-                  className="w-5 h-5"
+                  className="w-4 h-4 md:w-5 md:h-5"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -168,19 +168,19 @@ export default function ComparisonPreview() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="relative w-full"
+              className="relative w-full mt-6 lg:mt-0"
             >
-              <div className="relative p-6 rounded-2xl bg-white">
+              <div className="relative p-4 md:p-6 rounded-2xl bg-white border border-slate-100 md:border-0">
                 {/* Header */}
-                <div className="flex justify-end mb-6">
-                  <span className="flex items-center gap-2 text-emerald-400 text-sm">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <div className="flex justify-end mb-4 md:mb-6">
+                  <span className="flex items-center gap-2 text-emerald-400 text-xs md:text-sm">
+                    <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-emerald-400 animate-pulse" />
                     Live Data
                   </span>
                 </div>
 
                 {/* Comparison Bars */}
-                <div className="space-y-6 mt-20">
+                <div className="space-y-4 md:space-y-6 mt-8 md:mt-20">
                   {[
                     { label: "Power", values: [92, 78, 85] },
                     { label: "Control", values: [75, 95, 88] },
@@ -188,10 +188,10 @@ export default function ComparisonPreview() {
                     { label: "Durability", values: [90, 85, 82] },
                   ].map((metric, idx) => (
                     <div key={metric.label}>
-                      <span className="text-sm font-medium text-slate-500 block mb-2">
+                      <span className="text-xs md:text-sm font-medium text-slate-500 block mb-1.5 md:mb-2">
                         {metric.label}
                       </span>
-                      <div className="flex gap-2">
+                      <div className="flex gap-1.5 md:gap-2">
                         {metric.values.map((value, i) => (
                           <div
                             key={i}
@@ -221,15 +221,15 @@ export default function ComparisonPreview() {
                 </div>
 
                 {/* Legend */}
-                <div className="flex justify-center gap-6 mt-8 pt-6 border-t border-slate-200">
+                <div className="flex flex-wrap justify-center gap-3 md:gap-6 mt-6 md:mt-8 pt-4 md:pt-6 border-t border-slate-200">
                   {[
                     { color: "bg-emerald-500", label: "Astrox 100ZZ" },
                     { color: "bg-blue-500", label: "Nanoflare 1000Z" },
                     { color: "bg-amber-500", label: "Arcsaber 11 Pro" },
                   ].map((item) => (
-                    <div key={item.label} className="flex items-center gap-2">
-                      <span className={`w-3 h-3 rounded-full ${item.color}`} />
-                      <span className="text-sm text-slate-500">
+                    <div key={item.label} className="flex items-center gap-1.5 md:gap-2">
+                      <span className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full ${item.color}`} />
+                      <span className="text-xs md:text-sm text-slate-500">
                         {item.label}
                       </span>
                     </div>
