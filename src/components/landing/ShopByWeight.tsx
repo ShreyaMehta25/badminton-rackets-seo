@@ -213,7 +213,7 @@ export default function WeightGuide() {
 
   return (
     <section className=" bg-white pb-36">
-      <div className="max-w-[1400px] mx-auto px-6">
+      <div className="w-full px-6">
         {/* Header */}
         <div className="space-y-2">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900">

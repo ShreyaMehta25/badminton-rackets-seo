@@ -138,7 +138,7 @@ export default function PlayerInspiration() {
 
   return (
     <section className=" bg-white pt-36">
-      <div className="max-w-[1400px] mx-auto px-6">
+      <div className="w-full px-6">
         {/* Header */}
         <div className="mb-6">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-1">

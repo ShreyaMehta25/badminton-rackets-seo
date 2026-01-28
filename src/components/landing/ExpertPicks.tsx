@@ -231,7 +231,7 @@ export default function ExpertPicks() {
 
   return (
     <section className="py-36 bg-white">
-      <div className="max-w-[1400px] mx-auto px-6">
+      <div className=" px-6">
         {/* Header */}
         <div className="mb-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-700 text-sm font-semibold mb-2">

@@ -152,7 +152,7 @@ import { Users, Target, Trophy } from "lucide-react";
 export default function SkillLevelGuide() {
   return (
     <section id="skill-level-guide" className=" bg-white mt-0">
-      <div className="max-w-[1400px] mx-auto px-6">
+      <div className=" px-6">
         {/* Section Header */}
         <div className="mb-4">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
