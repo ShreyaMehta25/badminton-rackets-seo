@@ -308,7 +308,7 @@ export default function WeightGuide() {
                   </div>
 
                   {/* Why */}
-                  {racket.bestFor?.length > 0 && (
+                  {/* {racket.bestFor?.length > 0 && (
                     <div className="pt-1.5 border-t border-slate-100">
                       <p className="text-xs text-slate-600 leading-snug">
                         <span className="font-medium text-slate-700">
@@ -317,7 +317,7 @@ export default function WeightGuide() {
                         {racket.bestFor.slice(0, 2).map(formatLabel).join(", ")}
                       </p>
                     </div>
-                  )}
+                  )} */}
                 </div>
               </Link>
             ))}
@@ -337,7 +337,7 @@ export default function WeightGuide() {
         <div className="flex justify-center mt-3 md:mt-4">
           <a
             href={`/rackets/${selectedWeight}`}
-            className="inline-flex items-center gap-2 text-sm md:text-base text-emerald-600 hover:text-emerald-700 font-semibold"
+            className="inline-flex items-center gap-2 text-sm md:text-base text-black hover:text-emerald-700 font-semibold"
           >
             View all {selectedWeight} rackets →
           </a>

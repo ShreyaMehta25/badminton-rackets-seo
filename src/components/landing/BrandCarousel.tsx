@@ -76,16 +76,11 @@ export default function BrandBannerCarousel() {
 
   return (
     <section
-      className="bg-slate-50 relative"
+      className="bg-white relative"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* Section Title */}
-      <div className="px-4 md:px-6 pt-6 md:pt-8 pb-3 md:pb-4">
-        <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-slate-900">
-          Find your perfect Badminton Racket
-        </h3>
-      </div>
 
       {/* Carousel */}
       <div className="relative">

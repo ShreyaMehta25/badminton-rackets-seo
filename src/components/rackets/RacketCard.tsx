@@ -149,7 +149,7 @@ export default function RacketCard({ racket }: { racket: Racket }) {
         </div>
 
         {/* Why this racket */}
-        {racket.bestFor && racket.bestFor.length > 0 && (
+        {/* {racket.bestFor && racket.bestFor.length > 0 && (
           <div className="pt-1.5 md:pt-2 border-t border-slate-100">
             <p className="text-xs text-slate-600 leading-snug line-clamp-2">
               <span className="font-medium text-slate-700">
@@ -158,7 +158,7 @@ export default function RacketCard({ racket }: { racket: Racket }) {
               {racket.bestFor.slice(0, 2).map(formatLabel).join(", ")}
             </p>
           </div>
-        )}
+        )} */}
       </div>
     </Link>
   );

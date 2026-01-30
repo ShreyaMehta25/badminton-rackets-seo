@@ -1,0 +1,128 @@
+[
+  {
+    "id": 1,
+    "name": "Yonex BG 65 Badminton String",
+    "price": 750,
+    "reviewscore": 4.6,
+    "brand": "Yonex",
+    "imageurl": "https://m.media-amazon.com/images/I/51J1lC60RDL.jpg",
+    "description": "Durable multifilament string with excellent tension retention, ideal for beginners and intermediate players."
+  },
+  {
+    "id": 2,
+    "name": "Yonex BG 80 Power Badminton String",
+    "price": 1150,
+    "reviewscore": 4.7,
+    "brand": "Yonex",
+    "imageurl": "https://m.media-amazon.com/images/I/71FLQMXZPuL._AC_UF894,1000_QL80_.jpg",
+    "description": "High-modulus Vectran string offering sharp repulsion and hard hitting sound for attacking players."
+  },
+  {
+    "id": 3,
+    "name": "Yonex Aerobite Hybrid String",
+    "price": 1350,
+    "reviewscore": 4.5,
+    "brand": "Yonex",
+    "imageurl": "https://cdn11.bigcommerce.com/s-iiwjfnucrp/images/stencil/1280x1280/products/5971/11613/yonex-aerobite-0-67-0-61mm-badminton-hybrid-set-white-green__38960.1710955913.jpg?c=1",
+    "description": "Hybrid string combining control and spin, preferred by advanced and professional players."
+  },
+  {
+    "id": 4,
+    "name": "Yonex BG 66 Ultimax",
+    "price": 1200,
+    "reviewscore": 4.6,
+    "brand": "Yonex",
+    "imageurl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE4kVmMgExb7WBgxNUAyua2hbzNwfzwblo8w&s",
+    "description": "Ultra-thin string for explosive power and excellent shuttle hold."
+  },
+  {
+    "id": 5,
+    "name": "Li-Ning No.7 Badminton String",
+    "price": 950,
+    "reviewscore": 4.4,
+    "brand": "Li-Ning",
+    "imageurl": "https://in.lining.studio/cdn/shop/files/1_d908f7522c.jpg?v=1749898076&width=1920",
+    "description": "Control-oriented string with good durability and crisp feel, suitable for all-round players."
+  },
+  {
+    "id": 6,
+    "name": "Li-Ning No.5 Boost String",
+    "price": 1100,
+    "reviewscore": 4.5,
+    "brand": "Li-Ning",
+    "imageurl": "https://e78shop.com/cdn/shop/products/AXJJ006-3.jpg?v=1641720523",
+    "description": "Thin gauge string delivering high repulsion and speed for aggressive play."
+  },
+  {
+    "id": 7,
+    "name": "Li-Ning No.1 Boost String",
+    "price": 1300,
+    "reviewscore": 4.6,
+    "brand": "Li-Ning",
+    "imageurl": "https://in.lining.studio/cdn/shop/files/string_format_01_36_fa90fd91b8.jpg?v=1749893853&width=1920",
+    "description": "Premium performance string offering a balance of power, control, and sound."
+  },
+  {
+    "id": 8,
+    "name": "Li-Ning Turbo X String",
+    "price": 850,
+    "reviewscore": 4.3,
+    "brand": "Li-Ning",
+    "imageurl": "https://sportspalace.in/cdn/shop/files/no_7_gold2_1_6b32e54e0e_384x.jpg?v=1745999252",
+    "description": "Affordable string with decent durability and repulsion for regular club players."
+  },
+  {
+    "id": 9,
+    "name": "Apacs Z-Ziggler Pro String",
+    "price": 600,
+    "reviewscore": 4.2,
+    "brand": "Apacs",
+    "imageurl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy6cQ4pAdkWOOkMAWOQzq_1P1dEpBwJMj86A&s",
+    "description": "Cost-effective string providing good control and reliable durability."
+  },
+  {
+    "id": 10,
+    "name": "Apacs Nano 9900 String",
+    "price": 700,
+    "reviewscore": 4.3,
+    "brand": "Apacs",
+    "imageurl": "https://racketlounge.in/cdn/shop/files/Apacs_Elite_III_badminton_string_66e75271-8656-4721-a4cd-fd0bc998f56b.png?v=1745067656",
+    "description": "Nano-coated string for enhanced feel and improved repulsion."
+  },
+  {
+    "id": 11,
+    "name": "Apacs Virtuoso Performance String",
+    "price": 800,
+    "reviewscore": 4.4,
+    "brand": "Apacs",
+    "imageurl": "https://www.badmintonbay.com/image/cache/data/apacs/string/apacs-virtuoso-pro-68-string-0.68mm-00-1600x1600.jpg",
+    "description": "Balanced string offering power and control for intermediate players."
+  },
+  {
+    "id": 12,
+    "name": "Arrowmax AX-75 Badminton String",
+    "price": 500,
+    "reviewscore": 4.1,
+    "brand": "Arrowmax",
+    "imageurl": "https://m.media-amazon.com/images/I/71KI2VtWijL._AC_UF894,1000_QL80_.jpg",
+    "description": "Durable entry-level string suitable for beginners and casual play."
+  },
+  {
+    "id": 13,
+    "name": "Arrowmax Power Spin String",
+    "price": 650,
+    "reviewscore": 4.2,
+    "brand": "Arrowmax",
+    "imageurl": "https://m.media-amazon.com/images/I/61WsyJZndtL.jpg",
+    "description": "Designed for better shuttle bite and improved smash control."
+  },
+  {
+    "id": 15,
+    "name": "Arrowmax Ultra Repulsion String",
+    "price": 850,
+    "reviewscore": 4.4,
+    "brand": "Arrowmax",
+    "imageurl": "https://arrowmax.in/cdn/shop/files/IMG_9695.jpg?v=1727889285",
+    "description": "High-repulsion string aimed at fast-paced doubles and attacking play."
+  }
+]

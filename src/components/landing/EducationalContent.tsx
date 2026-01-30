@@ -151,7 +151,7 @@ const colorClasses = {
 export default function EducationalContent() {
   return (
     <div className="bg-white">
-      <section className="px-4 md:px-6 lg:px-8 pt-12 md:pt-24 lg:pt-36">
+      <section className="px-4 md:px-6 lg:px-8 ">
         <div className="w-full">
           {/* Section Header */}
           <motion.div

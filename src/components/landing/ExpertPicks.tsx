@@ -194,12 +194,12 @@ function CompactRacketCard({ racket }: { racket: Racket }) {
           </span>
         </div>
 
-        {racket.bestFor?.length > 0 && (
+        {/* {racket.bestFor?.length > 0 && (
           <p className="text-xs text-slate-600 pt-1 border-t border-slate-100">
             <span className="font-medium">Why:</span>{" "}
             {racket.bestFor.slice(0, 2).map(formatLabel).join(", ")}
           </p>
-        )}
+        )} */}
       </div>
     </Link>
   );
@@ -230,7 +230,7 @@ export default function ExpertPicks() {
   );
 
   return (
-    <section className="py-12 md:py-24 lg:py-36 bg-white">
+    <section className="py-12 md:py-24 lg:pt-27 lg:pb-36 bg-white">
       <div className="px-4 md:px-6">
         {/* Header */}
         <div className="mb-4 md:mb-6">

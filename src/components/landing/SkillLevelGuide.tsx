@@ -203,7 +203,9 @@ export default function SkillLevelGuide() {
                   </span>
                 </div>
 
-                <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-3">Beginner</h3>
+                <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-3">
+                  Beginner
+                </h3>
 
                 <p className="text-sm md:text-lg text-white/90 mb-1 md:mb-2">
                   Forgiving, lightweight rackets designed to help you learn
@@ -214,7 +216,7 @@ export default function SkillLevelGuide() {
                   Ideal for new players, casual games & coaching sessions
                 </p>
 
-                <span className="text-emerald-300 font-semibold text-xs md:text-sm">
+                <span className="text-white font-semibold text-xs md:text-sm">
                   Explore Beginner Rackets →
                 </span>
               </div>
@@ -249,14 +251,16 @@ export default function SkillLevelGuide() {
                   </span>
                 </div>
 
-                <h3 className="text-xl md:text-2xl font-bold mb-1.5 md:mb-2">Intermediate</h3>
+                <h3 className="text-xl md:text-2xl font-bold mb-1.5 md:mb-2">
+                  Intermediate
+                </h3>
 
                 <p className="text-sm md:text-med text-white/85 mb-2 md:mb-3">
                   Balanced rackets offering control and power as your game
                   improves.
                 </p>
 
-                <span className="text-emerald-300 text-xs md:text-sm font-semibold">
+                <span className="text-white text-xs md:text-sm font-semibold">
                   Explore Intermediate Rackets→
                 </span>
               </div>
@@ -291,13 +295,15 @@ export default function SkillLevelGuide() {
                   </span>
                 </div>
 
-                <h3 className="text-xl md:text-2xl font-bold mb-1.5 md:mb-2">Advanced</h3>
+                <h3 className="text-xl md:text-2xl font-bold mb-1.5 md:mb-2">
+                  Advanced
+                </h3>
 
                 <p className="text-sm md:text-med text-white/85 mb-2 md:mb-3">
                   Precision-focused rackets for fast swings and elite control.
                 </p>
 
-                <span className="text-emerald-300 text-xs md:text-sm font-semibold">
+                <span className="text-white text-xs md:text-sm font-semibold">
                   Explore Professional Rackets→
                 </span>
               </div>

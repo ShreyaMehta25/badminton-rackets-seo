@@ -218,7 +218,7 @@ export default function PlayerInspiration() {
                         key={style}
                         className="px-1.5 md:px-2 py-0.5 md:py-1 text-xs rounded bg-white/20 text-white backdrop-blur"
                       >
-                        {style}
+                        {style.charAt(0).toUpperCase() + style.slice(1)}
                       </span>
                     ))}
                   </div>
@@ -239,7 +239,7 @@ export default function PlayerInspiration() {
                     </div>
                   )}
 
-                  <span className="mt-2 md:mt-3 text-xs md:text-sm font-semibold text-emerald-300">
+                  <span className="mt-2 md:mt-3 text-xs md:text-sm font-semibold text-white">
                     View player →
                   </span>
                 </div>

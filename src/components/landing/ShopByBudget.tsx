@@ -185,40 +185,48 @@ export default function PriceQuickFilter() {
             <div className="flex flex-wrap gap-1.5 md:gap-2">
               <Link
                 href="/rackets/under-5000"
-                className="px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-semibold
-                         bg-slate-100 text-slate-700 border border-slate-200
-                         hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-300
-                         transition whitespace-nowrap"
+                className="px-3 md:px-4 py-2 md:py-3 rounded-full
+             text-[11px] md:text-xs font-medium whitespace-nowrap
+             bg-slate-100 text-slate-600
+             border border-transparent
+             hover:border-slate-300
+             transition-all duration-200"
               >
                 Under ₹5,000
               </Link>
 
               <Link
                 href="/rackets/under-8000"
-                className="px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-semibold
-                         bg-slate-100 text-slate-700 border border-slate-200
-                         hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-300
-                         transition whitespace-nowrap"
+                className="px-3 md:px-4 py-2 md:py-3 rounded-full
+             text-[11px] md:text-xs font-medium whitespace-nowrap
+             bg-slate-100 text-slate-600
+             border border-transparent
+             hover:border-slate-300
+             transition-all duration-200"
               >
                 Under ₹8,000
               </Link>
 
               <Link
                 href="/rackets/under-15000"
-                className="px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-semibold
-                         bg-slate-100 text-slate-700 border border-slate-200
-                         hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-300
-                         transition whitespace-nowrap"
+                className="px-3 md:px-4 py-2 md:py-3 rounded-full
+             text-[11px] md:text-xs font-medium whitespace-nowrap
+             bg-slate-100 text-slate-600
+             border border-transparent
+             hover:border-slate-300
+             transition-all duration-200"
               >
                 Under ₹15,000
               </Link>
 
               <Link
                 href="/rackets/under-20000"
-                className="px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-semibold
-                         bg-slate-100 text-slate-700 border border-slate-200
-                         hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-300
-                         transition whitespace-nowrap"
+                className="px-3 md:px-4 py-2 md:py-3 rounded-full
+             text-[11px] md:text-xs font-medium whitespace-nowrap
+             bg-slate-100 text-slate-600
+             border border-transparent
+             hover:border-slate-300
+             transition-all duration-200"
               >
                 Under ₹20,000
               </Link>

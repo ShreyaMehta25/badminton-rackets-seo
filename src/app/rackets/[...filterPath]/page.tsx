@@ -652,9 +652,9 @@ export default async function FilteredRacketsPage({ params }: Props) {
       )}
 
       {/* Desktop: 2-column with sidebar | Mobile: 1-column without sidebar */}
-      <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-6 lg:gap-8">
-        {/* Sidebar - hidden on mobile, visible on lg+ */}
-        <aside className="hidden lg:block">
+      <div className="grid grid-cols-1 sm:grid-cols-[280px_1fr] gap-6 sm:gap-8">
+        {/* Sidebar - hidden on mobile (<640px), visible on sm+ (iPad mini, tablets, desktop) */}
+        <aside className="hidden sm:block">
           <RacketSidebar />
         </aside>
 

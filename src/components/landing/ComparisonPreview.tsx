@@ -143,7 +143,14 @@ export default function ComparisonPreview() {
               {/* CTA */}
               <Link
                 href="/rackets"
-                className="inline-flex items-center gap-2 h-10 md:h-12 px-5 md:px-6 rounded-xl border border-slate-300 bg-slate-200 text-slate-800 text-sm md:text-base font-semibold hover:bg-slate-300 transition-colors"
+                className="inline-flex items-center gap-2
+             px-4 md:px-6 py-2 md:py-3
+             rounded-full
+             text-xs md:text-sm font-medium whitespace-nowrap
+             bg-slate-100 text-slate-600
+             border border-transparent
+             hover:border-slate-300
+             transition-all duration-200"
               >
                 Start Comparing
                 <svg
@@ -227,8 +234,13 @@ export default function ComparisonPreview() {
                     { color: "bg-blue-500", label: "Nanoflare 1000Z" },
                     { color: "bg-amber-500", label: "Arcsaber 11 Pro" },
                   ].map((item) => (
-                    <div key={item.label} className="flex items-center gap-1.5 md:gap-2">
-                      <span className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full ${item.color}`} />
+                    <div
+                      key={item.label}
+                      className="flex items-center gap-1.5 md:gap-2"
+                    >
+                      <span
+                        className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full ${item.color}`}
+                      />
                       <span className="text-xs md:text-sm text-slate-500">
                         {item.label}
                       </span>

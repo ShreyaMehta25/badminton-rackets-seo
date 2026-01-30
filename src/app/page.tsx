@@ -13,6 +13,7 @@ import ShopByWeight from "@/components/landing/ShopByWeight";
 import ShopByBudget from "@/components/landing/ShopByBudget";
 import FinalCTA from "@/components/landing/FinalCTA";
 import About from "@/components/landing/About";
+import ProductCategories from "@/components/landing/ProductCategories";
 export const metadata: Metadata = {
   title: "Best Badminton Rackets 2026 | Expert Reviews & Comparison Guide",
   description:
@@ -135,7 +136,11 @@ export default function HomePage() {
           <CompactHero /> */}
           {/* Flipkart-Style Auto-Banner Carousel - IMMEDIATELY below hero */}
           <BrandCarousel />
-
+          <div className="px-4 md:px-6 pt-6 md:pt-8 pb-3 md:pb-4">
+            <h3 className="text-3xl md:text-4xl lg:text-4xl font-bold text-slate-700">
+              Discover the Racket That Changes Your Game
+            </h3>
+          </div>
           {/* Expert Picks - Top-rated rackets */}
           <ExpertPicks />
           {/* Skill Level Guide - 3 Tiles (NO product cards) */}
@@ -145,6 +150,8 @@ export default function HomePage() {
           {/* Player Inspiration - Auto-rotating carousel */}
           <ShopByBudget />
           <PlayerInspiration />
+          {/* Product Categories Section */}
+          <ProductCategories />
           {/* Educational Content Block */}
           <EducationalContent />
           {/* Comparison Preview Section */}
