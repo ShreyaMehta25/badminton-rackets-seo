@@ -84,9 +84,36 @@ export default function SearchBar({
       return;
     }
 
+    // Intelligent category routing based on keywords
+    const lowerQuery = trimmed.toLowerCase();
+
+    // Check for strings (highest priority for "string" keyword)
+    if (lowerQuery.includes('string')) {
+      router.push('/strings');
+      return;
+    }
+
+    // Check for shoes
+    if (lowerQuery.includes('shoe')) {
+      router.push('/shoes');
+      return;
+    }
+
+    // Check for grips
+    if (lowerQuery.includes('grip')) {
+      router.push('/grips');
+      return;
+    }
+
+    // Check for shuttlecock (matches "shuttle", "shuttlecock", "shuttle cock")
+    if (lowerQuery.includes('shuttle')) {
+      router.push('/shuttlecock');
+      return;
+    }
+
     const slug = normalizeToSlug(trimmed);
 
-    // Route to filter-based page
+    // Fallback to rackets filter-based page
     router.push(`/rackets/${slug}`);
   };
 

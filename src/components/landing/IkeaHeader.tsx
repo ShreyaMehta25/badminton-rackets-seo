@@ -180,6 +180,38 @@ export default function IkeaHeader() {
   const handleSearch = (query: string) => {
     if (!query) return;
 
+    // Intelligent category routing based on keywords
+    const lowerQuery = query.toLowerCase();
+
+    // Check for strings (highest priority for "string" keyword)
+    if (lowerQuery.includes('string')) {
+      router.push('/strings');
+      setIsMobileMenuOpen(false);
+      return;
+    }
+
+    // Check for shoes
+    if (lowerQuery.includes('shoe')) {
+      router.push('/shoes');
+      setIsMobileMenuOpen(false);
+      return;
+    }
+
+    // Check for grips
+    if (lowerQuery.includes('grip')) {
+      router.push('/grips');
+      setIsMobileMenuOpen(false);
+      return;
+    }
+
+    // Check for shuttlecock (matches "shuttle", "shuttlecock", "shuttle cock")
+    if (lowerQuery.includes('shuttle')) {
+      router.push('/shuttlecock');
+      setIsMobileMenuOpen(false);
+      return;
+    }
+
+    // Fallback to rackets filter-based page
     const normalized = normalize(query);
     router.push(`/rackets/${normalized}`);
     setIsMobileMenuOpen(false);
