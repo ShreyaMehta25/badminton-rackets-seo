@@ -126,7 +126,7 @@ export default function CategoryFilterSidebar({
 
   /* ---------- UI ---------- */
 
-  const FilterChip = ({ item, detailsRef }: { item: string; detailsRef: React.RefObject<HTMLDetailsElement> }) => (
+  const FilterChip = ({ item, detailsRef }: { item: string; detailsRef: React.RefObject<HTMLDetailsElement | null> }) => (
     <button
       onClick={() => toggleFilter(item, detailsRef.current)}
       className="flex items-center gap-1 px-2 md:px-3 py-1 md:py-1.5 rounded-xl bg-emerald-500 text-white text-xs md:text-sm"
@@ -136,7 +136,7 @@ export default function CategoryFilterSidebar({
     </button>
   );
 
-  const FilterButton = ({ item, detailsRef }: { item: string; detailsRef: React.RefObject<HTMLDetailsElement> }) => {
+  const FilterButton = ({ item, detailsRef }: { item: string; detailsRef: React.RefObject<HTMLDetailsElement | null> }) => {
     const isActive = activeFilters.includes(item);
 
     if (isActive) return null;
