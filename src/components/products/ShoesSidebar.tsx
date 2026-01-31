@@ -206,7 +206,7 @@
 import { usePathname, useRouter } from "next/navigation";
 import shoesData from "@/data/shoes.json";
 import { Shoe } from "@/types/shoes";
-import { useContext, useMemo, useState } from "react";
+import { useContext, useMemo, useRef } from "react";
 import { SortContext } from "@/contexts/SortContext";
 
 const normalize = (v: string) => v.toLowerCase().trim().replace(/\s+/g, "-");
@@ -269,25 +269,29 @@ export default function ShoesSidebar({
     const segments = pathname.split("/").filter(Boolean);
     const idx = segments.indexOf("shoes");
     if (idx === -1) return [];
-    return segments.slice(idx + 1).map((s) => decodeURIComponent(s));
+    return segments
+      .slice(idx + 1)
+      .filter((s) => s !== "filter")
+      .map((s) => decodeURIComponent(s));
   }, [pathname]);
 
   const buildPath = (filters: string[]) =>
     filters.length ? `/shoes/${filters.join("/")}` : "/shoes";
 
-  const toggleFilter = (item: string) => {
+  const toggleFilter = (item: string, detailsElement: HTMLDetailsElement | null) => {
     const isActive = activeFilters.includes(item);
     const newFilters = isActive
       ? activeFilters.filter((f) => f !== item)
       : [...activeFilters, item];
-    router.push(buildPath(newFilters));
-  };
 
-  const hasResults = (filterToAdd: string) => {
-    const testFilters = activeFilters.includes(filterToAdd)
-      ? activeFilters
-      : [...activeFilters, filterToAdd];
-    return applyFilters(allData, testFilters).length > 0;
+    // Close the accordion after selection
+    if (detailsElement && !isActive) {
+      setTimeout(() => {
+        detailsElement.open = false;
+      }, 100);
+    }
+
+    router.push(buildPath(newFilters));
   };
 
   const allBrands = useMemo(
@@ -306,9 +310,9 @@ export default function ShoesSidebar({
     { value: "rating-35", label: "3.5+" },
   ];
 
-  const FilterChip = ({ item }: { item: string }) => (
+  const FilterChip = ({ item, detailsRef }: { item: string; detailsRef: React.RefObject<HTMLDetailsElement> }) => (
     <button
-      onClick={() => toggleFilter(item)}
+      onClick={() => toggleFilter(item, detailsRef.current)}
       className="flex items-center gap-1 px-2 py-1 rounded-xl bg-emerald-500 text-white text-xs"
     >
       {formatLabel(item)}
@@ -316,21 +320,15 @@ export default function ShoesSidebar({
     </button>
   );
 
-  const FilterButton = ({ item }: { item: string }) => {
+  const FilterButton = ({ item, detailsRef }: { item: string; detailsRef: React.RefObject<HTMLDetailsElement> }) => {
     const isActive = activeFilters.includes(item);
-    const disabled = !hasResults(item);
 
     if (isActive) return null;
 
     return (
       <button
-        disabled={disabled}
-        onClick={() => toggleFilter(item)}
-        className={`px-2 py-1 rounded-xl text-xs transition ${
-          disabled
-            ? "bg-slate-50 border border-slate-200 text-slate-300 cursor-not-allowed"
-            : "bg-slate-100 border border-slate-300 text-slate-600 hover:bg-slate-200"
-        }`}
+        onClick={() => toggleFilter(item, detailsRef.current)}
+        className="px-2 py-1 rounded-xl text-xs transition bg-slate-100 border border-slate-300 text-slate-600 hover:bg-slate-200"
       >
         {formatLabel(item)}
       </button>
@@ -344,52 +342,73 @@ export default function ShoesSidebar({
     title: string;
     values: Array<{ value: string; label?: string }>;
   }) => {
+    const detailsRef = useRef<HTMLDetailsElement>(null);
     const activeInSection = activeFilters.filter((f) =>
       values.some((v) => v.value === f),
     );
 
     return (
-      <div className="mb-8">
-        <div className="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center gap-2 mb-2">
-          <span className="w-1 h-4 bg-slate-500 rounded-full" />
-          {title}
-        </div>
+      <details className="mb-6 lg:mb-10" ref={detailsRef}>
+        <summary className="text-xs md:text-sm font-bold text-slate-800 uppercase tracking-wider flex items-center justify-between cursor-pointer py-2">
+          <div className="flex items-center gap-2">
+            <span className="w-1 h-3 md:h-4 bg-slate-500 rounded-full" />
+            {title}
+          </div>
+          <span className="transition-transform duration-200 inline-block text-xs">
+            ▼
+          </span>
+        </summary>
 
-        {activeInSection.length > 0 && (
-          <div className="flex flex-wrap gap-2 mb-2">
-            {activeInSection.map((f) => (
-              <FilterChip key={f} item={f} />
+        <div className="pt-2">
+          {activeInSection.length > 0 && (
+            <div className="flex flex-wrap gap-2 mb-2">
+              {activeInSection.map((f) => (
+                <FilterChip key={f} item={f} detailsRef={detailsRef} />
+              ))}
+            </div>
+          )}
+
+          <div className="flex flex-wrap gap-2">
+            {values.map((v) => (
+              <FilterButton key={v.value} item={v.value} detailsRef={detailsRef} />
             ))}
           </div>
-        )}
-
-        <div className="flex flex-wrap gap-2">
-          {values.map((v) => (
-            <FilterButton key={v.value} item={v.value} />
-          ))}
         </div>
-      </div>
+      </details>
     );
   };
 
   return (
-    <div className="lg:sticky lg:top-24 lg:border-r border-slate-200 lg:pr-4">
+    <div className="lg:sticky lg:top-24 max-h-none lg:max-h-[calc(100vh-8rem)] overflow-y-visible lg:overflow-y-auto lg:border-r border-slate-200 lg:pr-4">
+      <style>{`
+        details > summary::-webkit-details-marker { display: none; }
+        details > summary { list-style: none; }
+        details[open] > summary span:last-child { transform: rotate(180deg); }
+      `}</style>
+
       {showSort && sortContext && (
-        <div className="mb-8">
-          <div className="text-xs font-bold text-slate-800 uppercase tracking-wider mb-2">
-            Sort by Price
-          </div>
+        <details className="mb-6 lg:mb-10">
+          <summary className="text-xs md:text-sm font-bold text-slate-800 uppercase tracking-wider flex items-center justify-between cursor-pointer py-2">
+            <div className="flex items-center gap-2">
+              <span className="w-1 h-3 md:h-4 bg-slate-500 rounded-full" />
+              Sort by Price
+            </div>
+            <span className="transition-transform duration-200 inline-block text-xs">
+              ▼
+            </span>
+          </summary>
+
           <select
             value={sortOrder}
             onChange={(e) =>
               setSortOrder(e.target.value as "low-to-high" | "high-to-low")
             }
-            className="w-full px-3 py-2 rounded-xl bg-slate-100 border border-slate-300 text-slate-600 text-sm"
+            className="w-full px-2 md:px-3 py-1.5 md:py-2 rounded-xl bg-slate-100 border border-slate-300 text-slate-600 text-xs md:text-sm mt-2"
           >
             <option value="low-to-high">Low to High</option>
             <option value="high-to-low">High to Low</option>
           </select>
-        </div>
+        </details>
       )}
 
       <Section title="Brand" values={allBrands.map((b) => ({ value: b }))} />

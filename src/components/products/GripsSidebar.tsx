@@ -3,7 +3,7 @@
 import { usePathname, useRouter } from "next/navigation";
 import gripsData from "@/data/grip.json";
 import { Grip } from "@/types/grip";
-import { useContext, useMemo } from "react";
+import { useContext, useMemo, useRef } from "react";
 import { SortContext } from "@/contexts/SortContext";
 
 const normalize = (v: string) => v.toLowerCase().trim().replace(/\s+/g, "-");
@@ -61,7 +61,10 @@ export default function GripsSidebar({ showSort = true }: { showSort?: boolean }
     const segments = pathname.split("/").filter(Boolean);
     const idx = segments.indexOf("grips");
     if (idx === -1) return [];
-    return segments.slice(idx + 1).map((s) => decodeURIComponent(s));
+    return segments
+      .slice(idx + 1)
+      .filter((s) => s !== "filter")
+      .map((s) => decodeURIComponent(s));
   }, [pathname]);
 
   // Get all unique values from full dataset
@@ -73,49 +76,44 @@ export default function GripsSidebar({ showSort = true }: { showSort?: boolean }
     { value: "rating-35", label: "3.5+" },
   ];
 
-  // Helper to check if adding a filter would return results
-  const hasResults = (filterToAdd: string) => {
-    const testFilters = activeFilters.includes(filterToAdd)
-      ? activeFilters
-      : [...activeFilters, filterToAdd];
-    return applyFilters(allData, testFilters).length > 0;
-  };
-
   const buildPath = (filters: string[]) =>
     filters.length ? `/grips/${filters.join("/")}` : "/grips";
 
-  const handleFilterClick = (item: string) => {
+  const toggleFilter = (item: string, detailsElement: HTMLDetailsElement | null) => {
     const isActive = activeFilters.includes(item);
     const newFilters = isActive
       ? activeFilters.filter((f) => f !== item)
       : [...activeFilters, item];
+
+    // Close the accordion after selection
+    if (detailsElement && !isActive) {
+      setTimeout(() => {
+        detailsElement.open = false;
+      }, 100);
+    }
+
     router.push(buildPath(newFilters));
   };
 
-  const FilterButton = ({ item, disabled = false }: { item: string; disabled?: boolean }) => {
+  const FilterChip = ({ item, detailsRef }: { item: string; detailsRef: React.RefObject<HTMLDetailsElement> }) => (
+    <button
+      onClick={() => toggleFilter(item, detailsRef.current)}
+      className="flex items-center gap-1 md:gap-1.5 px-2 md:px-3 py-1 md:py-1.5 rounded-xl text-xs md:text-sm bg-emerald-500 text-white hover:bg-emerald-600 transition"
+    >
+      <span className="font-medium">{formatLabel(item)}</span>
+      <span className="px-1 md:px-1.5 rounded bg-emerald-600 text-xs">✕</span>
+    </button>
+  );
+
+  const FilterButton = ({ item, detailsRef }: { item: string; detailsRef: React.RefObject<HTMLDetailsElement> }) => {
     const isActive = activeFilters.includes(item);
 
-    if (isActive) {
-      return (
-        <button
-          onClick={() => handleFilterClick(item)}
-          className="flex items-center gap-1 md:gap-1.5 px-2 md:px-3 py-1 md:py-1.5 rounded-xl text-xs md:text-sm bg-emerald-500 text-white hover:bg-emerald-600 transition"
-        >
-          <span className="font-medium">{formatLabel(item)}</span>
-          <span className="px-1 md:px-1.5 rounded bg-emerald-600 text-xs">✕</span>
-        </button>
-      );
-    }
+    if (isActive) return null;
 
     return (
       <button
-        onClick={() => !disabled && handleFilterClick(item)}
-        disabled={disabled}
-        className={`px-2 md:px-3 py-1 md:py-1.5 rounded-xl text-xs md:text-sm transition ${
-          disabled
-            ? "bg-slate-50 border border-slate-200 text-slate-300 cursor-not-allowed"
-            : "bg-slate-100 border border-slate-300 text-slate-600 hover:bg-slate-200"
-        }`}
+        onClick={() => toggleFilter(item, detailsRef.current)}
+        className="px-2 md:px-3 py-1 md:py-1.5 rounded-xl text-xs md:text-sm transition bg-slate-100 border border-slate-300 text-slate-600 hover:bg-slate-200"
       >
         {formatLabel(item)}
       </button>
@@ -128,31 +126,46 @@ export default function GripsSidebar({ showSort = true }: { showSort?: boolean }
   }: {
     title: string;
     items: Array<{ value: string; label?: string }>;
-  }) => (
-    <details className="mb-6 lg:mb-10" open>
-      <summary className="text-xs md:text-sm font-bold text-slate-800 uppercase tracking-wider flex items-center justify-between cursor-pointer py-2">
-        <div className="flex items-center gap-2">
-          <span className="w-1 h-3 md:h-4 bg-slate-500 rounded-full" />
-          {title}
+  }) => {
+    const detailsRef = useRef<HTMLDetailsElement>(null);
+    const activeInSection = activeFilters.filter((f) =>
+      items.some((item) => {
+        const value = typeof item === "string" ? item : item.value;
+        return value === f;
+      }),
+    );
+
+    return (
+      <details className="mb-6 lg:mb-10" ref={detailsRef}>
+        <summary className="text-xs md:text-sm font-bold text-slate-800 uppercase tracking-wider flex items-center justify-between cursor-pointer py-2">
+          <div className="flex items-center gap-2">
+            <span className="w-1 h-3 md:h-4 bg-slate-500 rounded-full" />
+            {title}
+          </div>
+          <span className="transition-transform duration-200 inline-block text-xs">
+            ▼
+          </span>
+        </summary>
+
+        <div className="pt-2">
+          {activeInSection.length > 0 && (
+            <div className="flex flex-wrap gap-1.5 md:gap-2 mb-2">
+              {activeInSection.map((f) => (
+                <FilterChip key={f} item={f} detailsRef={detailsRef} />
+              ))}
+            </div>
+          )}
+
+          <div className="flex flex-wrap gap-1.5 md:gap-2">
+            {items.map((item) => {
+              const value = typeof item === "string" ? item : item.value;
+              return <FilterButton key={value} item={value} detailsRef={detailsRef} />;
+            })}
+          </div>
         </div>
-        <span className="transition-transform duration-200 inline-block text-xs">
-          ▼
-        </span>
-      </summary>
-
-      <div className="flex flex-wrap gap-1.5 md:gap-2 pt-2">
-        {items.map((item) => {
-          const value = typeof item === "string" ? item : item.value;
-          const label = typeof item === "string" ? formatLabel(item) : item.label || formatLabel(item.value);
-          const disabled = !hasResults(value);
-
-          return (
-            <FilterButton key={value} item={value} disabled={disabled} />
-          );
-        })}
-      </div>
-    </details>
-  );
+      </details>
+    );
+  };
 
   return (
     <div className="lg:sticky lg:top-24 max-h-none lg:max-h-[calc(100vh-8rem)] overflow-y-visible lg:overflow-y-auto lg:border-r border-slate-200 lg:pr-4">
@@ -163,7 +176,7 @@ export default function GripsSidebar({ showSort = true }: { showSort?: boolean }
       `}</style>
 
       {showSort && sortContext && (
-        <details className="mb-6 lg:mb-10" open>
+        <details className="mb-6 lg:mb-10">
           <summary className="text-xs md:text-sm font-bold text-slate-800 uppercase tracking-wider flex items-center justify-between cursor-pointer py-2">
             <div className="flex items-center gap-2">
               <span className="w-1 h-3 md:h-4 bg-slate-500 rounded-full" />
