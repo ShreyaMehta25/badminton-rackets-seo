@@ -95,7 +95,7 @@ export default function GripsSidebar({ showSort = true }: { showSort?: boolean }
     router.push(buildPath(newFilters));
   };
 
-  const FilterChip = ({ item, detailsRef }: { item: string; detailsRef: React.RefObject<HTMLDetailsElement> }) => (
+  const FilterChip = ({ item, detailsRef }: { item: string; detailsRef: React.RefObject<HTMLDetailsElement | null> }) => (
     <button
       onClick={() => toggleFilter(item, detailsRef.current)}
       className="flex items-center gap-1 md:gap-1.5 px-2 md:px-3 py-1 md:py-1.5 rounded-xl text-xs md:text-sm bg-emerald-500 text-white hover:bg-emerald-600 transition"
@@ -105,7 +105,7 @@ export default function GripsSidebar({ showSort = true }: { showSort?: boolean }
     </button>
   );
 
-  const FilterButton = ({ item, detailsRef }: { item: string; detailsRef: React.RefObject<HTMLDetailsElement> }) => {
+  const FilterButton = ({ item, detailsRef }: { item: string; detailsRef: React.RefObject<HTMLDetailsElement | null> }) => {
     const isActive = activeFilters.includes(item);
 
     if (isActive) return null;

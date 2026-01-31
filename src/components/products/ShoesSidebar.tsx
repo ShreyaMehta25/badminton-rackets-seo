@@ -310,7 +310,7 @@ export default function ShoesSidebar({
     { value: "rating-35", label: "3.5+" },
   ];
 
-  const FilterChip = ({ item, detailsRef }: { item: string; detailsRef: React.RefObject<HTMLDetailsElement> }) => (
+  const FilterChip = ({ item, detailsRef }: { item: string; detailsRef: React.RefObject<HTMLDetailsElement | null> }) => (
     <button
       onClick={() => toggleFilter(item, detailsRef.current)}
       className="flex items-center gap-1 px-2 py-1 rounded-xl bg-emerald-500 text-white text-xs"
@@ -320,7 +320,7 @@ export default function ShoesSidebar({
     </button>
   );
 
-  const FilterButton = ({ item, detailsRef }: { item: string; detailsRef: React.RefObject<HTMLDetailsElement> }) => {
+  const FilterButton = ({ item, detailsRef }: { item: string; detailsRef: React.RefObject<HTMLDetailsElement | null> }) => {
     const isActive = activeFilters.includes(item);
 
     if (isActive) return null;
