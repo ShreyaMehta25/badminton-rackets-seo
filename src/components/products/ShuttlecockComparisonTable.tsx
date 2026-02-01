@@ -4,7 +4,11 @@ import { Shuttlecock } from "@/types/shuttlecock";
 import { useRouter } from "next/navigation";
 import { addIdsToProducts } from "@/utils/productHelpers";
 
-export default function ShuttlecockComparisonTable({ shuttlecocks }: { shuttlecocks: Shuttlecock[] }) {
+export default function ShuttlecockComparisonTable({
+  shuttlecocks,
+}: {
+  shuttlecocks: Shuttlecock[];
+}) {
   const router = useRouter();
   const shuttlecocksWithIds = addIdsToProducts(shuttlecocks);
 
@@ -17,6 +21,9 @@ export default function ShuttlecockComparisonTable({ shuttlecocks }: { shuttleco
             <tr>
               <th className="px-3 md:px-6 py-3 md:py-4 text-left font-semibold text-slate-700 text-xs md:text-sm">
                 Shuttlecock
+              </th>
+              <th className="px-3 md:px-6 py-3 md:py-4 text-center font-semibold text-slate-700 text-xs md:text-sm">
+                Brand
               </th>
               <th className="px-3 md:px-6 py-3 md:py-4 text-center font-semibold text-slate-700 text-xs md:text-sm">
                 Speed
@@ -49,8 +56,17 @@ export default function ShuttlecockComparisonTable({ shuttlecocks }: { shuttleco
                       alt={shuttlecock.name}
                       className="w-10 h-10 md:w-14 md:h-14 object-contain rounded-md border border-slate-200 bg-white shadow-sm flex-shrink-0"
                     />
-                    <span className="text-xs md:text-sm">{shuttlecock.name}</span>
+                    <span className="text-xs md:text-sm max-w-[220px] break-words leading-snug">
+                      {shuttlecock.name}
+                    </span>
                   </div>
+                </td>
+
+                {/* Brand */}
+                <td className="px-3 md:px-6 py-4 md:py-5 text-center">
+                  <span className="px-2 md:px-3 py-0.5 md:py-1 text-xs rounded-md bg-purple-50 text-purple-700 border border-purple-200 font-medium">
+                    {shuttlecock.name.split(" ")[0]}
+                  </span>
                 </td>
 
                 {/* Speed */}
@@ -71,7 +87,9 @@ export default function ShuttlecockComparisonTable({ shuttlecocks }: { shuttleco
 
                 {/* Price */}
                 <td className="px-3 md:px-6 py-4 md:py-5 text-center">
-                  <span className="font-bold text-slate-800 text-xs md:text-sm">₹{shuttlecock.price}</span>
+                  <span className="font-bold text-slate-800 text-xs md:text-sm">
+                    ₹{shuttlecock.price}
+                  </span>
                 </td>
 
                 {/* Buy */}

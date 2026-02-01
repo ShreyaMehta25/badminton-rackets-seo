@@ -14,7 +14,10 @@ const formatLabel = (v: string) =>
     .join(" ");
 
 // Filter function matching the page logic
-function applyFilters(shuttlecocks: Shuttlecock[], filterPath: string[]): Shuttlecock[] {
+function applyFilters(
+  shuttlecocks: Shuttlecock[],
+  filterPath: string[],
+): Shuttlecock[] {
   let filtered = [...shuttlecocks];
   const filterString = filterPath.join("-").toLowerCase();
 
@@ -28,7 +31,18 @@ function applyFilters(shuttlecocks: Shuttlecock[], filterPath: string[]): Shuttl
   }
 
   // Filter by brand (extracted from name)
-  const brands = ["yonex", "li-ning", "li ning", "steffer", "impetus", "nongi", "spocco", "slovic", "acers", "arrowmax"];
+  const brands = [
+    "yonex",
+    "li-ning",
+    "li ning",
+    "steffer",
+    "impetus",
+    "nongi",
+    "spocco",
+    "slovic",
+    "acers",
+    "arrowmax",
+  ];
   for (const brand of brands) {
     if (filterString.includes(brand.replace(" ", "-"))) {
       filtered = filtered.filter((s) => s.name.toLowerCase().includes(brand));
@@ -45,18 +59,22 @@ function applyFilters(shuttlecocks: Shuttlecock[], filterPath: string[]): Shuttl
   }
 
   // Filter by rating
-  if (filterString.includes("rating-45")) {
+  if (filterString.includes("rating-4.5")) {
     filtered = filtered.filter((s) => parseFloat(s.reviewscore) >= 4.5);
-  } else if (filterString.includes("rating-40")) {
+  } else if (filterString.includes("rating-4.0")) {
     filtered = filtered.filter((s) => parseFloat(s.reviewscore) >= 4.0);
-  } else if (filterString.includes("rating-35")) {
+  } else if (filterString.includes("rating-3.5")) {
     filtered = filtered.filter((s) => parseFloat(s.reviewscore) >= 3.5);
   }
 
   return filtered;
 }
 
-export default function ShuttlecockSidebar({ showSort = true }: { showSort?: boolean }) {
+export default function ShuttlecockSidebar({
+  showSort = true,
+}: {
+  showSort?: boolean;
+}) {
   const pathname = usePathname();
   const router = useRouter();
   const allData = shuttlecockData as Shuttlecock[];
@@ -76,30 +94,48 @@ export default function ShuttlecockSidebar({ showSort = true }: { showSort?: boo
       .map((s) => decodeURIComponent(s));
   }, [pathname]);
 
-  // Get all unique values from full dataset
+  // Get all unique values from full dataset in a consistent order
   const allSpeeds = useMemo(() => {
-    const speeds = [...new Set(allData
-      .map((s) => {
-        if (!s.speed) return null;
-        const speedMatch = s.speed.match(/^([^,]+)/);
-        return speedMatch ? normalize(speedMatch[1].trim()) : null;
-      })
-      .filter((s): s is string => s !== null)
-    )];
-    return speeds.sort();
+    const speedsSet = new Set(
+      allData
+        .map((s) => {
+          if (!s.speed) return null;
+          const speedMatch = s.speed.match(/^([^,]+)/);
+          return speedMatch ? normalize(speedMatch[1].trim()) : null;
+        })
+        .filter((s): s is string => s !== null),
+    );
+    // Define consistent order: slow, medium, fast
+    const orderedSpeeds = ["slow", "medium", "fast"];
+    return orderedSpeeds.filter((speed) => speedsSet.has(speed));
   }, []);
+
+  const allBrands = [
+    "yonex",
+    "li-ning",
+    "steffer",
+    "impetus",
+    "nongi",
+    "spocco",
+    "slovic",
+    "acers",
+    "arrowmax",
+  ];
 
   const allPriceRanges = ["under-500", "under-1000", "under-2000"];
   const allRatings = [
-    { value: "rating-45", label: "4.5+" },
-    { value: "rating-40", label: "4.0+" },
-    { value: "rating-35", label: "3.5+" },
+    { value: "rating-4.5", label: "4.5+" },
+    { value: "rating-4.0", label: "4.0+" },
+    { value: "rating-3.5", label: "3.5+" },
   ];
 
   const buildPath = (filters: string[]) =>
     filters.length ? `/shuttlecock/${filters.join("/")}` : "/shuttlecock";
 
-  const toggleFilter = (item: string, detailsElement: HTMLDetailsElement | null) => {
+  const toggleFilter = (
+    item: string,
+    detailsElement: HTMLDetailsElement | null,
+  ) => {
     const isActive = activeFilters.includes(item);
     const newFilters = isActive
       ? activeFilters.filter((f) => f !== item)
@@ -115,7 +151,13 @@ export default function ShuttlecockSidebar({ showSort = true }: { showSort?: boo
     router.push(buildPath(newFilters));
   };
 
-  const FilterChip = ({ item, detailsRef }: { item: string; detailsRef: React.RefObject<HTMLDetailsElement | null> }) => (
+  const FilterChip = ({
+    item,
+    detailsRef,
+  }: {
+    item: string;
+    detailsRef: React.RefObject<HTMLDetailsElement | null>;
+  }) => (
     <button
       onClick={() => toggleFilter(item, detailsRef.current)}
       className="flex items-center gap-1 md:gap-1.5 px-2 md:px-3 py-1 md:py-1.5 rounded-xl text-xs md:text-sm bg-emerald-500 text-white hover:bg-emerald-600 transition"
@@ -125,7 +167,15 @@ export default function ShuttlecockSidebar({ showSort = true }: { showSort?: boo
     </button>
   );
 
-  const FilterButton = ({ item, detailsRef }: { item: string; detailsRef: React.RefObject<HTMLDetailsElement | null> }) => {
+  const FilterButton = ({
+    item,
+    label,
+    detailsRef,
+  }: {
+    item: string;
+    label?: string;
+    detailsRef: React.RefObject<HTMLDetailsElement | null>;
+  }) => {
     const isActive = activeFilters.includes(item);
 
     if (isActive) return null;
@@ -135,7 +185,7 @@ export default function ShuttlecockSidebar({ showSort = true }: { showSort?: boo
         onClick={() => toggleFilter(item, detailsRef.current)}
         className="px-2 md:px-3 py-1 md:py-1.5 rounded-xl text-xs md:text-sm transition bg-slate-100 border border-slate-300 text-slate-600 hover:bg-slate-200"
       >
-        {formatLabel(item)}
+        {label || formatLabel(item)}
       </button>
     );
   };
@@ -179,7 +229,15 @@ export default function ShuttlecockSidebar({ showSort = true }: { showSort?: boo
           <div className="flex flex-wrap gap-1.5 md:gap-2">
             {items.map((item) => {
               const value = typeof item === "string" ? item : item.value;
-              return <FilterButton key={value} item={value} detailsRef={detailsRef} />;
+              const label = typeof item === "string" ? undefined : item.label;
+              return (
+                <FilterButton
+                  key={value}
+                  item={value}
+                  label={label}
+                  detailsRef={detailsRef}
+                />
+              );
             })}
           </div>
         </div>
@@ -220,8 +278,12 @@ export default function ShuttlecockSidebar({ showSort = true }: { showSort?: boo
         </details>
       )}
 
+      <Section title="Brand" items={allBrands.map((b) => ({ value: b }))} />
       <Section title="Speed" items={allSpeeds.map((s) => ({ value: s }))} />
-      <Section title="Price Range" items={allPriceRanges.map((p) => ({ value: p }))} />
+      <Section
+        title="Price Range"
+        items={allPriceRanges.map((p) => ({ value: p }))}
+      />
       <Section title="Rating" items={allRatings} />
     </div>
   );

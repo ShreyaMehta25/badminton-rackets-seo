@@ -49,7 +49,9 @@ export default function GripsComparisonTable({ grips }: { grips: Grip[] }) {
                       alt={grip.name}
                       className="w-10 h-10 md:w-14 md:h-14 object-contain rounded-md border border-slate-200 bg-white shadow-sm flex-shrink-0"
                     />
-                    <span className="text-xs md:text-sm">{grip.name}</span>
+                    <span className="text-xs md:text-sm max-w-[220px] break-words leading-snug">
+                      {grip.name}
+                    </span>
                   </div>
                 </td>
 
@@ -69,7 +71,9 @@ export default function GripsComparisonTable({ grips }: { grips: Grip[] }) {
 
                 {/* Price */}
                 <td className="px-3 md:px-6 py-4 md:py-5 text-center">
-                  <span className="font-bold text-slate-800 text-xs md:text-sm">₹{grip.price}</span>
+                  <span className="font-bold text-slate-800 text-xs md:text-sm">
+                    ₹{grip.price}
+                  </span>
                 </td>
 
                 {/* Buy */}
